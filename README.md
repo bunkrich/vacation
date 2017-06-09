@@ -9,8 +9,7 @@
 		> Git Master: code reviews, merging, etc
 		> DevOps Master: Deployments, etc
 		> Scrum Master: Leads twice daily scrum
-* Feature-based tickets
-	> Include low level CSS and functionality		
+* Feature-based tickets- include low level CSS and functionality		
 		
 | Role          | Team Member | Human | 
 | ------------- | ------------- | ------------- |
@@ -19,11 +18,7 @@
 | Scrum Master  | Leads twice daily scrum  | Brent |
 
 ### Product Vision
-* Tech:
-> Rails, postgres, JS for API integration
-	> * APIs-
-		* Google Search
-		* Firebase
+* Tech: Rails, postgres, JS for API integration
 
 ### Initial Design
 * Screens
