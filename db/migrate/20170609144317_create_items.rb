@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :image
       t.datetime :date
       t.string :lookup
-      t.string :type, null: false
+      t.string :category, null: false
       t.references :user, foreign_key: true, null: false
       t.references :trip, foreign_key: true, null: false
 

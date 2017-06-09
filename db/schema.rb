@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609144947) do
+ActiveRecord::Schema.define(version: 20170609144625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,20 +26,14 @@ ActiveRecord::Schema.define(version: 20170609144947) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "suggestions", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_suggestions_on_item_id"
-    t.index ["user_id"], name: "index_suggestions_on_user_id"
-  end
-
   create_table "items", force: :cascade do |t|
+    t.string "title"
     t.text "body"
+    t.string "address"
+    t.string "image"
     t.datetime "date"
     t.string "lookup"
-    t.string "type", null: false
+    t.string "category", null: false
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", null: false
@@ -49,8 +43,8 @@ ActiveRecord::Schema.define(version: 20170609144947) do
   end
 
   create_table "travelers", force: :cascade do |t|
-    t.bigint "trip_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "trip_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_travelers_on_trip_id"
@@ -63,14 +57,13 @@ ActiveRecord::Schema.define(version: 20170609144947) do
     t.string "description"
     t.date "start_date"
     t.date "end_date"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,13 +79,8 @@ ActiveRecord::Schema.define(version: 20170609144947) do
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "suggestions", "items"
-  add_foreign_key "suggestions", "users"
   add_foreign_key "items", "trips"
   add_foreign_key "items", "users"
-  add_foreign_key "travelers", "trips"
-  add_foreign_key "travelers", "users"
-  add_foreign_key "trips", "users"
   add_foreign_key "votes", "items"
   add_foreign_key "votes", "users"
 end
