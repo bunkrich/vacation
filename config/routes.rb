@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'users#show'
     # get 'trips/:id/users/:id', to: 'users#profile'
 
-    resources :trips, except [:index] do
-      resources :items, except [:index]
-      resources :days, only [:show]
-      resources :user, only [:show]  
+    resources :trips, except: [:index] do
+      resources :items, except: [:index]
+      resources :days, only: [:show]
+      resources :user, only: [:show]  
     end
 end
