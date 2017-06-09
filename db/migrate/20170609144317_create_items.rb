@@ -1,7 +1,10 @@
 class CreateItems < ActiveRecord::Migration[5.1]
   def change
     create_table :items do |t|
+      t.string :title
       t.text :body
+      t.string :address
+      t.string :image
       t.datetime :date
       t.string :lookup
       t.string :type, null: false
