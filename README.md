@@ -10,7 +10,13 @@
 		> DevOps Master: Deployments, etc
 		> Scrum Master: Leads twice daily scrum
 * Feature-based tickets
-	> Include low level CSS and functionality
+	> Include low level CSS and functionality		
+		
+| Role          | Team Member | Human | 
+| ------------- | ------------- | ------------- |
+| Git Master  | code reviews, merging, etc  | Alex |
+| DevOps Master | Deployments, etc  | Lana |
+| Scrum Master  | Leads twice daily scrum  | Brent |
 
 ### Product Vision
 * Tech:
