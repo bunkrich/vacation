@@ -1,7 +1,7 @@
 ## PROJECT DOCUMENTATION
 
 ### Team Agreements
-* Work hours: 9-6 throughout project
+* Work hours: 10-6 throughout project (flexible on weekends)
 * Scrum 2x: at beggining of day and after lunch
 
 ### Workflow
