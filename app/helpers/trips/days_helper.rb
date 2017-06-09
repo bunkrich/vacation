@@ -1,0 +1,2 @@
+module Trips::DaysHelper
+end
