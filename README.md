@@ -11,7 +11,7 @@
 		> Scrum Master: Leads twice daily scrum
 * Feature-based tickets- include low level CSS and functionality		
 		
-| Role          | Team Member | Human | 
+| Role          | Responsibilities | Human | 
 | ------------- | ------------- | ------------- |
 | Git Master  | code reviews, merging, etc  | Alex |
 | DevOps Master | Deployments, etc  | Lana |
