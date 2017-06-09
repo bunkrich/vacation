@@ -58,17 +58,17 @@
 
 ### Wednesday [Code freeze]
 * Begin bug fixing
-*Work on presentation outline
-*Code freeze EOD
+* Work on presentation outline
+* Code freeze EOD
 
 ### Thursday
-*Finish bug fixing
-*Final deploy
-*Plan/outline Demo
-*About Us page build
+* Finish bug fixing
+* Final deploy
+* Plan/outline Demo
+* About Us page build
 
 ### Friday
-*DEMO & GRADUATION!
+* DEMO & GRADUATION!
 
 
 
