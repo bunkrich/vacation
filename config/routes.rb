@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root: "index"
+    get '/users/:id', to: 'users#show'
+    # get 'trips/:id/users/:id', to: 'users#profile'
+
+    resources :trips, except [:index] do
+      resources :items, except [:index]
+      resources :days, only [:show]
+      resources :user, only [:show]  
+    end
 end
