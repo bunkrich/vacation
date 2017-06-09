@@ -4,9 +4,9 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.text :body
       t.datetime :date
       t.string :lookup
-      t.string :type
-      t.references :user, foreign_key: true
-      t.references :trip, foreign_key: true
+      t.string :type, null: false
+      t.references :user, foreign_key: true, null: false
+      t.references :trip, foreign_key: true, null: false
 
       t.timestamps
     end
