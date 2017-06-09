@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
+  #
+  # get 'users/show'
+  #
+  # get 'trips/show'
+  #
+  # get 'trips/new'
+  #
+  # get 'trips/create'
+  #
+  # get 'trips/update'
+  #
+  # get 'trips/edit'
+  #
+  # get 'trips/destroy'
 
-  get 'users/show'
-
-  get 'trips/show'
-
-  get 'trips/new'
-
-  get 'trips/create'
-
-  get 'trips/update'
-
-  get 'trips/edit'
-
-  get 'trips/destroy'
-
-  resources :user, only: [:show]
+  get 'trips/:id/users/:id', to: 'users#profile'
+  get '/users/:id', to: 'users#show'
 
   resources :trips, except: [:index] do
     resources :items, except: [:index]
