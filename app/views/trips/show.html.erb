@@ -13,8 +13,8 @@
     This is a map
   </div>
 
+<!-- REVISIT THIS once there's a status on adding items on google maps -->
   <div class="drop-down">
-
     <form class="" action="index.html" method="post">
       <select>
         <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
@@ -22,6 +22,7 @@
         <option value="2">Custom</option>
       </select>
     </form>
+    <%= link_to 'new item', new_trip_item_path(@trip) %>
   </div>
 </div>
 
