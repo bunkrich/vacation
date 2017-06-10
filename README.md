@@ -1,24 +1,78 @@
-# README
+## PROJECT DOCUMENTATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Team Agreements
+* Work hours: 10-6 throughout project (flexible on weekends)
+* Scrum 2x: at beggining of day and after lunch
 
-Things you may want to cover:
+### Workflow
+* Rotate roles daily between: Git, Dev and Scrum master
+		> Git Master: code reviews, merging, etc
+		> DevOps Master: Deployments, etc
+		> Scrum Master: Leads twice daily scrum
+* Feature-based tickets- include low level CSS and functionality		
+		
+| Role          | Responsibilities | Human | 
+| ------------- | ------------- | ------------- |
+| Git Master  | code reviews, merging, etc  | Alex |
+| DevOps Master | Deployments, etc  | Lana |
+| Scrum Master  | Leads twice daily scrum  | Brent |
 
-* Ruby version
+### Product Vision
+* Tech: Rails, postgres, JS for API integration
 
-* System dependencies
+### Initial Design
+* Screens
 
-* Configuration
+### Task List
+* see Final Project Scrum Board (https://gocardsmith.co/#boards/-Km8GRNjf9A8FWqa_fOe)
 
-* Database creation
 
-* Database initialization
+## TIMELINE
 
-* How to run the test suite
+### Thursday
+* Tech research
+* Outline project/set up
+* Discuss research- EOD
+* Outline schema
 
-* Services (job queues, cache servers, search engines, etc.)
+### Friday
+* Finalize backend architecture
+* low-fi design / high-fi wires- decide upon style guide
+* Create repo and deploy with CI
+* Write feature tickets
+* Kickoff build! (tackle the biggies)
 
-* Deployment instructions
+### Saturday
+* WERK on features
 
-* ...
+### Sunday
+* WERK on features
+
+### Monday
+* Finalize MVP features
+* Kickoff work on backlog features
+
+### Tuesday [Feature freeze]
+* WERK on backlog features
+* Begin CSS
+* Feature freeze @ 3PM
+
+### Wednesday [Code freeze]
+* Begin bug fixing
+* Work on presentation outline
+* Code freeze EOD
+
+### Thursday
+* Finish bug fixing
+* Final deploy
+* Plan/outline Demo
+* About Us page build
+
+### Friday
+* DEMO & GRADUATION!
+
+
+
+
+
+
