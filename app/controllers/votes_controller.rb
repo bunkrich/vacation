@@ -6,6 +6,8 @@ class VotesController < ApplicationController
   end
 
   def create
+    @vote = Vote.new(vote_params)
+
   end
 
   def update
@@ -15,5 +17,10 @@ class VotesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def vote_params
+    params.require(:vote).permit(:up_down, :item_id, :user_id)
   end
 end
