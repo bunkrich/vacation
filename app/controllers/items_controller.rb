@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
     puts "****************************"
     puts params[:trip_id]
     puts "****************************"

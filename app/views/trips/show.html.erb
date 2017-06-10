@@ -1,9 +1,10 @@
 <section>
 <div class="container">
-  <h1>New York</h1>
+  <h1><%= @trip.name %></h1>
+  <h4> <%= @trip.location %></h3>
   <div class="date">
     <span>June 12th-June 14th</span>
-    <button type="button" name="button">edit</button>
+    <%= link_to 'Edit', edit_trip_path(@trip) %>
   </div>
 </div>
 
@@ -13,6 +14,7 @@
     This is a map
   </div>
 
+<!-- REVISIT THIS once there's a status on adding items on google maps -->
   <div class="drop-down">
     <form class="" action="index.html" method="post">
       <select>
@@ -21,11 +23,41 @@
         <option value="2">Custom</option>
       </select>
     </form>
+    <%= link_to 'new item', new_trip_item_path(@trip) %>
   </div>
 </div>
 
-<div class="container day">
-  <h3><a href="/trips/1/days/1">Monday, June 12th</a></h3>
+<!-- <div class="container day">
+  <div class="testing">
+    <% @trip.start_date.upto@trip.end_date do |day| %>
+    <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day %></a></h3>
+      <%Item.where(date: day).each |item| %>
+
+    <% end %>
+      <% end %> -->
+    <div class="wrapper">
+
+      <div class="box modal">
+        <div class="interior">
+          <a class="btn" href="#open-modal">Day</a>
+        </div>
+        <div id="open-modal" class="modal-window">
+          <div>
+            <a href="#modal-close" title="Close" class="modal-close">Close</a>
+            <h1>Voilà!</h1>
+            <div>Content that will go insite
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <% end %>
+  </div>
+
+  <!-- ADD THE MODAL FOR EACH DATE -->
   <div class="wrapper">
 
     <div class="box modal">
@@ -170,7 +202,7 @@
   <p>Find me in app/views/trips/show.html.erb</p>
   <h3>NAME: <%= @trip.name %></h3>
   <h3>LOCATION: <%= @trip.location %></h3>
-  <h3>DESCRTIPTION: <%= @trip.description %></h3>
+  <h3>DESCRIPTION: <%= @trip.description %></h3>
 
   <h3>COMMENTS: </h3>
   <ul>

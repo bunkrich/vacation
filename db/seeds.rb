@@ -1,6 +1,8 @@
 require 'faker'
 
-trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
+
+trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 10.days.ago, end_date: 5.days.ago )
+
 
 user1 = User.create(email: "brent@gmail.com")
 user2 = User.create(email: "me@gmail.com" )
@@ -11,7 +13,7 @@ user2 = User.create(email: "me@gmail.com" )
   commentB = trip1.comments.create(user: user2, body: "i HATE New York")
   commentC = trip1.comments.create(user: user2, body: "JK, I love it.")
 
-item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Rooftop Bar", trip: trip1)
+item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Rooftop Bar", trip: trip1, date: 10.days.ago.at_midday)
   item1.votes.create(user: user1, up_down: 1)
   item1.votes.create(user: user2, up_down: 1)
   comment1 = item1.comments.create(user: user1, body: "love to party")

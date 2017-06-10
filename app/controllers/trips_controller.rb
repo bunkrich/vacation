@@ -17,6 +17,11 @@ class TripsController < ApplicationController
     end
   end
 
+  def edit
+    @trip = Trip.find_by(id: params[:id])
+    redirect_to "/trips" unless @trip
+  end
+
   def update
     @trip = Trip.find_by(id: params[:id])
       if @trip.update(trip_params)
@@ -25,11 +30,6 @@ class TripsController < ApplicationController
       @errors = @trip.errors.full_messages
       render :edit
     end
-  end
-
-  def edit
-    @trip = Trip.find_by(id: params[:id])
-    redirect_to "/trips" unless @trip
   end
 
   def destroy
