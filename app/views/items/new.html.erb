@@ -1,1 +1,29 @@
 <h1>Items new page</h1>
+
+<%if @errors%>
+  <ul>
+    <%@errors.each do |error|%>
+      <li><%=error%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<%= form_for [@trip, @item] do |i| %>
+  <div>
+    <p><%= i.label :lookup %></p>
+    <p><%= i.text_area :lookup %></p>
+  </div>
+  <div>
+    <p><%= i.label :body %></p>
+    <p><%= i.text_area :body %></p>
+  </div>
+  <div>
+    <p><%= i.label :category %></p>
+    <p><%= i.text_area :category %></p>
+  </div>
+
+
+  <div>
+    <%= i.submit %>
+  </div>
+<% end %>
