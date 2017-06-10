@@ -103,7 +103,7 @@
 
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: {lat: 37.8688, lng: -122.2195},
           zoom: 13,
           mapTypeId: 'roadmap'
         });
@@ -117,6 +117,26 @@
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
+
+        // Alex Tests
+  //       var request = {
+  //         placeId: 'ChIJTWiLPveZhYARu-noF1Mq8qU'
+  //         };
+
+  //       service = new google.maps.places.PlacesService(map);
+  //     service.getDetails(request, callback);
+
+  //       function callback(place, status) {
+  //       if (status == google.maps.places.PlacesServiceStatus.OK) {
+  //       createMarker(place);
+  //       }
+  //       }
+
+  //        var marker = new google.maps.Marker({
+  //       position: myLatLng,
+  //       map: map,
+  //       title: 'Hello World!'
+  // });
 
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
