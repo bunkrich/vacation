@@ -1,9 +1,14 @@
-<h1>Users#show</h1>
-<h2>User's profile page</h2>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<p>Welcome to my profile!</p>
-<p>I'm going on these trips:</p>
+<h1>Nat's Profile</h1>
+<!-- <img src="@user.image" alt="profile-picture"/> -->
+<center><img src="http://www.impatientoptimists.org/~/media/Blog/Images/BlogPosts/Home-Page-Features/C/CJ-CO/cmp014asst-612x4436f4446e15454e33897db6fa72433f28png_png_autocropped.jpg" alt="profile-picture" width="300px"/></center>
+<h3>Nat's Upcoming Trips:</h3>
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%m/%d/%Y") %> until <%= trip.end_date.strftime("%m/%d/%Y") %></li>
+  <% end %>
+</ul>
+<h3>Nat's Past Trips:</h3>
+<!-- We can filter by start_date for things that are ealier than today's date and iterate through them below. For harcoding purposes, I'm just iterating through all of the user's events -->
 <ul>
   <% @trips.each do |trip| %>
     <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%m/%d/%Y") %> until <%= trip.end_date.strftime("%m/%d/%Y") %></li>
