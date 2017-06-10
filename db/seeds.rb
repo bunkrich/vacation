@@ -1,15 +1,16 @@
 require 'faker'
 
 trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!")
-  commentA = trip1.comments.create(user: user1, body: "love New York")
-  commentB = trip1.comments.create(user: user2, body: "i HATE New York")
-  commentC = trip1.comments.create(user: user2, body: "JK, I love it.")
 
 user1 = User.create(email: "brent@gmail.com")
 user2 = User.create(email: "me@gmail.com" )
   user1.trips = [trip1]
   user2.trips = [trip1]
 
+  commentA = trip1.comments.create(user: user1, body: "love New York")
+  commentB = trip1.comments.create(user: user2, body: "i HATE New York")
+  commentC = trip1.comments.create(user: user2, body: "JK, I love it.")
+  
 item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Rooftop Bar", trip: trip1)
   item1.votes.create(user: user1, up_down: 1)
   item1.votes.create(user: user2, up_down: 1)
