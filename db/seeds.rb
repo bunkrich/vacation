@@ -1,6 +1,6 @@
 require 'faker'
 
-trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!")
+trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 10.days.ago, end_date: 5.days.ago )
 
 user1 = User.create(email: "brent@gmail.com")
 user2 = User.create(email: "me@gmail.com" )
