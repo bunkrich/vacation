@@ -1,6 +1,6 @@
 require 'faker'
 
-trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!")
+trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
 
 user1 = User.create(email: "brent@gmail.com")
 user2 = User.create(email: "me@gmail.com" )
@@ -26,7 +26,7 @@ item2 = user1.items.create(category: "Flight", lookup: "AA123", body: "Flight to
   comment6 = item2.comments.create(user: user2, body: "JK, I live here.")
 
 5.times do
-  trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote)
+  trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
   5.times do
     user = trip.users.create(email: Faker::Internet.email, image: Faker::Avatar.image)
     5.times do
