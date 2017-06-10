@@ -1,36 +1,36 @@
 <h1>Trips#show</h1>
-<h3>Find me in app/views/trips/show.html.erb</h3>
-<p>NAME: <%= @trip.name %></p>
-<p>LOCATION: <%= @trip.location %></p>
-<p>DESCRTIPTION: <%= @trip.description %></p>
+<li>Find me in app/views/trips/show.html.erb</li>
+<h3>NAME: <%= @trip.name %></h3>
+<h3>LOCATION: <%= @trip.location %></h3>
+<h3>DESCRTIPTION: <%= @trip.description %></h3>
 
-<p>COMMENTS: </p>
+<h3>COMMENTS: </h3>
 <ul>
   <% @trip.comments.each do |c| %>
     <li><%= c.user.email %> | <%= c.body %></li>
   <% end %>
 </ul>
 
-<p>USERS: </p>
+<h3>USERS: </h3>
 <ul>
   <% @trip.users.each do |u| %>
     <li><%= u.email %></li>
   <% end %>
 </ul>
 
-<p>ITEMS: </p>
+<h3>ITEMS: </h3>
 <ul>
   <% @trip.items.each do |i| %>
-    <li>CATEGORY: <%= i.category %></li>
-    <p>BODY: <%= i.body %> | <%= i.user.email %></p>
-    <p>Number of Comments: <%= i.comments.count %></p>
-    <p>Number of Votes: <%= i.votes.count %></p>
-    <p>COMMENTS:</p>
+    <h4>BODY: <%= i.body %></h4>
+    <ul>
+    <li>CATEGORY: <%= i.category %> | <%= i.user.email %></li>
+    <li>VOTES: <%= i.votes.count %></li>
+    <li>COMMENTS: <%= i.comments.count %></li>
     <ol>
       <% i.comments.each do |c| %>
-      <p>HI</p>
-        <li><%= c.body %></li>
+        <li><%= c.user.email %> | <%= c.body %></li>
       <% end %>
     </ol>
+  </ul>
   <% end %>
 </ul>
