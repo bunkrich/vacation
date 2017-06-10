@@ -128,8 +128,10 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13
+          center: {lat: 37.8688, lng: -122.2195},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+
         });
         var card = document.getElementById('pac-card');
         var input = document.getElementById('pac-input');
@@ -139,6 +141,7 @@
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
         var autocomplete = new google.maps.places.Autocomplete(input);
+
 
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
