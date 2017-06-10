@@ -6,7 +6,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    if params[:trip_id]
+      @commentable = Trip.find(params[:trip_id])
+    elsif params[:item_id]
+      @commentable = Item.find(params[:item_id])
+    end
+    @comment = @commentable.comments.new(comment_params)
     if @comment.save
       redirect_to @trip
     else

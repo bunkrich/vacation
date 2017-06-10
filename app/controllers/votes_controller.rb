@@ -20,7 +20,8 @@ class VotesController < ApplicationController
   end
 
   private
+  private
   def vote_params
-    params.require(:vote).permit(:up_down, :item_id, :user_id)
+    params.require(:vote).permit(:up_down)
   end
 end
