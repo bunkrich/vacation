@@ -3,9 +3,7 @@
   <h1>New York</h1>
   <div class="date">
     <span>June 12th-June 14th</span>
-    <%=form_for(@trip) do |f| %>
-      <%=f.submit %>
-    <% end %>
+    <%= link_to 'Edit', edit_trip_path(@trip) %>
   </div>
 </div>
 
