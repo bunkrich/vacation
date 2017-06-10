@@ -3,7 +3,9 @@
   <h1>New York</h1>
   <div class="date">
     <span>June 12th-June 14th</span>
-    <button type="button" name="button">edit</button>
+    <%=form_for(@trip) do |f| %>
+      <%=f.submit %>
+    <% end %>
   </div>
 </div>
 
@@ -14,7 +16,7 @@
   </div>
 
   <div class="drop-down">
-    
+
     <form class="" action="index.html" method="post">
       <select>
         <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
