@@ -1,13 +1,12 @@
 class VotesController < ApplicationController
   def show
+    @vote = Vote.find(item_id: params[:id])
   end
 
   def new
   end
 
   def create
-    @vote = Vote.new(vote_params)
-
   end
 
   def update
@@ -19,9 +18,13 @@ class VotesController < ApplicationController
   def destroy
   end
 
-  private
-  private
-  def vote_params
-    params.require(:vote).permit(:up_down)
+  def upvote
+    @vote = Vote.find(item_id: params[:id])
+    @vote.up_down += 1
+  end
+
+  def downvote
+    @vote = Vote.find(item_id: params[:id])
+    @vote.up_down -= 1
   end
 end
