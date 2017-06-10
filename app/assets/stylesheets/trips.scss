@@ -1,3 +1,59 @@
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  text-align: center;
+}
+
+
+
+h4 {
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+
+.map {
+    width: 300px;
+    border: 100px solid green;
+    padding: 25px;
+    margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.drop-down {
+  text-align: center;
+}
+
+.wrapper{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:hidden;
+}
+.box{
+    margin:5px;
+    height:150px;
+    width:150px;
+    float:left;
+    border:solid 1px #000;
+}
+
+.message input{
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.friend-box{
+  margin:5px;
+  height:80px;
+  width:80px;
+  float:left;
+  border:solid 1px #000;
+}
