@@ -151,6 +151,8 @@
             console.log(place.name)
             let mapInputInfo = place.name
 
+
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -171,7 +173,12 @@
       }
 
     </script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete"
          async defer></script>
+
+  <form class="flex flex-column" method="POST" action="/trips">
+    <button type="submit" id="new-horse" class="button dark">Add a Horse</button>
+  </form>
   </body>
 </html>
