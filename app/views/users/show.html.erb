@@ -1,4 +1,7 @@
 <h1>Nat's Profile</h1>
+<% if logged_in? %>
+  <a href="#">Edit Profile</a>
+<% end %>
 <h3>Nat's Upcoming Trips:</h3>
 <ul>
   <% @trips.each do |trip| %>
