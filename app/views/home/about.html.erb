@@ -26,41 +26,48 @@
         font-weight: bold;
       }
 
+      /*color of the card of the drop pin AFTER a search*/
       #infowindow-content {
         display: none;
       }
 
+      /*color of the card of the drop pin AFTER a search*/
       #map #infowindow-content {
         display: inline;
       }
 
+      /*background color of whole input part RADIO & TEXT INPUT*/
       .pac-card {
-        margin: 10px 10px 0 0;
+        /*margin: 10px 10px 0 0;
         border-radius: 2px 0 0 2px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);*/
         background-color: #fff;
         font-family: Roboto;
       }
 
+      /*background color of the areaa outside of the search type input*/
       #pac-container {
         padding-bottom: 12px;
         margin-right: 12px;
       }
 
+      /*background color of the buttons aboce the search*/
       .pac-controls {
         display: inline-block;
         padding: 5px 11px;
       }
 
+      /*text body of the buttons above the search bar*/
       .pac-controls label {
         font-family: Roboto;
         font-size: 13px;
         font-weight: 300;
       }
 
+      /*text input for search box*/
       #pac-input {
         background-color: #fff;
         font-family: Roboto;
@@ -72,10 +79,11 @@
         width: 400px;
       }
 
-      #pac-input:focus {
+      /*focus color of the text box*/
+      /*#pac-input:focus {
         border-color: #4d90fe;
-      }
-
+      }*/
+      /*title of the search box*/
       #title {
         color: #fff;
         background-color: #4d90fe;
@@ -91,6 +99,7 @@
         <div id="title">
           Add Something to Your Trip!
         </div>
+
         <div id="type-selector" class="pac-controls">
           <input type="radio" name="type" id="changetype-all" checked="checked">
           <label for="changetype-all">All</label>
@@ -104,17 +113,21 @@
           <input type="radio" name="type" id="changetype-geocode">
           <label for="changetype-geocode">Geocodes</label>
         </div>
+
         <div id="strict-bounds-selector" class="pac-controls">
           <input type="checkbox" id="use-strict-bounds" value="">
           <label for="use-strict-bounds">Strict Bounds</label>
         </div>
       </div>
+
       <div id="pac-container">
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
     </div>
+
     <div id="map"></div>
+
     <div id="infowindow-content">
       <img src="" width="16" height="16" id="place-icon">
       <span id="place-name"  class="title"></span><br>
