@@ -56,10 +56,17 @@
     </div>
     <% end %>
 
+
+    <% if @trip.items.where("date is null") %>
     <div class="no-date">
       <h1> Items WITH NO DATES</h1>
-
+      <%  @trip.items.where("date is null").each do |nodate| %>
+        <li>  <%= nodate.title %> </li>
+        <h5> display modal for each one here</h5>
+      <% end %>
     </div>
+
+    <% end %>
   </div>
 </div>
 
