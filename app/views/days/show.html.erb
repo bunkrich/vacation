@@ -10,6 +10,13 @@
 <div class="testing">
   <div class="morning">
     <h3>Morning</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
+      <div class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="afternoon">
@@ -26,6 +33,13 @@
 
   <div class="night">
     <h3> Night</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
+      <div class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
