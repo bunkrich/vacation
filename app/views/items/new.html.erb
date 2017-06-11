@@ -84,13 +84,16 @@
         <p><%= i.label :category %></p>
         <p><%= i.text_area :category %></p>
       </div>
-
+      <div>
+        <p><%= i.label :category %></p>
+        <p><%= i.text_area :category %></p>
+      </div>
 
       <div>
         <%= i.submit %>
       </div>
     <% end %>
-    
+
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter your address"
              onFocus="geolocate()" type="text"></input>

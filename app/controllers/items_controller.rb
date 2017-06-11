@@ -4,10 +4,8 @@ class ItemsController < ApplicationController
 
   def new
     @trip = Trip.new
-    puts "****************************"
     puts params[:trip_id]
     puts "****************************"
-    # @trip = Trip.find_by(params[:trip_id])
     @trip = Trip.find(params[:trip_id])
     puts @trip.inspect
     puts "****************************"
@@ -21,24 +19,24 @@ class ItemsController < ApplicationController
     puts "****************************"
     user = User.first
     puts user.email
-        puts "****************************"
+    puts "****************************"
     trip = Trip.find_by(id: params[:trip_id])
     @item = user.items.new(item_params)
     @item.trip = trip
-        puts "****************************"
-        puts @item.inspect
-                puts "****************************"
-                        puts "****************************"
+    puts "****************************"
+    puts @item.inspect
+    puts "****************************"
+    puts "****************************"
     if @item.save
-      puts "HELO!!!!!!!!!!!!!!"
-        puts "****************************"
-          puts "****************************"
+      puts "****************************"
+      puts "ITEM WAS SAVED"
+      puts "****************************"
       redirect_to action: "show", id: @item.id
     else
-        puts "***********ELSE DID NOT SAVE!!!************"
-          puts "****************************"
-          puts @item
-            puts "****************************"
+      puts "****************************"
+      puts "***********DID NOT SAVE!!!************"
+      puts @item
+      puts "****************************"
       @trip = Trip.find_by(id: params[:trip_id])
       @item = Item.new
       render 'new'
