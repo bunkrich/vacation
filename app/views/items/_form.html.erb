@@ -1,0 +1,48 @@
+<div id="locationField">
+  <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
+</div>
+
+<section id="item-new-google-maps-form">
+  <%= form_for [@trip, @item] do |i| %>
+    <div id="item-new-google-maps-submit">
+      <%= i.submit %>
+    </div>
+
+    <div class="not-for-user-input">
+      <div>
+        <p><%= i.label :title %></p>
+        <p><%= i.text_field :title %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :category %></p>
+        <p><%= i.select :category, [['Location', 'location'], ['Event','event'], ['Other','other']] %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :lookup %></p>
+        <p><%= i.text_field :lookup %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :address %></p>
+        <p><%= i.text_field :address %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :image %></p>
+        <p><%= url_field(:item, :image) %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :date %></p>
+        <p><%= date_field(:item, :date) %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :body %></p>
+        <p><%= i.text_field :body %></p>
+      </div>
+    </div>
+  <% end %>
+</section>

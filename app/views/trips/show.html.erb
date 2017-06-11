@@ -27,6 +27,9 @@
   </div>
 </div>
 
+  <%= render partial: "items/form"%>
+  <%= render partial: "items/form_other"%>
+
 <div id="new-item-type">
   <button>Place</button><button>Event</button><button>Todo</button>
 <div>
@@ -166,3 +169,4 @@
   </ul>
 
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer></script>
