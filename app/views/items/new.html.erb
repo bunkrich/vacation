@@ -182,7 +182,7 @@
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
       }
-///////////////GOOGLE////////////////////////
+      ///////////////GOOGLE////////////////////////
       function fillInAddress() {
         // Get the place details from the autocomplete object.
         var place = autocomplete.getPlace();
@@ -192,25 +192,8 @@
           document.getElementById(component).disabled = false;
         }
 
-
-
         // Get each component of the address from the place details
         // and fill the corresponding field on the form.
-//
-// console.log(place)
-// console.log(place.photos[0].html_attributions[0])
-// x = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
-// console.log(x)
-// var xmlString = place.photos[0].html_attributions[0]
-//   , parser = new DOMParser()
-//   , doc = parser.parseFromString(xmlString, "text/xml");
-//   console.log("doc.firstChild.attributes[0].value")
-//   console.log(doc.firstChild.attributes[0].value)
-//
-//
-// console.log(place.formatted_address)
-// console.log(place.name)
-
 
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
@@ -228,7 +211,7 @@
           }
         }
       }
-///////////////GOOGLE////////////////////////
+      ///////////////GOOGLE////////////////////////
 
       // Bias the autocomplete object to the user's geographical location,
       // as supplied by the browser's 'navigator.geolocation' object.
@@ -254,9 +237,3 @@
         async defer></script>
   </body>
 </html>
-
-
-
-https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=
-CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU
-&key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc
