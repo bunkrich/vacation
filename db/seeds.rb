@@ -20,13 +20,20 @@ item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Ro
   comment2 = item1.comments.create(user: user2, body: "i HATE to party")
   comment3 = item1.comments.create(user: user2, body: "JK, I love it.")
 
-item2 = user1.items.create(category: "Flight", lookup: "AA123", body: "Flight to NYC", trip: trip1, date: 10.days.ago.at_midday)
+item2 = user1.items.create(category: "Flight", lookup: "AA123", title: "My flight", body: "Flight to NYC", trip: trip1, date: 10.days.ago.at_midday)
 lodge = user1.items.create(category: "Lodge", lookup: "Xe82e3", body: "Hotel in Chelsea", trip: trip1)
   item2.votes.create(user: user1, up_down: -1)
   item2.votes.create(user: user2, up_down: -1)
   comment4 = item2.comments.create(user: user1, body: "Cool Flight")
   comment5 = item2.comments.create(user: user2, body: "I'm on that flight too")
   comment6 = item2.comments.create(user: user2, body: "JK, I live here.")
+
+
+item2 = user1.items.create(category: "restaurant", title:"yummy Restaurant 1" , body: "I really love the variety", trip: trip1, date: 9.days.ago.at_midday)
+item3 = user1.items.create(category: "Restaurant", title:"Another Restaurant", body: "Food is my favorite", trip: trip1, date: 9.days.ago.at_midday)
+item4 = user1.items.create(category: "Restaurant", title: "so much food", body: "YASSSS cookies", trip: trip1, date: 8.days.ago.at_midday)
+item5 = user1.items.create(category: "Restaurant", title: "Woohoo foood", body: "Cookies and milk", trip: trip1, date: 7.days.ago.at_midday)
+
 
 5.times do
   trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
