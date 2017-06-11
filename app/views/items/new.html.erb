@@ -73,20 +73,32 @@
 
     <%= form_for [@trip, @item] do |i| %>
       <div>
-        <p><%= i.label :lookup %></p>
-        <p><%= i.text_area :lookup %></p>
+        <h3><%= i.label :title %></h3>
+        <p><%= i.text_field :title %></p>
+      </div>
+      <div>
+        <h3><%= i.label :category %></h3>
+        <p><%= i.text_field :category %></p>
+      </div>
+      <div>
+        <h3><%= i.label :lookup %></h3>
+        <p><%= i.text_field :lookup %></p>
+      </div>
+      <div>
+        <p><%= i.label :address %></p>
+        <p><%= i.text_field :address %></p>
+      </div>
+      <div>
+        <p><%= i.label :imgae %></p>
+        <p><%= i.text_field :image %></p>
+      </div>
+      <div>
+        <p><%= i.label :date %></p>
+        <p><%= i.text_field :date %></p>
       </div>
       <div>
         <p><%= i.label :body %></p>
-        <p><%= i.text_area :body %></p>
-      </div>
-      <div>
-        <p><%= i.label :category %></p>
-        <p><%= i.text_area :category %></p>
-      </div>
-      <div>
-        <p><%= i.label :category %></p>
-        <p><%= i.text_area :category %></p>
+        <p><%= i.text_field :body %></p>
       </div>
 
       <div>
