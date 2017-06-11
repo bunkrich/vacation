@@ -33,10 +33,7 @@
     <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day %></a></h3>
 
     <% Item.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-
-      <h3><%= item %></h3>
-      <div> item.date </div>
-
+      <h3><%= item.category %></h3>
       <%end%>
     <% end %>
     <div class="wrapper">
