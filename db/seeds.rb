@@ -37,6 +37,8 @@ item4 = user1.items.create!(category: "Restaurant", title: "Another Restaurant",
 item5 = user1.items.create!(category: "banana", title: "so much food", body: "YASSSS cookies", trip: trip1,lookup: "4324234", date: 7.days.ago.at_midday)
 item6 = user1.items.create!(category: "Restaurant", title: "Woohoo foood", body: "Cookies and milk", trip: trip1, lookup: "1234", date: 6.days.ago.at_midday)
 
+nodateitem1 = user1.items.create!(category: "Restaurant", title: "no date item", body: "yes oui", lookup: "aa", trip: trip1)
+nodateitem2 = user1.items.create!(category: "Restaurant", title: "ANOTHER NO DATE item", body: "i ahve no date :()", lookup: "bbbb", trip: trip1)
 
 5.times do
   trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
