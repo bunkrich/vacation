@@ -16,27 +16,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    puts "****************************"
     user = User.first
-    puts user.email
-    puts "****************************"
     trip = Trip.find_by(id: params[:trip_id])
     @item = user.items.new(item_params)
     @item.trip = trip
-    puts "****************************"
-    puts @item.inspect
-    puts "****************************"
-    puts "****************************"
     if @item.save
-      puts "****************************"
-      puts "ITEM WAS SAVED"
-      puts "****************************"
+      puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
+      puts @item.inspect
+      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
       redirect_to action: "show", id: @item.id
     else
-      puts "****************************"
-      puts "***********DID NOT SAVE!!!************"
-      puts @item
-      puts "****************************"
+      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
+      puts @item.inspect
+      puts "🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴"
       @trip = Trip.find_by(id: params[:trip_id])
       @item = Item.new
       render 'new'
