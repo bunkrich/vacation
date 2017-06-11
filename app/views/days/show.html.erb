@@ -16,7 +16,7 @@
     <h3> Afternoon</h3>
     <div class="wrapper">
 
-    <% @day_items.each do |item| %>
+    <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
     <div class="box">
       <li><%= item.title %></li>
     </div>
