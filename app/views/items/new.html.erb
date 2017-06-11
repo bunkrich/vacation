@@ -85,7 +85,7 @@
       </div>
       <div>
         <h3><%= i.label :lookup %></h3>
-        <p><%= i.text_field :lookup, :id => 'lookup-from-google'%></p>
+        <p><%= i.text_field :lookup %></p>
       </div>
       <div>
         <p><%= i.label :address %></p>
@@ -196,31 +196,35 @@
 
         // Get each component of the address from the place details
         // and fill the corresponding field on the form.
-
-console.log(place)
-console.log(place.photos[0].html_attributions[0])
-x = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
-console.log(x)
-var xmlString = place.photos[0].html_attributions[0]
-  , parser = new DOMParser()
-  , doc = parser.parseFromString(xmlString, "text/xml");
-  console.log("doc.firstChild.attributes[0].value")
-  console.log(doc.firstChild.attributes[0].value)
-
-
-console.log(place.formatted_address)
-console.log(place.name)
+//
+// console.log(place)
+// console.log(place.photos[0].html_attributions[0])
+// x = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
+// console.log(x)
+// var xmlString = place.photos[0].html_attributions[0]
+//   , parser = new DOMParser()
+//   , doc = parser.parseFromString(xmlString, "text/xml");
+//   console.log("doc.firstChild.attributes[0].value")
+//   console.log(doc.firstChild.attributes[0].value)
+//
+//
+// console.log(place.formatted_address)
+// console.log(place.name)
 
 
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           var lookupID = place.place_id;
-          // var imageURL =
+          var imageURL = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
+          var address = place.formatted_address
+          var title = place.name
 
           if (componentForm[addressType]) {
             var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById('lookup-from-google').value = lookupID;
-            // document.getElementById('image-from-google').value = imageURL;
+            document.getElementById('item_lookup').value = lookupID;
+            document.getElementById('item_image').value = imageURL;
+            document.getElementById('item_address').value = address;
+            document.getElementById('item_title').value = title;
           }
         }
       }
