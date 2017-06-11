@@ -13,7 +13,7 @@ user2 = User.create(email: "me@gmail.com" )
   commentB = trip1.comments.create(user: user2, body: "i HATE New York")
   commentC = trip1.comments.create(user: user2, body: "JK, I love it.")
 
-item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Rooftop Bar", image: "http://www.fodors.com/ee/files/slideshows/4-monarch-rooftop-lounge.jpg", trip: trip1, date: 10.days.ago.at_midday)
+item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", title: "Rooftop Bar", body: "Definitely want to check out this bar -- just look at that view! We can't not go, ya feel?", address: "123 New York Way, New York, New York 12345", image: "http://www.fodors.com/ee/files/slideshows/4-monarch-rooftop-lounge.jpg", trip: trip1, date: 10.days.ago.at_midday)
   item1.votes.create(user: user1, up_down: 1)
   item1.votes.create(user: user2, up_down: 1)
   comment1 = item1.comments.create(user: user1, body: "love to party")
