@@ -3,7 +3,7 @@
   <h1><%= @trip.name %></h1>
   <h4> <%= @trip.location %></h4>
   <div class="date">
-    <span>June 12th-June 14th</span>
+    <span> <%= @trip.start_date %> - <%= @trip.end_date%></span>
     <%= link_to 'Edit', edit_trip_path(@trip) %>
   </div>
 </div>
