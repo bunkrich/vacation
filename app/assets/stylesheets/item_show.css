@@ -77,3 +77,18 @@
 .comment-user-name {
   margin-left: 15px;
 }
+
+.add-comment {
+  margin-top: 40px;
+}
+
+.add-comment input[name="body"] {
+  height: 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.comment-submit {
+  font-size: 30px;
+  margin-top: 10px;
+}
