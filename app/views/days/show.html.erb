@@ -1,43 +1,44 @@
+<p>This is the day page for <%= @trip.name %></p>
 <div class="container">
-  <h1>Monday, June 12th</h1>
+  <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
   <div class="weather">
-    <span>It is 81 degrees and sunny in New York</span>
-    <button type="button" name="button">edit</button>
+    <span>It is 81 degrees and sunny in <%= @trip.location%></span>
   </div>
 </div>
 
-<div class="">
-  <h3>Morning</h3>
-  <div class="wrapper">
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
+
+<div class="testing">
+  <div class="morning">
+    <h3>Morning</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
+      <div class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
     </div>
   </div>
 
-  <h3>Afternoon</h3>
-  <div class="wrapper">
+  <div class="afternoon">
+    <h3> Afternoon</h3>
+    <div class="wrapper">
+
+    <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
     <div class="box">
+      <li><%= item.title %></li>
     </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
+    <% end %>
     </div>
   </div>
 
-  <h3>Night</h3>
-  <div class="wrapper">
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
+  <div class="night">
+    <h3> Night</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
+      <div class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -45,13 +46,3 @@
 <div class="drop">
   DROP
 </div>
-
-<hr />
-<p>This is the day page for <%= @trip.name %></p>
-<p>Here are all the events we're gonna do today!</p>
-<ul>
-  <!-- Right now I have it just iterating through all the events for this trip, but once we dynamically pull the date, we can match events that have the same start_date as the day date  -->
-    <% @all_items.each do |item| %>
-      <li><%= item.body %></li>
-    <% end %>
-</ul>
