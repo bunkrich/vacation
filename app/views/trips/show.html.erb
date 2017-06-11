@@ -26,7 +26,8 @@
     <%= link_to 'new item', new_trip_item_path(@trip) %>
   </div>
 </div>
-
+  <%= render partial: "items/form"%>
+  <%= render partial: "items/form_other"%>
 
 <div class="container day">
   <div class="testing">
@@ -155,3 +156,4 @@
   </ul>
 
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer></script>
