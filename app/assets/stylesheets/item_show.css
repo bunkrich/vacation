@@ -1,6 +1,7 @@
 #item-section {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 }
 
 #item-container {
@@ -27,7 +28,7 @@
 }
 
 #item-vote {
-  
+  margin-top: 45px;
 }
 
 #vote-item-form input {
@@ -46,4 +47,33 @@
   font-size: 25px;
   text-align: center;
   width: 100px;
+}
+
+#item-comments {
+  margin-top: 30px;
+}
+
+#comment-container {
+  margin: 0 30px;
+}
+
+.comment-section {
+  border: 1px #000 solid;
+  margin-top: 25px;
+  padding: 5px;
+}
+
+.comment-details {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.comment-user-img img {
+  height: 50px;
+  width: 50px;
+}
+
+.comment-user-name {
+  margin-left: 15px;
 }

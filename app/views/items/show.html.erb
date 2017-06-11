@@ -22,6 +22,24 @@
           </div>
         </div>
       </div>
+      <div id="item-comments">
+        <h3>Comments:</h3>
+        <div id="comment-container">
+          <% @item.comments.each do |comment| %>
+            <div class="comment-section">
+              <p><%= comment.body %></p>
+            </div>
+            <div class="comment-details">
+              <div class="comment-user-img">
+                <img src="<%= comment.user.image %>" />
+              </div>
+              <div class="comment-user-name">
+                <p><%= comment.user.email %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
