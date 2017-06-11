@@ -142,3 +142,24 @@ a {
 .item-image {
   max-width: 300px;
 }
+// ADDED FROM GOOGLE FOR THE GOOGLE SEARCH BAR FROM BRENT
+#locationField, #controls {
+  position: relative;
+  width: 480px;
+}
+#autocomplete {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 99%;
+}
+.label {
+  text-align: right;
+  font-weight: bold;
+  width: 100px;
+  color: #303030;
+}
+#locationField {
+  height: 20px;
+  margin-bottom: 2px;
+}
