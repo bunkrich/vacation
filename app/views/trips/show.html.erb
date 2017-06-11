@@ -27,16 +27,17 @@
   </div>
 </div>
 
+
 <div class="container day">
   <div class="testing">
     <% @trip.start_date.upto@trip.end_date do |day| %>
     <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day %></a></h3>
 
+
+  <div class="wrapper">
     <% Item.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-      <h3><%= item.category %></h3>
-      <%end%>
-    <% end %>
-    <div class="wrapper">
+      <h3><%= item.title %></h3>
+
 
       <div class="box modal">
         <div class="interior">
@@ -45,119 +46,31 @@
         <div id="open-modal" class="modal-window">
           <div>
             <a href="#modal-close" title="Close" class="modal-close">Close</a>
-            <h1>Voilà!</h1>
-            <div>Content that will go insite
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
+            <h2><%=item.title %></h2>
+            <div> <%= item.body%></div>
             </div>
         </div>
       </div>
+
+      <%end%>
+    </div>
+    <% end %>
+
+
+    <% if @trip.items.where("date is null") %>
+    <div class="no-date">
+      <h1> Items WITH NO DATES</h1>
+      <%  @trip.items.where("date is null").each do |nodate| %>
+        <li>  <%= nodate.title %> </li>
+        <h5> display modal for each one here</h5>
+      <% end %>
     </div>
 
-  </div>
-
-  <!-- ADD THE MODAL FOR EACH DATE -->
-  <div class="wrapper">
-
-    <div class="box modal">
-      <div class="interior">
-        <a class="btn" href="#open-modal">Day</a>
-      </div>
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close">Close</a>
-          <h1>Voilà!</h1>
-          <div>Content that will go insite
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-          </div>
-      </div>
-    </div>
-    <div class="box modal">
-      <div class="interior">
-        <a class="btn" href="#open-modal">Day</a>
-      </div>
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close">Close</a>
-          <h1>Voilà!</h1>
-          <div>Content that will go insite
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-          </div>
-      </div>
-    </div>
-    <div class="box modal">
-      <div class="interior">
-        <a class="btn" href="#open-modal">Day</a>
-      </div>
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close">Close</a>
-          <h1>Voilà!</h1>
-          <div>Content that will go insite
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-          </div>
-      </div>
-    </div>
-    <div class="box modal">
-      <div class="interior">
-        <a class="btn" href="#open-modal">Day</a>
-      </div>
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close">Close</a>
-          <h1>Voilà!</h1>
-          <div>Content that will go insite
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-          </div>
-      </div>
-    </div>
-
-    <div class="box modal">
-      <div class="interior">
-        <a class="btn" href="#open-modal">Day</a>
-      </div>
-      <div id="open-modal" class="modal-window">
-        <div>
-          <a href="#modal-close" title="Close" class="modal-close">Close</a>
-          <h1>Voilà!</h1>
-          <div>Content that will go insite
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-          </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
-<div class="container day">
-  <h3> <a href="/trips/TRIPID/day">Tuesday June 13th</a></h3>
-  <div class="wrapper">
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-  </div>
-</div>
 
-<div class="container day">
-  <h3> <a href="/trips/TRIPID/day"> Wednesday June 14th</a></h3>
-  <div class="wrapper">
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-    <div class="box modal">
-    </div>
-  </div>
-</div>
 
 <div class="message">
   <h3> Message Wall</h3>
