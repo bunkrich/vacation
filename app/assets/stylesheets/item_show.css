@@ -1,0 +1,49 @@
+#item-section {
+  display: flex;
+  justify-content: center;
+}
+
+#item-container {
+  border: 2px #000 solid;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+#image-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+#item-image #item-details {
+  display: inline-block;
+}
+
+#item-image img {
+  width: 80%;
+}
+
+#item-details h1 {
+  text-align: left;
+}
+
+#item-vote {
+  
+}
+
+#vote-item-form input {
+  border: none;
+}
+
+.vote-button {
+  background-color: #fff;
+}
+
+.vote-button {
+  font-size: 30px;
+}
+
+.vote-count {
+  font-size: 25px;
+  text-align: center;
+  width: 100px;
+}

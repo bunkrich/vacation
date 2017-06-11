@@ -1,0 +1,27 @@
+<div id="item-section">
+  <div class="wrapper">
+    <div id="item-container">
+      <div id="image-details">
+        <div id="item-image">
+          <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
+        </div>
+        <div id="item-details">
+          <h1><%= @item.title %></h1>
+          <p><%= @item.body %></p>
+          <p><%= @item.address %></p>
+          <div id="item-vote">
+            <form id="vote-item-form">
+              <input class="vote-button" type="submit" value="👍" />
+              <% total_vote = 0 %>
+              <% @item.votes.each do |vote| %>
+                <% total_vote += vote.up_down  %>
+              <% end %>
+              <input class="vote-count" type="text" value="<%= total_vote %> votes" />
+              <input class="vote-button" type="submit" value="👎" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
