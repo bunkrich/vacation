@@ -20,7 +20,7 @@ item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", body: "Ro
   comment2 = item1.comments.create(user: user2, body: "i HATE to party")
   comment3 = item1.comments.create(user: user2, body: "JK, I love it.")
 
-item2 = user1.items.create(category: "Flight", lookup: "AA123", body: "Flight to NYC", trip: trip1)
+item2 = user1.items.create(category: "Flight", lookup: "AA123", body: "Flight to NYC", trip: trip1, date: 10.days.ago.at_midday)
 lodge = user1.items.create(category: "Lodge", lookup: "Xe82e3", body: "Hotel in Chelsea", trip: trip1)
   item2.votes.create(user: user1, up_down: -1)
   item2.votes.create(user: user2, up_down: -1)
