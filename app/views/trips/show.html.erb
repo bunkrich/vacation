@@ -33,25 +33,10 @@
     <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day %></a></h3>
 
     <% Item.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-      <h3><%= item.category %></h3>
+      <h3><%= item.title %></h3>
       <%end%>
     <% end %>
-    <div class="wrapper">
 
-      <div class="box modal">
-        <div class="interior">
-          <a class="btn" href="#open-modal">Day</a>
-        </div>
-        <div id="open-modal" class="modal-window">
-          <div>
-            <a href="#modal-close" title="Close" class="modal-close">Close</a>
-            <h1>Voilà!</h1>
-            <div>Content that will go insite
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. .</div>
-            </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 
