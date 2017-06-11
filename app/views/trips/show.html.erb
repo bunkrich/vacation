@@ -219,9 +219,18 @@
   <h3>ITEMS: </h3>
   <ul>
     <% @trip.items.each do |i| %>
-      <h4>BODY: <%= i.body %></h4>
+    <% if i.title %>
+    <h3>TITLE: <%= i.title %></h3>
+    <% end %>
+      <h5>BODY: <%= i.body %></h5>
       <ul>
         <li>CATEGORY: <%= i.category %> | <%= i.user.email %></li>
+
+
+        <% if i.date %>
+          <li>DATE: <%= i.date %></li>
+        <% end %>
+
         <li>VOTES: <%= i.votes.count %></li>
         <li>COMMENTS: <%= i.comments.count %></li>
         <ol>
@@ -230,7 +239,7 @@
           <% end %>
         </ol>
         <% if i.image %>
-        <img src="<%= i.image %>" alt="">
+          <img class="item-image" src="<%= i.image %>" alt="">
         <% end %>
       </ul>
     <% end %>
