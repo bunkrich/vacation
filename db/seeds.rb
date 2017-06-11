@@ -32,11 +32,13 @@ lodge = user1.items.create(category: "Lodge", lookup: "Xe82e3", body: "Hotel in 
   trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
   5.times do
     user = trip.users.create(email: Faker::Internet.email, image: Faker::Avatar.image)
-    5.times do
-      item_night = user.items.create(category: "Night Life", lookup: "A123bx34", body: Faker::Company.name, trip: trip)
-      user.items.create(category: "Restaurant", lookup: "B123bx34", body: Faker::Company.name, trip: trip)
-      user.items.create(category: "Place of Interest", lookup: "C123bx34", body: Faker::Company.name, trip: trip)
-      trip.comments.create(body: Faker::Hipster.sentence, user: user)
-    end
+
+    item_night = user.items.create(title: "Brass Monkey", category: "Night Life", lookup: "ChIJKTdxRMBZwokRX1rAQPLPzlE", address: "55 Little West 12th St, New York, NY 10014", body: "SHOTS!", trip: trip, date: DateTime.new(2017, 6, 22), image: "http://www.therooftopguide.com/rooftop-bars-in-new-york/Bilder/TheBrassMonkey_2_slide.jpg")
+
+    user.items.create(title: "Tao Downtown", category: "Restaurant", address: "92 9th Ave, New York, NY 10011", lookup: "ChIJKaKVI79ZwokRN8WicODOIAw", body: "Birthday Dinner!", image: "http://cdn.clubzone.com/content/uploads/places/3541247/3-650x430.jpg", trip: trip, date: DateTime.new(2017, 6, 22))
+
+    user.items.create(title: "World Trade Center", category: "Attractions", lookup: "ChIJ-4MbiBlawokR5ixJ4E8Km5c", body: "Visting the top of the WTC", trip: trip, image: "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4802093/1wtc-wtcprogress.0.jpg", date: DateTime.new(2017, 6, 22))
+
+    trip.comments.create(body: Faker::Hipster.sentence, user: user)
   end
 end
