@@ -35,7 +35,7 @@
 
 
   <div class="wrapper">
-    <% Item.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
+    <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
       <h3><%= item.title %></h3>
 
 
