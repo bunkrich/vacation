@@ -229,7 +229,11 @@
             <li><%= c.user.email %> | <%= c.body %></li>
           <% end %>
         </ol>
+        <% if i.image %>
+        <img src="<%= i.image %>" alt="">
+        <% end %>
       </ul>
     <% end %>
   </ul>
+
 </section>
