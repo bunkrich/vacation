@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
 
   resources :trips, except: [:index] do
-    resources :comments, expect: [:index]
+    resources :comments, except: [:index]
     resources :items, except: [:index] do
-      resources :comments, expect: [:index]
-      resources :votes, expect: [:index, :show]
+      resources :comments, except: [:index]
+      resources :votes, except: [:index, :show]
     end
     resources :days, only: [:show]
     resources :user, only: [:show]

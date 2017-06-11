@@ -6,19 +6,21 @@
           <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
         </div>
         <div id="item-details">
-          <h1><%= @item.title %></h1>
-          <p><%= @item.body %></p>
-          <p><%= @item.address %></p>
-          <div id="item-vote">
-            <form id="vote-item-form">
-              <input class="vote-button" type="submit" value="👍" />
-              <% total_vote = 0 %>
-              <% @item.votes.each do |vote| %>
-                <% total_vote += vote.up_down  %>
-              <% end %>
-              <input class="vote-count" type="text" value="<%= total_vote %> votes" />
-              <input class="vote-button" type="submit" value="👎" />
-            </form>
+          <div class="item-wrapper">
+            <h1><%= @item.title %></h1>
+            <p><%= @item.body %></p>
+            <p><%= @item.address %></p>
+            <div id="item-vote">
+              <form id="vote-item-form">
+                <input class="vote-button" type="submit" value="👍" />
+                <% total_vote = 0 %>
+                <% @item.votes.each do |vote| %>
+                  <% total_vote += vote.up_down  %>
+                <% end %>
+                <input class="vote-count" type="text" value="<%= total_vote %> votes" />
+                <input class="vote-button" type="submit" value="👎" />
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -39,10 +41,10 @@
             </div>
           <% end %>
           <div class="add-comment">
-            <form>
-                <input type="textarea" name="body" placeholder="Enter comment" />
-                <input class="comment-submit" type="submit" value="Add comment" />
-            </form>
+            <%= form_for [@item.trip, @item], url: "/trips/#{@item.trip.id}/items/#{@item.id}/comments",method: 'POST' do |f| %>
+              <%= f.text_field :body %>
+              <%= f.submit "Enter Comment", class: 'comment-submit' %>
+            <% end %>
           </div>
         </div>
       </div>
