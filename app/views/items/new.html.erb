@@ -1,135 +1,77 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Place Autocomplete Address Form</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
-      #locationField, #controls {
-        position: relative;
-        width: 480px;
-      }
-      #autocomplete {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-      }
-      .label {
-        text-align: right;
-        font-weight: bold;
-        width: 100px;
-        color: #303030;
-      }
-      #locationField {
-        height: 20px;
-        margin-bottom: 2px;
-      }
-    </style>
-  </head>
+<h1>New Item Page</h1>
+<div id="locationField">
+  <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
+</div>
 
-  <body>
-    <h1>Items new page</h1>
-
-    <%if @errors%>
-      <ul>
-        <%@errors.each do |error|%>
-          <li><%=error%></li>
-        <%end%>
-      </ul>
-    <%end%>
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
-  <section>
+<section>
+  <%= form_for [@trip, @item] do |i| %>
+    <div>
+      <h3><%= i.label :title %></h3>
+      <p><%= i.text_field :title %></p>
     </div>
-    <%= form_for [@trip, @item] do |i| %>
-      <div>
-        <h3><%= i.label :title %></h3>
-        <p><%= i.text_field :title %></p>
-      </div>
-      <div>
-        <h3><%= i.label :category %></h3>
-        <p><%= i.select :category, [['Location', 'location'],['Event','event'],['Other','other']] %></p>
-      </div>
-      <div>
-        <h3><%= i.label :lookup %></h3>
-        <p><%= i.text_field :lookup %></p>
-      </div>
-      <div>
-        <p><%= i.label :address %></p>
-        <p><%= i.text_field :address %></p>
-      </div>
-      <div>
-        <p><%= i.label :imgae %></p>
-        <p><%= url_field(:item, :image) %></p>
-      </div>
-      <div>
-        <p><%= i.label :date %></p>
-        <%= date_field(:item, :date) %>
-      </div>
-      <div>
-        <p><%= i.label :body %></p>
-        <p><%= i.text_field :body %></p>
-      </div>
-      <div>
-        <%= i.submit %>
-      </div>
-    <% end %>
+    <div>
+      <h3><%= i.label :category %></h3>
+      <p><%= i.select :category, [['Location', 'location'],['Event','event'],['Other','other']] %></p>
+    </div>
+    <div>
+      <h3><%= i.label :lookup %></h3>
+      <p><%= i.text_field :lookup %></p>
+    </div>
+    <div>
+      <p><%= i.label :address %></p>
+      <p><%= i.text_field :address %></p>
+    </div>
+    <div>
+      <p><%= i.label :imgae %></p>
+      <p><%= url_field(:item, :image) %></p>
+    </div>
+    <div>
+      <p><%= i.label :date %></p>
+      <%= date_field(:item, :date) %>
+    </div>
+    <div>
+      <p><%= i.label :body %></p>
+      <p><%= i.text_field :body %></p>
+    </div>
+    <div>
+      <%= i.submit %>
+    </div>
+  <% end %>
 </section>
 
-<section class="testing">
-  <h2>this needs to be removed</h2>
-    <table id="address">
-      <tr>
-        <td class="label"></td>
-        <td class="slimField"><input class="field" id="street_number"
-              disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label"></td>
-        <!-- Note: Selection of address components in this example is typical.
-             You may need to adjust it for the locations relevant to your app. See
-             https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
-        -->
-        <td class="wideField" colspan="3"><input class="field" id="locality"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label"></td>
-        <td class="slimField"><input class="field"
-              id="administrative_area_level_1" disabled="true"></input></td>
-        <td class="label"></td>
-        <td class="wideField"><input class="field" id="postal_code"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label"></td>
-        <td class="wideField" colspan="3"><input class="field"
-              id="country" disabled="true"></input></td>
-      </tr>
-    </table>
-</section>
+<!-- <section class="testing">
+  <td class="label"></td>
+  <td class="slimField"><input class="field" id="street_number"
+        disabled="true"></input></td>
+  <td class="wideField" colspan="2"><input class="field" id="route"
+        disabled="true"></input></td>
+
+  <td class="label"></td>
+  <td class="wideField" colspan="3"><input class="field" id="locality"
+        disabled="true"></input></td>
+
+  <td class="label"></td>
+  <td class="slimField"><input class="field"
+        id="administrative_area_level_1" disabled="true"></input></td>
+  <td class="label"></td>
+  <td class="wideField"><input class="field" id="postal_code"
+        disabled="true"></input></td>
+
+  <td class="label"></td>
+  <td class="wideField" colspan="3"><input class="field"
+        id="country" disabled="true"></input></td>
+</section> -->
+
 <script>
-  // This example displays an address form, using the autocomplete feature
-  // of the Google Places API to help users fill in the information.
-
-  // This example requires the Places library. Include the libraries=places
-  // parameter when you first load the API. For example:
-  // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
   var placeSearch, autocomplete;
-  var componentForm = {
-    street_number: 'short_name',
-    route: 'long_name',
-    locality: 'long_name',
-    administrative_area_level_1: 'short_name',
-    country: 'long_name',
-    postal_code: 'short_name'
-  };
+  // var componentForm = {
+  //   street_number: 'short_name',
+  //   route: 'long_name',
+  //   locality: 'long_name',
+  //   administrative_area_level_1: 'short_name',
+  //   country: 'long_name',
+  //   postal_code: 'short_name'
+  // };
 
   function initAutocomplete() {
     // Create the autocomplete object, restricting the search to geographical
@@ -138,8 +80,7 @@
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
       );
 
-    // When the user selects an address from the dropdown, populate the address
-    // fields in the form.
+    // When the user selects an address from the dropdown, populate the address fields in the form.
     autocomplete.addListener('place_changed', fillInAddress);
   }
   ///////////////GOOGLE////////////////////////
@@ -147,30 +88,29 @@
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
 
-    for (var component in componentForm) {
-      document.getElementById(component).value = '';
-      document.getElementById(component).disabled = false;
-    }
+    // for (var component in componentForm) {
+    //   document.getElementById(component).value = '';
+    //   document.getElementById(component).disabled = false;
+    // }
 
     // Get each component of the address from the place details
     // and fill the corresponding field on the form.
-
-    for (var i = 0; i < place.address_components.length; i++) {
-      var addressType = place.address_components[i].types[0];
+    // for (var i = 0; i < place.address_components.length; i++) {
+    //   var addressType = place.address_components[i].types[0];
       var lookupID = place.place_id;
       var imageURL = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
       var address = place.formatted_address
       var title = place.name
 
-      if (componentForm[addressType]) {
-        var val = place.address_components[i][componentForm[addressType]];
+      // if (componentForm[addressType]) {
+      //   var val = place.address_components[i][componentForm[addressType]];
         document.getElementById('item_lookup').value = lookupID;
         document.getElementById('item_image').value = imageURL;
         document.getElementById('item_address').value = address;
         document.getElementById('item_title').value = title;
       }
-    }
-  }
+    // }
+  // }
   ///////////////GOOGLE////////////////////////
 
   // Bias the autocomplete object to the user's geographical location,
@@ -191,7 +131,4 @@
     }
   }
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete"
-        async defer></script>
-  </body>
-</html>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer></script>
