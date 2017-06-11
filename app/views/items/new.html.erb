@@ -71,18 +71,21 @@
       </ul>
     <%end%>
 
+
+
     <%= form_for [@trip, @item] do |i| %>
+
       <div>
         <h3><%= i.label :title %></h3>
         <p><%= i.text_field :title %></p>
       </div>
       <div>
         <h3><%= i.label :category %></h3>
-        <p><%= i.text_field :category %></p>
+        <p><%= i.select :category, [['Location', 'location'],['Event','event'],['Other','other']] %></p>
       </div>
       <div>
         <h3><%= i.label :lookup %></h3>
-        <p><%= i.text_field :lookup %></p>
+        <p><%= i.text_field :lookup, :id => 'lookup-from-google'%></p>
       </div>
       <div>
         <p><%= i.label :address %></p>
@@ -90,7 +93,7 @@
       </div>
       <div>
         <p><%= i.label :imgae %></p>
-        <p><%= i.text_field :image %></p>
+        <p><%= url_field(:item, :image) %></p>
       </div>
       <div>
         <p><%= i.label :date %></p>
@@ -194,16 +197,30 @@
         // Get each component of the address from the place details
         // and fill the corresponding field on the form.
 
-console.log(place.place_id)
+console.log(place)
+console.log(place.photos[0].html_attributions[0])
+x = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
+console.log(x)
+var xmlString = place.photos[0].html_attributions[0]
+  , parser = new DOMParser()
+  , doc = parser.parseFromString(xmlString, "text/xml");
+  console.log("doc.firstChild.attributes[0].value")
+  console.log(doc.firstChild.attributes[0].value)
+
+
+console.log(place.formatted_address)
+console.log(place.name)
 
 
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           var lookupID = place.place_id;
+          // var imageURL =
 
           if (componentForm[addressType]) {
             var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
+            document.getElementById('lookup-from-google').value = lookupID;
+            // document.getElementById('image-from-google').value = imageURL;
           }
         }
       }
@@ -227,7 +244,15 @@ console.log(place.place_id)
         }
       }
     </script>
+    <a href="https://maps.google.com/maps/contrib/109307945277485010176/photos">Apple Grand Central</a>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete"
         async defer></script>
   </body>
 </html>
+
+
+
+https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=
+CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU
+&key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc
