@@ -41,7 +41,7 @@ nodateitem1 = user1.items.create!(category: "Restaurant", title: "no date item",
 nodateitem2 = user1.items.create!(category: "Restaurant", title: "ANOTHER NO DATE item", body: "i ahve no date :()", lookup: "bbbb", trip: trip1)
 
 5.times do
-  trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('17/9/2015'), end_date: Date.parse('20/9/2015'))
+  trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('20/6/2017'), end_date: Date.parse('28/6/2017'))
   5.times do
     user = trip.users.create(email: Faker::Internet.email, image: Faker::Avatar.image)
 
