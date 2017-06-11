@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   def show
+    @item = Item.new
     @trip = Trip.find_by(id: params[:id])
     redirect_to "/trips" unless @trip
   end
