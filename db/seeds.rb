@@ -6,8 +6,8 @@ trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "W
 trip2 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 5.days.ago, end_date: 2.days.ago )
 
 
-user1 = User.create(email: "brent@gmail.com")
-user2 = User.create(email: "me@gmail.com" )
+user1 = User.create(email: "brent@gmail.com", image: "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face%20logo.jpg")
+user2 = User.create(email: "me@gmail.com", image: "https://image.shutterstock.com/z/stock-photo-crazy-cartoon-smiley-face-96786736.jpg" )
   user1.trips = [trip1]
   user2.trips = [trip1]
 
