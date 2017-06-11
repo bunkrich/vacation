@@ -29,51 +29,6 @@
   </div>
 </div>
 
-<div class="">
-  <h3>Morning</h3>
-  <div class="wrapper">
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-  </div>
-
-  <h3>Afternoon</h3>
-  <div class="wrapper">
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-  </div>
-
-  <h3>Night</h3>
-  <div class="wrapper">
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-    <div class="box">
-    </div>
-  </div>
-</div>
-
 <div class="drop">
   DROP
 </div>
-
-<hr />
-
-<ul>
-  <!-- Right now I have it just iterating through all the events for this trip, but once we dynamically pull the date, we can match events that have the same start_date as the day date  -->
-    <% @all_items.each do |item| %>
-      <li><%= item.body %></li>
-    <% end %>
-</ul>
