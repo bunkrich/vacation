@@ -39,7 +39,11 @@
         <%end%>
       </ul>
     <%end%>
-
+    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+  <section>
+    </div>
     <%= form_for [@trip, @item] do |i| %>
       <div>
         <h3><%= i.label :title %></h3>
@@ -73,11 +77,8 @@
         <%= i.submit %>
       </div>
     <% end %>
+</section>
 
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
-    </div>
 <section class="testing">
   <h2>this needs to be removed</h2>
     <table id="address">
