@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       end
   end
 
+# hmmm not sure if to keep on no. I added this one - Nat
   def show
     @user = User.find(params[:id])
     @trips = @user.trips
@@ -29,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   private
-
     def user_params
 
     end

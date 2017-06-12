@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :travelers
   has_many :trips, through: :travelers
 
+  has_secure_password
+
   validates :email, presence: true
   validates :email, uniqueness: true
 end
