@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :trips, except: [:index] do
     resources :comments, except: [:index]
     resources :items, except: [:index] do
-      resources :comments, except: [:index]
       resources :votes, except: [:index, :show]
     end
     resources :days, only: [:show]
