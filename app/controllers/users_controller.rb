@@ -27,6 +27,17 @@ class UsersController < ApplicationController
     @lodge = @user.items.find_by(category: "Lodge")
   end
 
+  # GET /trip/:id/invite/new
+  def invitation
+    @trip = Trip.find_by(id: params[:id])
+  end
+
+  # POST /trip/:id/invite
+  def invited
+    @trip = Trip.find_by(id: params[:id])
+    InviteFriendsMailer.invite_email(params[:email]).deliver
+  end
+
   private
     def user_params
       params.require(:user).permit(:first_name,:last_name,:email, :password, :image)

@@ -124,7 +124,7 @@
     <div class="friend-box">
       friend 4
     </div>
-    <button type="button" name="button">Add friends</button>
+    <a href="/trips/<%= @trip.id %>/invite" id="add-friends-button">Add More Friends!</a>
   </div>
 </section>
 
@@ -146,7 +146,7 @@
       <% end %>
     </ul>
   <% end %>
-  
+
   <h3>USERS: </h3>
   <ul>
     <% @trip.users.each do |u| %>

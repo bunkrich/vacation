@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'trips/:id/users/:id', to: 'users#profile'
   get '/users/:id', to: 'users#show', :as => :user
 
+  get 'trips/:id/invite/new' => 'users#invitation'
+  post 'trips/:id/invite' => 'users#invited'
+
   resources :users, only: [:new, :create, :show]
 
   resources :trips, except: [:index] do
