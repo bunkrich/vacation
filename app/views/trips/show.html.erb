@@ -65,16 +65,12 @@
       <h1> Items WITH NO DATES</h1>
       <div class="wrapper">
       <%  @trip.items.where("date is null").each do |nodate| %>
-        <h5> display modal for each one here</h5>
           <div class="box">
+            <h5> display modal for each one here</h5>
             <li><%= nodate.title %></li>
           </div>
-
-        </div>
-
-
-
       <% end %>
+    </div>
     </div>
 
     <% end %>
