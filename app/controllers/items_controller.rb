@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -24,7 +25,8 @@ class ItemsController < ApplicationController
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       puts @item.inspect
       puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
-      redirect_to "trips/#{trip.id}"
+      vote = @item.votes.create(up_down: 0, user: user)
+      redirect_to action: "show", id: @item.id
     else
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       puts @item.inspect

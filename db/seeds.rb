@@ -6,8 +6,8 @@ trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "W
 trip2 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 5.days.ago, end_date: 2.days.ago )
 
 
-user1 = User.create(email: "brent@gmail.com")
-user2 = User.create(email: "me@gmail.com" )
+user1 = User.create(email: "brent@gmail.com", image: "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face%20logo.jpg")
+user2 = User.create(email: "me@gmail.com", image: "https://image.shutterstock.com/z/stock-photo-crazy-cartoon-smiley-face-96786736.jpg" )
   user1.trips = [trip1]
   user2.trips = [trip1]
 
@@ -15,20 +15,15 @@ user2 = User.create(email: "me@gmail.com" )
   commentB = trip1.comments.create(user: user2, body: "i HATE New York")
   commentC = trip1.comments.create(user: user2, body: "JK, I love it.")
 
-item1 = user1.items.create(category: "Night Life", title: "Casino", lookup: "A123bx34", body: "Rooftop Bar", trip: trip1, date: 10.days.ago.at_midday)
+item1 = user1.items.create(category: "Night Life", lookup: "A123bx34", title: "Rooftop Bar", body: "Definitely want to check out this bar -- just look at that view! We can't not go, ya feel?", address: "123 New York Way, New York, New York 12345", image: "http://www.fodors.com/ee/files/slideshows/4-monarch-rooftop-lounge.jpg", trip: trip1, date: 10.days.ago.at_midday)
+
   item1.votes.create(user: user1, up_down: 1)
   item1.votes.create(user: user2, up_down: 1)
-  comment1 = item1.comments.create(user: user1, body: "love to party")
-  comment2 = item1.comments.create(user: user2, body: "i HATE to party")
-  comment3 = item1.comments.create(user: user2, body: "JK, I love it.")
 
 item2 = user1.items.create(category: "Flight", lookup: "AA123", title: "My flight", body: "Flight to NYC", trip: trip1, date: 10.days.ago.at_midday)
 lodge = user1.items.create(category: "Lodge", lookup: "Xe82e3", title: "my hotel", body: "Hotel in Chelsea", trip: trip1, date: 10.days.ago.at_midday)
   item2.votes.create(user: user1, up_down: -1)
   item2.votes.create(user: user2, up_down: -1)
-  comment4 = item2.comments.create(user: user1, body: "Cool Flight")
-  comment5 = item2.comments.create(user: user2, body: "I'm on that flight too")
-  comment6 = item2.comments.create(user: user2, body: "JK, I live here.")
 
 
 item3 = user1.items.create(category: "restaurant", title:"yummy Restaurant 1" , body: "I really love the variety", trip: trip1, date: 9.days.ago.at_midday)

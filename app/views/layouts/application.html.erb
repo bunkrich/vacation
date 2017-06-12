@@ -3,8 +3,8 @@
   <head>
     <title>Vacation</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" type="text/css" href="/css/item_show.css">
 
     <%= javascript_include_tag 'application' %>
   </head>
@@ -13,11 +13,8 @@
     <div class="topnav">
       <%=link_to "My trips", @user %>
       <%= link_to "RECESS HOME", root_path %>
-      <% if logged_in?%>
-        <%= link_to "Add trip", new_trip_path%>
-        <!-- revisit sign out, depends on our authentication-->
-        <%= link_to "SIGN OUT", root_path %>
-      <% end %>
+      <!-- revisit sign out, depends on our authentication-->
+      <%= link_to "SIGN OUT", root_path %>
     </div>
     <%= yield %>
   </body>
