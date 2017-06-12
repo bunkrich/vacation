@@ -10,9 +10,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    user = User.first
     trip = Trip.find_by(id: params[:trip_id])
-    @item = user.items.new(item_params)
+    @item = current_user.items.new(item_params)
     @item.trip = trip
     if @item.save
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"

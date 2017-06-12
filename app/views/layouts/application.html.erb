@@ -20,6 +20,10 @@
         <%= link_to "LOGIN", login_path %>
       <% end %>
     </div>
+
+    <div class="testing">
+      person logged in is..... <%= current_user && current_user.full_name %>
+    </div>
     <%= yield %>
   </body>
 </html>
