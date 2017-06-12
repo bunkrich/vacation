@@ -111,6 +111,10 @@
         </div>
       </div>
     <% end %>
+    <!-- create new messages -->
+    <div class="new-messages">
+      <%= link_to 'Add a comment', new_trip_comment_path(@trip, @trip.comments) %>
+    </div>
   </div>
 </section>
 

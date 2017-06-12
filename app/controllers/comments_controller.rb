@@ -1,4 +1,7 @@
-  class CommentsController < ApplicationController
+ require 'pry'
+ require 'byebug'
+
+class CommentsController < ApplicationController
   def show
     @trip = Trip.find_by(id: params[:trip_id])
   end
@@ -26,8 +29,4 @@
     redirect_to '/'
   end
 
-  private
-  def comment_params
-    params.require(:comment).permit(:body, :trip_id, :user_id)
-  end
 end
