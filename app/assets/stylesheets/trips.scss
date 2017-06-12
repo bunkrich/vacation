@@ -44,12 +44,17 @@ h4 {
     border:solid 1px #000;
 }
 
+.message {
+  margin: 0 10%;
+}
+
 .message input{
-  width: 500px;
+  width: 100%;
   margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
+  margin-right: 10%;
+  padding: 10px;
   margin-top: 5px;
+  font-size: 15px;
 }
 
 .friend-box{
@@ -184,4 +189,31 @@ a {
 
 .close {
   display: none;
+}
+
+/*Styling for comments section*/
+.comments-details {
+  display: flex;
+  justify-content: flex-start;
+
+  .comments-user-pic {
+    margin: 1em 0;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .comments-user-name-date {
+    margin-left: 20px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: #D3D3D3;
+    }
+  }
 }

@@ -1,6 +1,6 @@
   class CommentsController < ApplicationController
   def show
-    @comment = Comment.find_by(id: params[:id])
+    @trip = Trip.find_by(id: params[:trip_id])
   end
 
   def new
