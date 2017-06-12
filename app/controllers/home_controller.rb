@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
   def index
-  	@trip = Trip.last.items.first
+  	@trip = Trip.find_by(id: 2)
+    @locations = []
+    @trip.items.each do |i|
+      @locations.push(i.lookup)
+      puts "*********************"
+    end
+    puts @locations
   end
 
   def about
