@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       puts @item.inspect
       puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
-      vote = @item.votes.create(up_down: 0, user: user)
+      vote = @item.votes.create(up_down: 0, user: current_user)
       redirect_to action: "show", id: @item.id
     else
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
