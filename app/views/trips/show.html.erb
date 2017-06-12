@@ -21,17 +21,6 @@
 
 <!-- SEARCH BAR SECTION -->
 <section>
-    <!-- REVISIT THIS once there's a status on adding items on google maps -->
-    <!-- <div class="drop-down">
-    <form class="" action="index.html" method="post">
-    <select>
-    <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
-    <option value="1">URL</option>
-    <option value="2">Custom</option>
-    </select>
-    </form>
-    <%= link_to 'new item', new_trip_item_path(@trip) %>
-    </div> -->
   <div class="drop-down">
     <%= render partial: "items/form"%>
   </div>
@@ -148,6 +137,16 @@
   <h3>LOCATION: <%= @trip.location %></h3>
   <h3>DESCRIPTION: <%= @trip.description %></h3>
 
+
+  <h3>COMMENTS: </h3>
+  <% if @trip.comments %>
+    <ul>
+      <% @trip.comments.each do |c| %>
+        <li><%= c.user.email %> | <%= c.body %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
   <h3>USERS: </h3>
   <ul>
     <% @trip.users.each do |u| %>
@@ -165,12 +164,14 @@
       <ul>
         <li>CATEGORY: <%= i.category %> | <%= i.user.email %></li>
 
-
         <% if i.date %>
           <li>DATE: <%= i.date %></li>
         <% end %>
 
+        <% if i.votes %>
         <li>VOTES: <%= i.votes.count %></li>
+        <% end %>
+
         <% if i.image %>
           <img class="item-image" src="<%= i.image %>" alt="">
         <% end %>

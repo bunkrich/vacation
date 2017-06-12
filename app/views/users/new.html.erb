@@ -1,0 +1,18 @@
+<h1>Sign up</h1>
+
+<%=form_for(:user, url: users_path) do |f|%>
+
+<%= render partial: '/errors' %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Sign up"%>
+<% end %>
