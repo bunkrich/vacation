@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
+
         if @user.save
           log_in @user
           redirect_to '/'
@@ -27,4 +27,10 @@ class UsersController < ApplicationController
     @flight = @user.items.find_by(category: "Flight")
     @lodge = @user.items.find_by(category: "Lodge")
   end
+
+  private
+  
+    def user_params
+
+    end
 end
