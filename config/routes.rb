@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'trips/:id/users/:id', to: 'users#profile'
   get '/users/:id', to: 'users#show'
 
+  resources :user, only: [:new, :create, :show]
+
   resources :trips, except: [:index] do
     resources :comments, except: [:index]
     resources :items, except: [:index] do
