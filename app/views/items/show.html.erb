@@ -25,30 +25,6 @@
           </div>
         </div>
       </div>
-      <div id="item-comments">
-        <h3>Comments:</h3>
-        <div id="comment-container">
-          <% @item.comments.each do |comment| %>
-            <div class="comment-section">
-              <p><%= comment.body %></p>
-            </div>
-            <div class="comment-details">
-              <div class="comment-user-img">
-                <img src="<%= comment.user.image %>" />
-              </div>
-              <div class="comment-user-name">
-                <p><%= comment.user.email %> |  Posted: <%= comment.created_at %></p>
-              </div>
-            </div>
-          <% end %>
-          <div class="add-comment">
-            <%= form_for [@item.trip, @item], url: "/trips/#{@item.trip.id}/items/#{@item.id}/comments",method: 'POST' do |f| %>
-              <%= f.text_field :body %>
-              <%= f.submit "Enter Comment", class: 'comment-submit' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
