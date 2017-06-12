@@ -5,7 +5,9 @@
         <p><%= i.label :title %></p>
         <p><%= i.text_field :title, :required => true %></p>
       </div>
-<% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
+
+      <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
+      
       <div>
         <p><%= i.label :category %></p>
         <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
@@ -38,6 +40,7 @@
 
       <div id="item-new-other-submit">
         <%= i.submit %>
+
       </div>
     </div>
   <% end %>

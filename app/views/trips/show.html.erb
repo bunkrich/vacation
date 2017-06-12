@@ -1,3 +1,4 @@
+
 <section>
 <div class="container">
   <h1><%= @trip.name %></h1>
@@ -15,7 +16,7 @@
   </div>
 
 <!-- REVISIT THIS once there's a status on adding items on google maps -->
-  <div class="drop-down">
+  <!-- <div class="drop-down">
     <form class="" action="index.html" method="post">
       <select>
         <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
@@ -24,15 +25,15 @@
       </select>
     </form>
     <%= link_to 'new item', new_trip_item_path(@trip) %>
-  </div>
-</div>
-
+  </div> -->
+<div class="drop-down">
   <%= render partial: "items/form"%>
-  <%= render partial: "items/form_other"%>
+</div>
+  <div id="toggle">
+    <%= render partial: "items/form_other"%>
+  </div>
+  <a href="#" class="close">Close</a>
 
-<div id="new-item-type">
-  <button>Place</button><button>Event</button><button>Todo</button>
-<div>
 
 <div class="container day">
   <div class="testing">
