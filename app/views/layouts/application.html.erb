@@ -14,7 +14,8 @@
       <%=link_to "My trips", '/' %>
       <%= link_to "RECESS HOME", root_path %>
       <% if logged_in? %>
-       <%=link_to "LOG OUT", logout_path, method: :delete %>
+        <%=link_to "Create New Trip",new_trip_path %>
+        <%=link_to "LOG OUT", logout_path, method: :delete %>
       <% else %>
         <%= link_to "SIGN UP", signup_path %>
         <%= link_to "LOGIN", login_path %>
