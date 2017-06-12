@@ -10,6 +10,7 @@
             <h1><%= @item.title %></h1>
             <p><%= @item.body %></p>
             <p><%= @item.address %></p>
+            <p>Added by: <%= @item.user.email %></p>
             <div id="item-vote">
               <form id="vote-item-form">
                 <input class="vote-button" type="submit" value="👍" />
