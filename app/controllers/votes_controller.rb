@@ -4,18 +4,18 @@ class VotesController < ApplicationController
     @vote = Vote.find(item_id: params[:id])
   end
 
-  def upvote
-    @vote = Vote.find(item_id: params[:id])
-    @vote.up_down += 1
-  end
+  # def upvote
+  #   @vote = Vote.find(item_id: params[:id])
+  #   @vote.up_down += 1
+  # end
+  #
+  # def downvote
+  #   @vote = Vote.find(item_id: params[:id])
+  #   @vote.up_down -= 1
+  # end
 
-  def downvote
-    @vote = Vote.find(item_id: params[:id])
-    @vote.up_down -= 1
-  end
-
-  def new
-  end
+  # def new
+  # end
 
   def create
     @vote = Vote.new(up_down: params[:up_down].to_i, item_id: params[:item_id], user: current_user)
@@ -23,8 +23,8 @@ class VotesController < ApplicationController
 
     if @vote.save
       redirect_to trip_item_path(@trip, @vote.item)
+    else
 
-      
     end
   end
 
@@ -36,9 +36,4 @@ class VotesController < ApplicationController
 
   def destroy
   end
-
-    private
-    def vote_params
-      params.require(:vote).permit(:up_down, :item_id, :user_id)
-    end
 end
