@@ -1,1 +1,7 @@
 <h2>Woo errors partial!</h2>
+
+<% if @errors %>
+  <%@errors.each do |error| %>
+    <li> <%= error %> </li>  
+  <% end %>
+<% end %>
