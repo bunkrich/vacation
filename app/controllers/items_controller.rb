@@ -4,16 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @trip = Trip.new
-    puts params[:trip_id]
-    puts "****************************"
-    @trip = Trip.find(params[:trip_id])
-    puts @trip.inspect
-    puts "****************************"
     @item = Item.new
-    puts @item.inspect
-    puts "****************************"
-
   end
 
   def create
