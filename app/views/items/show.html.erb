@@ -37,7 +37,7 @@
                 <img src="<%= comment.user.image %>" />
               </div>
               <div class="comment-user-name">
-                <p><%= comment.user.email %></p>
+                <p><%= comment.user.email %> |  Posted: <%= comment.created_at %></p>
               </div>
             </div>
           <% end %>
