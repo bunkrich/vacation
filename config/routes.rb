@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'trips/:id/users/:id', to: 'users#profile'
-  get '/users/:id', to: 'users#show'
+  get '/users/:id', to: 'users#show', :as => :user
 
   resources :users, only: [:new, :create, :show]
 
   resources :trips, except: [:index] do
     resources :comments, except: [:index]
     resources :items, except: [:index] do
-      resources :comments, except: [:index]
       resources :votes, except: [:index, :show]
     end
     resources :days, only: [:show]

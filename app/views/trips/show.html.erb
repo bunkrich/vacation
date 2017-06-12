@@ -83,21 +83,26 @@
 
 <!-- MESSAGING SECTION -->
 <section>
+  <h3> Message Wall</h3>
   <div class="message">
-    <h3> Message Wall</h3>
-    <form class="message input" action="index.html" method="post">
-      <input type="text" name="" placeholder="Add to the conversation.."/>
-    </form>
     <!-- display messages here -->
-    <div class="">
-      <input readonly= "readonly" type="text" name="" value="So excited to eat cookies">
-      <h5>
-      <img src="http://i.imgur.com/CAd6Wnm.jpg" alt="">
-       Natalie Ruiz</h5>
-      <input readonly= "readonly" type="text" name="" value="Me too!">
-      <h5>
-      <img src="http://i.imgur.com/CAd6Wnm.jpg" alt="">
-      Alex Hill</h5>
+    <% @trip.comments.each do |comment| %>
+      <div class="message-wrapper">
+        <input readonly= "readonly" type="text" name="" value="<%= comment.body %>">
+        <div class="comments-details">
+          <div class="comments-user-pic">
+            <img src="<%= comment.user.image %>" />
+          </div>
+          <div class="comments-user-name-date">
+            <p><%= comment.user.email %></p>
+            <span><%= comment.updated_at.strftime("%m/%d/%Y at %I:%M%p") %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- create new messages -->
+    <div class="new-messages">
+      <%= link_to 'Add a comment', new_trip_comment_path(@trip, @comment) %>
     </div>
   </div>
 </section>
@@ -132,6 +137,7 @@
   <h3>LOCATION: <%= @trip.location %></h3>
   <h3>DESCRIPTION: <%= @trip.description %></h3>
 
+
   <h3>COMMENTS: </h3>
   <% if @trip.comments %>
     <ul>
@@ -140,7 +146,7 @@
       <% end %>
     </ul>
   <% end %>
-
+  
   <h3>USERS: </h3>
   <ul>
     <% @trip.users.each do |u| %>
