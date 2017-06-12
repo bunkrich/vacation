@@ -1,13 +1,13 @@
 require 'faker'
 
+user1 = User.create(first_name: "Brent", last_name: "Unkrich", password: "password", email: "brent@gmail.com", image: "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face%20logo.jpg")
+user2 = User.create(first_name: "Felcia", last_name: "torres", password: "password", email: "me@gmail.com", image: "https://image.shutterstock.com/z/stock-photo-crazy-cartoon-smiley-face-96786736.jpg" )
 
 trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 10.days.ago, end_date: 5.days.ago )
 
 trip2 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 5.days.ago, end_date: 2.days.ago )
 
 
-user1 = User.create(email: "brent@gmail.com", image: "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face%20logo.jpg")
-user2 = User.create(email: "me@gmail.com", image: "https://image.shutterstock.com/z/stock-photo-crazy-cartoon-smiley-face-96786736.jpg" )
   user1.trips = [trip1]
   user2.trips = [trip1]
 
@@ -38,7 +38,7 @@ nodateitem2 = user1.items.create!(category: "Restaurant", title: "ANOTHER NO DAT
 5.times do
   trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('20/6/2017'), end_date: Date.parse('28/6/2017'))
   5.times do
-    user = trip.users.create(email: Faker::Internet.email, image: Faker::Avatar.image)
+    user = trip.users.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "password", email: Faker::Internet.email, image: Faker::Avatar.image)
 
     item_night = user.items.create(title: "Brass Monkey", category: "Night Life", lookup: "ChIJKTdxRMBZwokRX1rAQPLPzlE", address: "55 Little West 12th St, New York, NY 10014", body: "SHOTS!", trip: trip, date: DateTime.new(2017, 6, 22), image: "http://www.therooftopguide.com/rooftop-bars-in-new-york/Bilder/TheBrassMonkey_2_slide.jpg")
 
