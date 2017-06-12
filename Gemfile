@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
 
+gem 'pry'
 gem 'activesupport'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

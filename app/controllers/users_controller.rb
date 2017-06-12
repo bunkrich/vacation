@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
+    binding.pry
     if @user.save
-      log_in @user
+      # log_in @user
       redirect_to '/'
     else
       @errors = @user.errors.full_messages
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-
+      params.require(:user).permit(:first_name,:last_name,:email, :password, :image)
     end
 end
