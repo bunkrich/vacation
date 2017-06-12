@@ -24,14 +24,14 @@ class ItemsController < ApplicationController
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       puts @item.inspect
       puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
-      redirect_to action: "show", id: @item.id
+      redirect_to "trips/#{trip.id}"
     else
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       puts @item.inspect
       puts "🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴"
       @trip = Trip.find_by(id: params[:trip_id])
-      @item = Item.new
-      @errors = ["Please fill out all fields"]
+      # @item = Item.new
+      @errors = @item.errors.full_messages
 
 
       puts @errors
