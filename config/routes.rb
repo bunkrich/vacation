@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
 
   get 'trips/:id/users/:id', to: 'users#profile'
-  get '/users/:id', to: 'users#show'
+  get '/users/:id', to: 'users#show', :as => :user
 
   resources :trips, except: [:index] do
     resources :comments, except: [:index]
