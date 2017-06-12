@@ -17,6 +17,9 @@ class VotesController < ApplicationController
   end
 
   def create
+    binding.pry
+    @vote = Vote.new(vote_params)
+
   end
 
   def update
@@ -27,4 +30,9 @@ class VotesController < ApplicationController
 
   def destroy
   end
+
+    private
+    def vote_params
+      params.require(:vote).permit(:up_down)
+    end
 end

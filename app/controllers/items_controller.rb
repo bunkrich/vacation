@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @vote = Vote.new
   end
 
   def new
@@ -10,9 +12,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    trip = Trip.find_by(id: params[:trip_id])
+    @trip = Trip.find_by(id: params[:trip_id])
+
     @item = current_user.items.new(item_params)
-    @item.trip = trip
+    @item.trip = @trip
+
     if @item.save
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       puts @item.inspect
@@ -45,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params
-    params.require(:item).permit(:title, :body, :address, :image, :date, :lookup, :category, :user, :trip)
-  end
+    def item_params
+      params.require(:item).permit(:title, :body, :address, :image, :date, :lookup, :category, :user, :trip)
+    end
 end

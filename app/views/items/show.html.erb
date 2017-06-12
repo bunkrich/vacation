@@ -12,7 +12,14 @@
             <p><%= @item.address %></p>
             <p>Added by: <%= @item.user.email %></p>
             <div id="item-vote">
-              <form id="vote-item-form">
+              <div class="testing">
+                <%= form_for [@trip, @item, @vote] do |f| %>
+                  <%= f.submit %>
+                <%end %>
+
+              </div>
+
+              <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
                 <input class="vote-button" type="submit" value="👍" />
                 <% total_vote = 0 %>
                 <% @item.votes.each do |vote| %>
