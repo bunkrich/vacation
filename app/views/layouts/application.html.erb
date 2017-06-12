@@ -13,7 +13,6 @@
     <div class="topnav">
       <%=link_to "My trips", '/' %>
       <%= link_to "RECESS HOME", root_path %>
-      <!-- revisit sign out, depends on our authentication-->
       <% if logged_in? %>
        <%=link_to "LOG OUT", logout_path, method: :delete %>
       <% else %>
