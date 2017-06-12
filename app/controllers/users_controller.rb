@@ -7,13 +7,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-        if @user.save
-          log_in @user
-          redirect_to '/'
-        else
-          @errors = @user.errors.full_messages
-          render 'new'
-        end
+      if @user.save
+        log_in @user
+        redirect_to '/'
+      else
+        @errors = @user.errors.full_messages
+        render 'new'
+      end
   end
 
   def show
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
     def user_params
 
     end
