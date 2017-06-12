@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @user = User.first
+    @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.new
   end
 
@@ -25,8 +27,6 @@ class ItemsController < ApplicationController
       @trip = Trip.find_by(id: params[:trip_id])
       # @item = Item.new
       @errors = @item.errors.full_messages
-
-
       puts @errors
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       puts @errors.empty?
