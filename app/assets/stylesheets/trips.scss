@@ -29,12 +29,14 @@ h4 {
 }
 
 .wrapper{
+    background-color: yellow;
     width:80%;
     margin-left:auto;
     margin-right:auto;
     overflow:hidden;
 }
 .box{
+    background-color: red;
     margin:5px;
     height:150px;
     width:150px;
@@ -64,13 +66,14 @@ a {
 }
 
 .interior {
+  background-color: blue;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
 .btn {
-  background-color: #fff;
+  background-color: green;
   padding: 1em 3em;
   border-radius: 3px;
   text-decoration: none;
