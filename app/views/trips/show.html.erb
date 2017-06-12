@@ -79,6 +79,7 @@
     <div class="no-date">
       <h1> Items WITH NO DATES</h1>
       <div class="wrapper">
+
         <%  @trip.items.where("date is null").each do |nodate| %>
           <div class="box">
             <%= nodate.title %>

@@ -4,6 +4,5 @@ class Item < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :comments, as: :commentable
 
-  validates :category, presence: true
-  validates :lookup, uniqueness: { scope: :trip_id }
+  validates :category,:title, presence: true
 end
