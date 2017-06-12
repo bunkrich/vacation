@@ -1,1 +1,4 @@
-<p>hey</p>
+<%= form_for [@trip, @comment] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit %>
+<% end %>

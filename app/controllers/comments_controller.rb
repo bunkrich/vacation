@@ -7,11 +7,28 @@ class CommentsController < ApplicationController
   end
 
   def new
-
+    user = User.first
+    @trip = Trip.find_by(id: params[:trip_id])
+    @comment = @trip.comments.new
   end
 
   def create
+    trip = Trip.find_by(id: params[:trip_id])
+    user = User.first
+    @comment = trip.comments.new(user_id: user.id, body: params[:comment][:body], trip_id: trip.id)
 
+    if @comment.save
+      puts "⭐️⭐️⭐️⭐️⭐️  COMMENT WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
+      puts @comment.inspect
+      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
+      redirect_to trip
+    else
+      puts "⭐️⭐️⭐️⭐️⭐️  FAIL ⭐️⭐️⭐️⭐️⭐️⭐️"
+      puts @comment.inspect
+      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
+      @trip = Trip.find_by(id: params[:trip_id])
+      @errors = @trip.errors.full_messages
+    end
   end
 
   def update
@@ -29,4 +46,9 @@ class CommentsController < ApplicationController
     redirect_to '/'
   end
 
+  private
+  def comment_params
+    defaults = {user: User.first}
+    params.require(:comment).permit(:body, :user, :trip)
+  end
 end
