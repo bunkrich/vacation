@@ -1,4 +1,6 @@
 <section id="item-new-other-form">
+  <%= render partial: '/errors' %>
+
   <%= form_for [@trip, @item] do |i| %>
     <div class="for-user-input">
       <div>
@@ -7,7 +9,7 @@
       </div>
 
       <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
-      
+
       <div>
         <p><%= i.label :category %></p>
         <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>

@@ -31,7 +31,15 @@ class ItemsController < ApplicationController
       puts "🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴"
       @trip = Trip.find_by(id: params[:trip_id])
       @item = Item.new
-      render 'new'
+      @errors = ["Please fill out all fields"]
+
+
+      puts @errors
+      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
+      puts @errors.empty?
+      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
+      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
+      render '/trips/show'
     end
   end
 

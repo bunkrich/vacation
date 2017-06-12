@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170609144625) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "body"
     t.string "address"
     t.string "image"
