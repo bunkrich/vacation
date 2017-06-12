@@ -16,13 +16,12 @@ ActiveRecord::Schema.define(version: 20170609144625) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string "commentable_type"
-    t.bigint "commentable_id", null: false
-    t.bigint "user_id", null: false
     t.text "body", null: false
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["trip_id"], name: "index_comments_on_trip_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170609144625) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "comments", "trips"
   add_foreign_key "comments", "users"
   add_foreign_key "items", "trips"
   add_foreign_key "items", "users"
