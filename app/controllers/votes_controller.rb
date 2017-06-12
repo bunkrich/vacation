@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+
   def show
     @vote = Vote.find(item_id: params[:id])
   end
@@ -17,9 +18,14 @@ class VotesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @vote = Vote.new(vote_params)
+    @vote = Vote.new(up_down: params[:up_down].to_i, item_id: params[:item_id], user: current_user)
+    @trip = params[:trip_id]
 
+    if @vote.save
+      redirect_to trip_item_path(@trip, @vote.item)
+
+      
+    end
   end
 
   def update
@@ -33,6 +39,6 @@ class VotesController < ApplicationController
 
     private
     def vote_params
-      params.require(:vote).permit(:up_down)
+      params.require(:vote).permit(:up_down, :item_id, :user_id)
     end
 end

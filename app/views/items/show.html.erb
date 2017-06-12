@@ -12,21 +12,16 @@
             <p><%= @item.address %></p>
             <p>Added by: <%= @item.user.email %></p>
             <div id="item-vote">
-              <div class="testing">
-                <%= form_for [@trip, @item, @vote] do |f| %>
-                  <%= f.submit %>
-                <%end %>
-
-              </div>
 
               <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
-                <input class="vote-button" type="submit" value="👍" />
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <button class="vote-button" type="submit" name="up_down" value="1"> 👍 </button>
                 <% total_vote = 0 %>
                 <% @item.votes.each do |vote| %>
                   <% total_vote += vote.up_down  %>
                 <% end %>
                 <input class="vote-count" type="text" value="<%= total_vote %> votes" />
-                <input class="vote-button" type="submit" value="👎" />
+                <button class="vote-button" type="submit" name="up_down" value="-1" >👎</button>
               </form>
             </div>
           </div>
