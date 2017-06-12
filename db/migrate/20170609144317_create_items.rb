@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[5.1]
   def change
     create_table :items do |t|
-      t.string :title
+      t.string :title, null: false
       t.text :body
       t.string :address
       t.string :image

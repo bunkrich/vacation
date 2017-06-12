@@ -1,10 +1,12 @@
 class TripsController < ApplicationController
   def show
+    @item = Item.new
     @trip = Trip.find_by(id: params[:id])
     redirect_to "/trips" unless @trip
   end
 
   def new
+    @trip = Trip.new
   end
 
   def create
@@ -36,7 +38,7 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
     @trip.destroy
 
-    redirect_to trips_path
+    redirect_to '/'
   end
 
   private

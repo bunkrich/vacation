@@ -18,12 +18,10 @@ h4 {
 }
 
 .map {
-    width: 300px;
-    border: 100px solid green;
-    padding: 25px;
-    margin: 25px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+    background-color: green;
+    height: 300px;
+    display: flex;
 }
 
 .drop-down {
@@ -31,12 +29,14 @@ h4 {
 }
 
 .wrapper{
+    background-color: yellow;
     width:80%;
     margin-left:auto;
     margin-right:auto;
     overflow:hidden;
 }
 .box{
+    background-color: red;
     margin:5px;
     height:150px;
     width:150px;
@@ -66,13 +66,14 @@ a {
 }
 
 .interior {
+  background-color: blue;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
 .btn {
-  background-color: #fff;
+  background-color: green;
   padding: 1em 3em;
   border-radius: 3px;
   text-decoration: none;
@@ -141,4 +142,46 @@ a {
 
 .item-image {
   max-width: 300px;
+}
+
+// ADDED FROM GOOGLE FOR THE GOOGLE SEARCH BAR FROM BRENT
+#locationField, #controls {
+  display: flex;
+}
+#item-new-google-maps-submit {
+  display: block;
+  margin: 20px;
+}
+#autocomplete {
+  margin-bottom: 3px;
+  text-align: center;
+  height: 30px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+#locationField {
+  height: 20px;
+  margin-bottom: 2px;
+}
+
+.not-for-user-input {
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:target {
+  display: block;
+}
+
+#toggle:target + .close {
+  display: block;
+}
+
+.close {
+  display: none;
 }

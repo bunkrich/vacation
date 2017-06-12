@@ -3,6 +3,5 @@ class Item < ApplicationRecord
   belongs_to :trip
   has_many :votes
 
-  validates :category, presence: true
-  validates :lookup, uniqueness: { scope: :trip_id }
+  validates :category,:title, presence: true
 end
