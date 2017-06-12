@@ -1,123 +1,139 @@
-
+<!-- INFO SECTION -->
 <section>
-<div class="container">
-  <h1><%= @trip.name %></h1>
-  <h4> <%= @trip.location %></h4>
-  <div class="date">
-    <span> <%= @trip.start_date.strftime("%A, %B %e") %> - <%= @trip.end_date.strftime("%A, %B %e")%></span>
-    <%= link_to 'Edit', edit_trip_path(@trip) %>
+  <div class="container">
+    <h1><%= @trip.name %></h1>
+    <h4> <%= @trip.location %></h4>
+    <div class="date">
+      <span> <%= @trip.start_date.strftime("%A, %B %e") %> - <%= @trip.end_date.strftime("%A, %B %e")%></span>
+      <%= link_to 'Edit', edit_trip_path(@trip) %>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="container">
 
+<!-- MAP SECTION -->
+<section>
   <div class="map">
     This is a map
   </div>
+</section>
 
-<!-- REVISIT THIS once there's a status on adding items on google maps -->
-  <!-- <div class="drop-down">
+
+<!-- SEARCH BAR SECTION -->
+<section>
+    <!-- REVISIT THIS once there's a status on adding items on google maps -->
+    <!-- <div class="drop-down">
     <form class="" action="index.html" method="post">
-      <select>
-        <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
-        <option value="1">URL</option>
-        <option value="2">Custom</option>
-      </select>
+    <select>
+    <option value="" disabled="disabled" selected="selected">What would you like to add?</option>
+    <option value="1">URL</option>
+    <option value="2">Custom</option>
+    </select>
     </form>
     <%= link_to 'new item', new_trip_item_path(@trip) %>
-  </div> -->
-<div class="drop-down">
-  <%= render partial: "items/form"%>
-</div>
+    </div> -->
+  <div class="drop-down">
+    <%= render partial: "items/form"%>
+  </div>
+
   <div id="toggle">
     <%= render partial: "items/form_other"%>
   </div>
   <a href="#" class="close">Close</a>
+</section>
 
 
-<div class="container day">
-  <div class="testing">
+<!-- TRIP TILE SECTION -->
+<section class="container day">
+  <!-- All the days of the trip -->
+  <div>
     <% @trip.start_date.upto@trip.end_date do |day| %>
-    <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
-
-  <div class="wrapper">
-    <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-      <div class="box modal">
-        <div class="interior">
-          <a class="btn" href="#open-modal"><%=item.title %></a>
-        </div>
-        <div id="open-modal" class="modal-window">
-          <div>
-            <a href="#modal-close" title="Close" class="modal-close">Close</a>
-            <h2><%=item.title %></h2>
-            <div> <%= item.body%></div>
+      <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
+      <div class="wrapper">
+        <!-- Each day of the trip -->
+        <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
+          <div class="box">
+            <div class="interior">
+              <a href="#open-modal"><%=item.title %></a>
             </div>
-        </div>
+
+            <!-- Where the model begins -->
+            <div id="open-modal" class="modal-window">
+              <div>
+                <a href="#modal-close" title="Close" class="modal-close">Close</a>
+                <h2><%= item.title %></h2>
+                <div>
+                  <%= item.body %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
       </div>
-
-      <%end%>
-    </div>
     <% end %>
+  </div>
 
-
+  <!-- No date yet -->
+  <div>
     <% if @trip.items.where("date is null") %>
     <div class="no-date">
       <h1> Items WITH NO DATES</h1>
       <div class="wrapper">
-      <%  @trip.items.where("date is null").each do |nodate| %>
-        <h5> display modal for each one here</h5>
+        <%  @trip.items.where("date is null").each do |nodate| %>
           <div class="box">
-            <li><%= nodate.title %></li>
+            <%= nodate.title %>
           </div>
-
-        </div>
-
-
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
-
     <% end %>
   </div>
-</div>
+</section>
 
 
-
-<div class="message">
-  <h3> Message Wall</h3>
-  <form class="message input" action="index.html" method="post">
-    <input type="text" name="" placeholder="Add to the conversation.."/>
-  </form>
-  <!-- display messages here -->
-  <div class="">
-    <input readonly= "readonly" type="text" name="" value="So excited to eat cookies">
-    <h5>
+<!-- MESSAGING SECTION -->
+<section>
+  <div class="message">
+    <h3> Message Wall</h3>
+    <form class="message input" action="index.html" method="post">
+      <input type="text" name="" placeholder="Add to the conversation.."/>
+    </form>
+    <!-- display messages here -->
+    <div class="">
+      <input readonly= "readonly" type="text" name="" value="So excited to eat cookies">
+      <h5>
       <img src="http://i.imgur.com/CAd6Wnm.jpg" alt="">
        Natalie Ruiz</h5>
-       <input readonly= "readonly" type="text" name="" value="Me too!">
-       <h5>
-         <img src="http://i.imgur.com/CAd6Wnm.jpg" alt="">
-        Alex Hill</h5>
+      <input readonly= "readonly" type="text" name="" value="Me too!">
+      <h5>
+      <img src="http://i.imgur.com/CAd6Wnm.jpg" alt="">
+      Alex Hill</h5>
+    </div>
   </div>
-</div>
-
-<div class="">
-  <h3>Friends</h3>
-  <div class="friend-box">
-    friend 1
-  </div>
-  <div class="friend-box">
-    friend 2
-  </div>
-  <div class="friend-box">
-    friend 3
-  </div>
-  <div class="friend-box">
-    friend 4
-  </div>
-  <button type="button" name="button">Add friends</button>
-</div>
 </section>
+
+
+<!-- FRIENDS SECTION -->
+<section>
+  <div class="">
+    <h3>Friends</h3>
+    <div class="friend-box">
+      friend 1
+    </div>
+    <div class="friend-box">
+      friend 2
+    </div>
+    <div class="friend-box">
+      friend 3
+    </div>
+    <div class="friend-box">
+      friend 4
+    </div>
+    <button type="button" name="button">Add friends</button>
+  </div>
+</section>
+
+<!-- TESTING -->
 <section class="testing">
   <p>Trips#show</p>
   <h2>THIS IS WHAT BRENT ADDED</h2>
@@ -169,5 +185,6 @@
     <% end %>
   </ul>
 
-</section>
+
+<!-- NEED FOR GOOGLE MAPS -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer></script>
