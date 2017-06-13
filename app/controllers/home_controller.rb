@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@trip = Trip.find_by(id: 4)
+  @trip = Trip.find_by(id: 4)
     @locations = []
     @trip.items.each do |i|
       @locations.push(i.lookup)
