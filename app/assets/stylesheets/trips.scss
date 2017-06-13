@@ -28,22 +28,6 @@ h4 {
   text-align: center;
 }
 
-.wrapper{
-    background-color: yellow;
-    width:80%;
-    margin-left:auto;
-    margin-right:auto;
-    overflow:hidden;
-}
-.box{
-    background-color: red;
-    margin:5px;
-    height:150px;
-    width:150px;
-    float:left;
-    border:solid 1px #000;
-}
-
 .message {
   margin: 0 10%;
 }
@@ -216,4 +200,47 @@ a {
       color: #D3D3D3;
     }
   }
+}
+
+
+/*Tiles*/
+
+.wrapper{
+    background-color: yellow;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:hidden;
+    height: 300px;
+}
+
+.box{
+    margin:5px;
+    height:225px;
+    width:225px;
+    float: left;
+}
+
+.info-overlay{
+  margin-top: -50px;
+  background-color: white;
+  opacity: .6;
+  padding-top: 1px;
+  p{
+  padding: 5px;
+  color: black;
+  opacity: 1 !important;
+  }
+}
+
+.tile-image{
+  z-index: -1;
+  height:225px;
+  width: 225px;
+}
+
+.voting{
+  position: absolute;
+  margin-left: 155px;
+  padding-top: 5px;
 }

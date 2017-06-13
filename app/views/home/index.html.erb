@@ -1,1 +1,57 @@
 <h1>INDEX</h1>
+
+
+<!-- TRIP TILE SECTION -->
+<section class="container day">
+  <!-- All the days of the trip -->
+  <div>
+    <% @trip.start_date.upto@trip.end_date do |day| %>
+      <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
+      <div class="wrapper">
+        <!-- Each day of the trip -->
+        <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
+          <div class="box">
+            <div class="interior">
+              <a href="#open-modal"><%=item.title %></a>
+            </div>
+
+            <!-- Where the model begins -->
+            <div id="open-modal" class="modal-window">
+              <div>
+                <a href="#modal-close" title="Close" class="modal-close">Close</a>
+                <h2><%= item.title %></h2>
+                <div>
+                  <%= item.body %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- No date yet -->
+  <div>
+    <% if @trip.items.where("date is null") %>
+    <div class="no-date">
+      <h1> Items WITH NO DATES</h1>
+      <div class="wrapper">
+
+        <%  @trip.items.where("date is null").each do |nodate| %>
+          <div class="box">
+          		<div class="voting">
+          		<img src="http://svgur.com/i/1wr.svg" class="upvote">
+          		<img src="http://svgur.com/i/1uw.svg" class="downvote">
+          		</div>
+          		<img src="<%= nodate.image %>" class="tile-image">
+	          	<div class="info-overlay">
+	            <p><%= nodate.title %></p>
+	            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
