@@ -402,16 +402,33 @@ function fillInAddress() {
   var address = place.formatted_address
   var title = place.name
 
-  document.getElementById('item_lookup').value = lookupID;
-  document.getElementById('item_image').value = imageURL;
-  document.getElementById('item_address').value = address;
-  document.getElementById('item_title').value = title;
+  if (document.getElementById('item_lookup') !=null) {
+		document.getElementById('item_lookup').value  = lookupID;
+	}
+	if (document.getElementById('trip_lookup') !=null) {
+		document.getElementById('trip_lookup').value  = lookupID;
+	}
+  if (document.getElementById('item_image') !=null) {
+		document.getElementById('item_image').value = imageURL;
+	}
+	if (document.getElementById('item_address') !=null) {
+		document.getElementById('item_address').value = address;
+	}
+	if (document.getElementById('trip_location') !=null) {
+		document.getElementById('trip_location').value = address;
+	}
+	if (document.getElementById('item_title') !=null) {
+		document.getElementById('item_title').value = title;
+	}
+	if (document.getElementById('trip_name') !=null) {
+		document.getElementById('trip_name').value = title;
+	}
 }
 
 function geolocate() {
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.
-  if (navigator.geolocation) {
+	if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(function(position) {
   		var geolocation = {
   			lat: position.coords.latitude,
