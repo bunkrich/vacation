@@ -1,0 +1,78 @@
+<script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+
+
+
+<script>
+Sortable.create(morning, {
+  group: 'morning',
+  animation: 100
+});
+
+Sortable.create(afternoon, {
+  group: {
+    name:'afternoon',
+    put: ['morning']},
+    animation: 100
+  });
+
+  Sortable.create(night, {
+    group: {
+      name: 'night',
+      put: ['morning', 'afternoon']
+    },
+    animation: 100
+  });
+
+  </script>
+
+
+tryhrthtghnj
+
+<p>This is the day page for   gugtfghfghdd <%= @trip.name %></p>
+<div class="container">
+  <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
+  <div class="weather">
+    <span>It is 81 degrees and sunny in <%= @trip.location%></span>
+  </div>
+</div>
+
+
+<div class="testing">
+  <div  class="morning">
+    <h3>Morning</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
+      <div id="morning" class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div  class="afternoon">
+    <h3> Afternoon</h3>
+    <div class="wrapper">
+
+    <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
+    <div id="afternoon" class="box">
+      <li><%= item.title %></li>
+    </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div  class="night">
+    <h3> Night</h3>
+    <div class="wrapper">
+      <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
+      <div id="night" class="box">
+        <li><%= item.title %></li>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="drop">
+  DROP
+</div>
