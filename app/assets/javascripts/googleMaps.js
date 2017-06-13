@@ -330,9 +330,6 @@ function initMapp() {
 
 		var service = new google.maps.places.PlacesService(map);
 
-    // interating through the array FROM Ruby
-
-
     //create empty LatLngBounds object
     var bounds = new google.maps.LatLngBounds();
 
@@ -374,10 +371,7 @@ function initMapp() {
 
 
 
-
-
-//AUTOCOMPLETE STUFF
-
+//AUTOCOMPLETE FOR ITEMS and NEW TRIP
 
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
