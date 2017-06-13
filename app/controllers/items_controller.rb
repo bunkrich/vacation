@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-      puts "🔴 EDIT EDIT 🔴 "
+    puts "🔴 EDIT EDIT 🔴 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
   end
