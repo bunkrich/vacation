@@ -11,7 +11,7 @@
 
   <body>
     <div class="topnav">
-      <%=link_to "My trips", '/' %>
+      <%=link_to "My trips", "/users/#{@user.id}" %>
       <%= link_to "RECESS HOME", root_path %>
       <% if logged_in? %>
        <%=link_to "LOG OUT", logout_path, method: :delete %>
