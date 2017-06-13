@@ -447,6 +447,7 @@ function initAutocomplete() {
         //extend the bounds to include each marker's position
         bounds.extend(marker.place.location);
         map.fitBounds(bounds);
+        
         infoWindow = new google.maps.InfoWindow();
         // map.setCenter(marker.getPosition());
         var address = result.adr_address;
