@@ -6,10 +6,13 @@ class TripsController < ApplicationController
     @locations = []
     if @trip.items.count > 0
       @trip.items.each do |t|
-        @locations.push(t.lookup)
+        if t.lookup
+          @locations.push(t.lookup)
+        end
       end
-    else
-      @locations.push(@trip.location)
+    end
+    if @locations.count < 1
+      @locations.push(@trip.lookup)
     end
     redirect_to "/trips" unless @trip
   end

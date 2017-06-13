@@ -6,6 +6,7 @@ class CreateTrips < ActiveRecord::Migration[5.1]
       t.string :description
       t.date :start_date
       t.date :end_date
+      t.string :lookup, null: false
 
       t.timestamps
     end
