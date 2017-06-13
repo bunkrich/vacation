@@ -12,19 +12,16 @@
 
       <div>
         <div>
-          <p><%= i.label :name %></p>
-          <p><%= i.text_field :name %></p>
+          <p><%= i.hidden_field :name %></p>
         </div>
 
 
         <div>
-          <p><%= i.label :lookup %></p>
-          <p><%= i.text_field :lookup %></p>
+          <p><%= i.hidden_field :lookup %></p>
         </div>
 
         <div>
-          <p><%= i.label :location %></p>
-          <p><%= i.text_field :location %></p>
+          <p><%= i.hidden_field :location %></p>
         </div>
 
         <div>
@@ -33,12 +30,12 @@
         </div>
         <div>
           <p><%= i.label :end_date %></p>
-          <p><%= date_field(:trip, :end_date, value: (Time.now + 10.days).strftime('%Y-%m-%d')) %></p>
+          <p><%= date_field(:trip, :end_date, value: (Time.now + 6.days).strftime('%Y-%m-%d')) %></p>
         </div>
 
         <div>
           <p><%= i.label :description %></p>
-          <p><%= i.text_field :description %></p>
+          <p><%= i.text_area :description %></p>
         </div>
       </div>
     <% end %>
