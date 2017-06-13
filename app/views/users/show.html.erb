@@ -1,7 +1,7 @@
 <h1>My Trips</h1>
 <center><img src="@user.image" alt="profile-picture"/></center>
 
-<% if current_user.trips %>
+<% if current_user.trips.length == 0 %>
   <span> You have not created any trips yet 🙁 ,  let's <%= link_to "create ", new_trip_path %>one! </span>
 <% else %>
   <% if current_trip %>
