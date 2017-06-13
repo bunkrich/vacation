@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
   # User profile
   def new
@@ -37,9 +39,21 @@ class UsersController < ApplicationController
   def invited
     @user = current_user
     @trip = Trip.find_by(id: params[:id])
-    InviteFriendsMailer.invite_email(params[:email]).deliver
+    InviteFriendsMailer.invite_email(params[:email], @trip).deliver
 
     redirect_to @trip
+  end
+
+  def new_traveler
+  end
+
+  def create_traveler
+  end
+
+  def login_traveler
+  end
+
+  def logging_in_traveler
   end
 
   private
