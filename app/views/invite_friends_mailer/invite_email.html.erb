@@ -7,7 +7,7 @@
   <body>
     <h1>You've been invited to join your friends on a trip!</h1>
     <p>
-      Please login or signup to view your itinerary.
+      Please login or <%= link_to "signup", :url => "/signup/trips/#{@trip.id}/new" %> to view your itinerary.
     </p>
   </body>
 </html>
