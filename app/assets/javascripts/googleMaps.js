@@ -388,11 +388,17 @@ function initAutocomplete() {
 }
 
 function fillInAddress() {
+	console.log("FILL IN ADDRESS")
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
 
   var lookupID = place.place_id;
-  var imageURL = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
+	console.log("PLACE DOT PLACE ID")
+
+	console.log (place.photos)
+	if (place.photos) {
+		var imageURL = place.photos[0].getUrl({'maxWidth': 800, 'maxHeight': 500})
+	}
   var address = place.formatted_address
   var title = place.name
 
@@ -402,9 +408,11 @@ function fillInAddress() {
 	if (document.getElementById('trip_lookup') !=null) {
 		document.getElementById('trip_lookup').value  = lookupID;
 	}
-  if (document.getElementById('item_image') !=null) {
-		document.getElementById('item_image').value = imageURL;
-	}
+		if (place.photos) {
+		  if (document.getElementById('item_image') !=null) {
+				document.getElementById('item_image').value = imageURL;
+			}
+		}
 	if (document.getElementById('item_address') !=null) {
 		document.getElementById('item_address').value = address;
 	}
