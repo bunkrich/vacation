@@ -29,11 +29,13 @@ class UsersController < ApplicationController
 
   # GET /trip/:id/invite/new
   def invitation
+    @user = current_user
     @trip = Trip.find_by(id: params[:id])
   end
 
   # POST /trip/:id/invite
   def invited
+    @user = current_user
     @trip = Trip.find_by(id: params[:id])
     InviteFriendsMailer.invite_email(params[:email]).deliver
   end

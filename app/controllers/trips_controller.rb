@@ -1,11 +1,13 @@
 class TripsController < ApplicationController
   def show
+    @user = current_user
     @item = Item.new
     @trip = Trip.find_by(id: params[:id])
     redirect_to "/trips" unless @trip
   end
 
   def new
+    @user = current_user
     @trip = Trip.new
   end
 
