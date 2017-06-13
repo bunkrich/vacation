@@ -37,8 +37,11 @@ class UsersController < ApplicationController
 
   # POST /trip/:id/invite
   def invited
+    @user = User.new
     @trip = Trip.find_by(id: params[:id])
-    InviteFriendsMailer.invite_email(params[:email]).deliver
+    p"============================"
+    p @trip
+    InviteFriendsMailer.invite_email(params[:email], @trip.id).deliver
 
     redirect_to @trip
   end
