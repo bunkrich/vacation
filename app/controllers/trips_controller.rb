@@ -4,8 +4,12 @@ class TripsController < ApplicationController
     @item = Item.new
     @trip = Trip.find_by(id: params[:id])
     @locations = []
-    @trip.items.each do |i|
-      @locations.push(i.lookup)
+    if @trip.items.count > 0
+      @trip.items.each do |t|
+        @locations.push(t.lookup)
+      end
+    else
+      @locations.push(@trip.location)
     end
     redirect_to "/trips" unless @trip
   end

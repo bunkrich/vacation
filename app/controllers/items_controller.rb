@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
-
     if @item.date
       @day = @item.date.strftime("%A, %B %e")
     else
@@ -59,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-      puts "🔴 EDIT EDIT 🔴 "
+    puts "🔴 EDIT EDIT 🔴 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
   end
