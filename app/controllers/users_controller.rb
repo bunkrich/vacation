@@ -68,10 +68,22 @@ class UsersController < ApplicationController
 
   # get '/login/trips/:id/new'
   def login_traveler
+    @trip = Trip.find(params[:id])
   end
 
   # post '/login/trips/:id'
   def logging_in_traveler
+    user = User.find_by(email: params[:user][:email])
+    @trip = Trip.find(params[:id])
+
+    if user && user.authenticate(params[:user][:password])
+      log_in user
+      Traveler.create(user: current_user, trip: @trip)
+      redirect_to '/'
+    else
+      @errors = ["Incorrect login information"]
+      render 'new'
+    end
   end
 
   private

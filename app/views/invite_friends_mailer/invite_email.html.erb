@@ -7,8 +7,9 @@
   <body>
     <h1>You've been invited to join your friends on a trip!</h1>
     <p>
-      <% url = "http://localhost:3000/signup/trips/"+ @trip + "/new" %>
-      Please login or <a href="<%=url%>">signup</a>
+      <% signup_url = "http://localhost:3000/signup/trips/"+ @trip + "/new" %>
+      <% login_url = "http://localhost:3000/login/trips/"+ @trip + "/new" %>
+      Please <a href="<%=login_url %>">login</a> or <a href="<%=signup_url%>">signup</a>
 
     </p>
   </body>
