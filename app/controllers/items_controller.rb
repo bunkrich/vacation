@@ -7,12 +7,13 @@ class ItemsController < ApplicationController
     if @item.date
       @day = @item.date.strftime("%A, %B %e")
     else
-      @day = ' '
+      @day = 'TBD'
     end
     @days = []
     @trip.start_date.upto@trip.end_date do |day|
       @days.push(day.strftime("%A, %B %e"))
     end
+    @days.push('TBD')
   end
 
   def new
