@@ -73,10 +73,10 @@ class UsersController < ApplicationController
 
   # post '/login/trips/:id'
   def logging_in_traveler
-    user = User.find_by(email: params[:session][:email])
+    user = User.find_by(email: params[:user][:email])
     @trip = Trip.find(params[:id])
 
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:user][:password])
       log_in user
       Traveler.create(user: current_user, trip: @trip)
       redirect_to '/'
