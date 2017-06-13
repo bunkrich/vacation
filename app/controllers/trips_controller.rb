@@ -23,8 +23,10 @@ class TripsController < ApplicationController
   end
 
   def create
+
     @trip = current_user.trips.new(trip_params)
     if @trip.save
+      Traveler.create(user: current_user, trip: @trip)
       redirect_to @trip
     else
       @errors = @trip.errors.full_messages

@@ -12,7 +12,7 @@
     <div class="topnav">
       <%= link_to "RECESS", root_path %>
       <% if logged_in? %>
-        <%=link_to "My trips", @user %>
+        <%=link_to "My trips", user_path(current_user) %>
         <%=link_to "Create New Trip", new_trip_path %>
         <%=link_to "LOG OUT", logout_path, method: :delete %>
       <% else %>
