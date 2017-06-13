@@ -11,13 +11,13 @@
   </ul>
 <% end %>
 
-<h3><%= @user.first_name %>'s Upcoming Trips:</h3>
+<h3>Upcoming Trips:</h3>
 <ul>
   <% @trips.where('start_date > ?', Date.today).each do |trip| %>
     <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
   <% end %>
 </ul>
-<h3><%= @user.first_name %>'s Past Trips:</h3>
+<h3>Past Trips:</h3>
 
 <ul>
   <% @trips.where('end_date < ?', Date.today).each do |trip| %>
