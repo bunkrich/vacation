@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
-
     if @item.date
       @day = @item.date.strftime("%A, %B %e")
     else
