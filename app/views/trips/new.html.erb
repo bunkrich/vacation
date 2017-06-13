@@ -1,47 +1,41 @@
-<div class="">
+<div id="new-trip-section">
   <h1>New Trip</h1>
   <%= render partial: '/errors' %>
   <div id="locationField">
     <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
   </div>
-
-    <%= form_for [@trip] do |i| %>
-      <div>
-        <%= i.submit %>
-      </div>
-
-      <div>
+  <section class="form">
+    <article class="form-wrapper">
+      <%= form_for [@trip] do |i| %>
         <div>
+          <%= i.submit %>
+        </div>
+        <div class="form-section">
           <p><%= i.label :name %></p>
           <p><%= i.text_field :name %></p>
         </div>
-
-
-        <div>
+        <div class="form-section">
           <p><%= i.label :lookup %></p>
           <p><%= i.text_field :lookup %></p>
         </div>
-
-        <div>
+        <div class="form-section">
           <p><%= i.label :location %></p>
           <p><%= i.text_field :location %></p>
         </div>
-
-        <div>
+        <div class="form-section">
           <p><%= i.label :start_date %></p>
           <p><%= date_field(:item, :start_date) %></p>
         </div>
-        <div>
+        <div class="form-section">
           <p><%= i.label :end_date %></p>
           <p><%= date_field(:item, :end_date) %></p>
         </div>
-
-        <div>
+        <div class="form-section">
           <p><%= i.label :description %></p>
           <p><%= i.text_field :description %></p>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </article>
   </section>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer></script>
