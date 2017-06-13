@@ -38,6 +38,8 @@ class UsersController < ApplicationController
     @user = current_user
     @trip = Trip.find_by(id: params[:id])
     InviteFriendsMailer.invite_email(params[:email]).deliver
+
+    redirect_to @trip
   end
 
   private
