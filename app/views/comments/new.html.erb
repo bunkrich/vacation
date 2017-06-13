@@ -1,4 +1,10 @@
 <%= form_for [@trip, @comment] do |f| %>
-  <%= f.text_field :body %>
-  <%= f.submit %>
+
+  <div>
+    <%= f.text_field :body %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
 <% end %>
