@@ -1,10 +1,15 @@
 <%=form_for(:session, url: login_path) do |f|%>
 
 <%= render partial: '/errors' %>
-
+<div>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.email_field :email %>
+</div>
+<div>
   <%= f.label :password %>
   <%= f.password_field :password %>
+</div>
+<div>
   <%= f.submit "Login"%>
+</div>
 <% end %>
