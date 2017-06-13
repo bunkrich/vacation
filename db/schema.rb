@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170609144625) do
     t.string "description"
     t.date "start_date"
     t.date "end_date"
+    t.string "lookup", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

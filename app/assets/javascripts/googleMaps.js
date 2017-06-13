@@ -1,6 +1,7 @@
 //MAPS STUFF
 function initMapp() {
 	var map = new google.maps.Map(document.getElementById('map'), {
+		maxZoom: 12,
 		mapTypeId: 'roadmap',
 		styles:       [
 		{
@@ -356,7 +357,7 @@ function initMapp() {
         //extend the bounds to include each marker's position
         bounds.extend(marker.place.location);
         map.fitBounds(bounds);
-        
+
         infoWindow = new google.maps.InfoWindow();
         // map.setCenter(marker.getPosition());
         var address = result.adr_address;
