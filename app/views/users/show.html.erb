@@ -1,5 +1,13 @@
-<h1><%= @user.first_name %> Profile</h1>
+<h1>My Trips</h1>
 <center><img src="@user.image" alt="profile-picture"/></center>
+
+
+<h3>Current Trip:</h3>
+<% if current_user.trips.where('start_date <= ?', Date.today).where('end_date >= ?', Date.today).each do |trip| %>
+    <li> <%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li> </li>
+    <%end %>
+<% end %>
+
 <h3><%= @user.first_name %>'s Upcoming Trips:</h3>
 <ul>
   <% @trips.where('start_date > ?', Date.today).each do |trip| %>
