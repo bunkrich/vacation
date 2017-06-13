@@ -40,12 +40,25 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @trip = Trip.find_by(id: params[:trip_id])
+    @item = Item.find_by(id: params[:id])
+    if @item.update_attributes(item_params)
+      redirect_to action: "show", id: @item.id
+    else
+      render 'edit'
+    end
   end
 
   def edit
+    @trip = Trip.find_by(id: params[:trip_id])
+    @item = Item.find_by(id: params[:id])
   end
 
   def destroy
+    @trip = Trip.find_by(id: params[:trip_id])
+    @item = Item.find_by(id: params[:id])
+    @item.destroy
+    redirect_to @trip
   end
 
   private
