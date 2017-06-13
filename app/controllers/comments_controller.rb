@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     trip = Trip.find_by(id: params[:trip_id])
-    user = User.first
+    user = current_user
     @comment = trip.comments.new(user_id: user.id, body: params[:comment][:body], trip_id: trip.id)
 
     if @comment.save
