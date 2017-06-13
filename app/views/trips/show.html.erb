@@ -108,19 +108,17 @@
 <section>
   <div class="">
     <h3>Friends</h3>
-    <div class="friend-box">
-      friend 1
-    </div>
-    <div class="friend-box">
-      friend 2
-    </div>
-    <div class="friend-box">
-      friend 3
-    </div>
-    <div class="friend-box">
-      friend 4
-    </div>
-    <a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a>
+    <% if @trip.users.count == 0 %>
+      <p>No travellers yet!</p>
+    <% else %>
+      <% @trip.users.each do |friend| %>
+        <div class="friend-box">
+          <img src="<%= friend.image %>" />
+          <p><%= friend.first_name%> <%= friend.last_name %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <p><a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
   </div>
 </section>
 
