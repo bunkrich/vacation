@@ -45,9 +45,20 @@ class UsersController < ApplicationController
   end
 
   def new_traveler
+    @trip = Trip.find(params[:id])
   end
 
   def create_traveler
+    @trip = Trip.find(params[:id])
+    @user = @trip.users.new(user_params)
+
+    if @user.save
+      log_in @user
+      redirect_to '@trip'
+    else
+      @errors = @user.errors.full_messages
+      render 'new'
+    end
   end
 
   def login_traveler

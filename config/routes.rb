@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/signup/trip/:id/new', to: 'users#new_traveler'
-  post '/signup/trip/:id', to: 'users#create_traveler'
-  get '/login/trip/:id/new', to: 'users#login_traveler'
-  post '/login/trip/:id', to: 'users#logging_in_traveler'
+  get '/signup/trips/:id/new', to: 'users#new_traveler'
+  post '/signup/trips/:id', to: 'users#create_traveler'
+  get '/login/trips/:id/new', to: 'users#login_traveler'
+  post '/login/trips/:id', to: 'users#logging_in_traveler'
 
 
   get 'trips/:id/users/:id', to: 'users#profile'
