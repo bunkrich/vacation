@@ -28,6 +28,7 @@
 </section>
 
 
+
 <!-- TRIP TILE SECTION -->
 <section class="container day">
   <!-- All the days of the trip -->
@@ -67,7 +68,28 @@
 
         <%  @trip.items.where("date is null").each do |nodate| %>
           <div class="box">
-            <%= nodate.title %>
+
+              <div class="voting">
+              <form method="post" action= "/trips/<%=@trip.id%>/items/<%=nodate.id%>/votes" id="vote-item-form">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
+                <% total_vote = 0 %>
+                <% nodate.votes.each do |vote| %>
+                  <% total_vote += vote.up_down  %>
+                <% end %>
+
+                <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
+              </form>
+              </div>
+              <img src="<%= nodate.image %>" class="tile-image">
+              <div class="info-overlay">
+              <%= nodate.title %>
+              <div class="dropdown">
+              <img src="http://svgur.com/i/1w0.svg" class="cal-button">
+              </div>
+              </div>
+
+
           </div>
         <% end %>
       </div>
