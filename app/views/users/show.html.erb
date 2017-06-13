@@ -2,14 +2,14 @@
 <center><img src="@user.image" alt="profile-picture"/></center>
 <h3><%= @user.first_name %>'s Upcoming Trips:</h3>
 <ul>
-  <% @trips.each do |trip| %>
-    <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%m/%d/%Y") %> until <%= trip.end_date.strftime("%m/%d/%Y") %></li>
+  <% @trips.where('start_date > ?', Date.today).each do |trip| %>
+    <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
   <% end %>
 </ul>
 <h3><%= @user.first_name %>'s Past Trips:</h3>
-<!-- We can filter by start_date for things that are ealier than today's date and iterate through them below. For harcoding purposes, I'm just iterating through all of the user's events -->
+
 <ul>
-  <% @trips.each do |trip| %>
-    <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%m/%d/%Y") %> until <%= trip.end_date.strftime("%m/%d/%Y") %></li>
+  <% @trips.where('end_date < ?', Date.today).each do |trip| %>
+    <li><%= trip.name %> in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
   <% end %>
 </ul>
