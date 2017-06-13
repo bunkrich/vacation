@@ -1,14 +1,14 @@
 <h1>My Trips</h1>
 <center><img src="@user.image" alt="profile-picture"/></center>
 
-<% if current_user.trips %>
+<% if current_user.trips.length == 0 %>
   <span> You have not created any trips yet 🙁 ,  let's <%= link_to "create ", new_trip_path %>one! </span>
 <% else %>
   <% if current_trip %>
     <% current_trip.each do |trip| %>
   <ul>
   <h3>Current Trip:</h3>
-      <li> <%= link_to trip.name, trip_path(trip) %> in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li> </li>
+      <li> <%= link_to trip.name, trip_path(trip)  %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li> </li>
       <%end %>
     </ul>
   <% end %>
@@ -16,7 +16,7 @@
   <h3>Upcoming Trips:</h3>
   <ul>
     <% @trips.where('start_date > ?', Date.today).each do |trip| %>
-      <li><%= link_to trip.name, trip_path(trip) %>in <%= trip.location %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
+      <li><%= link_to trip.name, trip_path(trip) %>  from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
     <% end %>
   </ul>
   <h3>Past Trips:</h3>
