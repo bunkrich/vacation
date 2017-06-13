@@ -3,10 +3,9 @@ require 'faker'
 user1 = User.create(first_name: "Brent", last_name: "Unkrich", password: "password", password_confirmation: "password", email: "brent@gmail.com", image: "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face%20logo.jpg")
 user2 = User.create(first_name: "Felcia", last_name: "torres", password: "password", password_confirmation: "password", email: "me@gmail.com", image: "https://image.shutterstock.com/z/stock-photo-crazy-cartoon-smiley-face-96786736.jpg" )
 
-trip1 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 10.days.ago, end_date: 5.days.ago )
+trip1 = Trip.create(name: "Party Weekend", lookup: "ChIJOwg_06VPwokRYv534QaPC8g", location: "New York", description: "WOOOOO!", start_date: 10.days.ago, end_date: 5.days.ago )
 
-trip2 = Trip.create(name: "Party Weekend", location: "New York", description: "WOOOOO!", start_date: 5.days.ago, end_date: 2.days.ago )
-
+trip2 = Trip.create(name: "Party Weekend", lookup: "ChIJCSF8lBZEwokRhngABHRcdoI", location: "New York", description: "WOOOOO!", start_date: 5.days.ago, end_date: 2.days.ago )
 
   user1.trips = [trip1]
   user2.trips = [trip1]
@@ -25,7 +24,6 @@ lodge = user1.items.create(category: "Lodge", title: "my hotel", body: "Hotel in
   item2.votes.create(user: user1, up_down: -1)
   item2.votes.create(user: user2, up_down: -1)
 
-
 item3 = user1.items.create(category: "restaurant", title:"yummy Restaurant 1" , body: "I really love the variety", trip: trip1, date: 9.days.ago.at_midday)
 
 item4 = user1.items.create!(category: "Restaurant", title: "Another Restaurant", body: "Food is my favorite", trip: trip1, date: 8.days.ago.at_midday)
@@ -36,7 +34,7 @@ nodateitem1 = user1.items.create!(category: "Restaurant", title: "no date item",
 nodateitem2 = user1.items.create!(category: "Restaurant", title: "ANOTHER NO DATE item", body: "i ahve no date :()", trip: trip1)
 
 5.times do
-  trip = Trip.create(name: Faker::Hipster.sentence, location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('20/6/2017'), end_date: Date.parse('28/6/2017'))
+  trip = Trip.create(name: Faker::Hipster.sentence, lookup: "ChIJEcHIDqKw2YgRZU-t3XHylv8", location: Faker::Friends.location, description: Faker::Friends.quote, start_date: Date.parse('20/6/2017'), end_date: Date.parse('28/6/2017'))
   5.times do
     user = trip.users.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "password", password_confirmation: "password", email: Faker::Internet.email, image: Faker::Avatar.image)
 

@@ -6,10 +6,13 @@ class TripsController < ApplicationController
     @locations = []
     if @trip.items.count > 0
       @trip.items.each do |t|
-        @locations.push(t.lookup)
+        if t.lookup
+          @locations.push(t.lookup)
+        end
       end
-    else
-      @locations.push(@trip.location)
+    end
+    if @locations.count < 1
+      @locations.push(@trip.lookup)
     end
     redirect_to "/trips" unless @trip
   end
@@ -20,9 +23,10 @@ class TripsController < ApplicationController
   end
 
   def create
+
     @trip = current_user.trips.new(trip_params)
     if @trip.save
-      traveler = Traveler.create(user_id: current_user.id, trip_id: @trip.id)
+      Traveler.create(user: current_user, trip: @trip)
       redirect_to @trip
     else
       @errors = @trip.errors.full_messages
