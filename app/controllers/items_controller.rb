@@ -4,15 +4,14 @@ class ItemsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
 
-puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
+    if @item.date
+      @day = @item.date.strftime("%A, %B %e")
+    else
+      @day = ' '
+    end
+    @days = []
     @trip.start_date.upto@trip.end_date do |day|
-      puts @trip.id
-      puts day.strftime("%A, %B %e")
-      puts @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item|
-      puts   item.title
-      puts   item.body
-      puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
-      end
+      @days.push(day.strftime("%A, %B %e"))
     end
   end
 
@@ -24,7 +23,6 @@ puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
 
   def create
     @trip = Trip.find_by(id: params[:trip_id])
-
     @item = current_user.items.new(item_params)
     @item.trip = @trip
 
@@ -49,6 +47,7 @@ puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
   end
 
   def update
+    puts "🔴 UPDATE🔴 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
     if @item.update_attributes(item_params)
@@ -59,6 +58,7 @@ puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
   end
 
   def edit
+      puts "🔴 EDIT EDIT 🔴 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
   end

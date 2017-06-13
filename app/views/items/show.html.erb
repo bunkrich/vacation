@@ -1,5 +1,6 @@
 <div id="item-section">
   <div class="wrapper">
+    <%= link_to 'Trip', :back %>
     <div id="item-container">
       <div id="image-details">
         <div id="item-image">
@@ -25,37 +26,16 @@
               </form>
             </div>
             <%= link_to 'Edit Item', edit_trip_item_path %>
-
             <%= form_for [@trip, @item] do |i| %>
               <div>
-
-
-                <div>
-                  <p><%= i.label :date %></p>
-                  <p><%= date_field(:item, :date) %></p>
-                </div>
-                <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
-
-                <div>
-                  <p><%= i.label :category %></p>
-                  <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
-                </div>
-
-
-
-
-
-
-
-
-
-                <div id="item-new-other-submit">
-                  <%= i.submit %>
-                </div>
-
+                <p><%= i.label :Day %></p>
+                <% if @item.date %>
+                  <%= i.select :date, @days, { :selected => @day }, { :onchange => "this.form.submit()" } %>
+                <% else %>
+                  <%= i.select :date, @days, {:include_blank => ''}, { :onchange => "this.form.submit()" } %>
+                  <% end %>
               </div>
             <% end %>
-
           </div>
         </div>
       </div>
