@@ -29,11 +29,11 @@
 
         <div>
           <p><%= i.label :start_date %></p>
-          <p><%= date_field(:trip, :start_date) %></p>
+          <p><%= date_field(:trip, :start_date, value: Time.now.strftime('%Y-%m-%d')) %></p>
         </div>
         <div>
           <p><%= i.label :end_date %></p>
-          <p><%= date_field(:trip, :end_date) %></p>
+          <p><%= date_field(:trip, :end_date, value: (Time.now + 10.days).strftime('%Y-%m-%d')) %></p>
         </div>
 
         <div>
