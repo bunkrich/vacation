@@ -1,3 +1,19 @@
+<!-- INFO SECTION -->
+<section>
+  <div class="container">
+    <h1><%= @trip.name %></h1>
+    <h4> <%= @trip.location %></h4>
+
+  </div>
+</section>
+
+
+<!-- MAP SECTION -->
+<%= render "trips/map.html.erb"%>
+
+
+
+
 <p>This is the day page for <%= @trip.name %></p>
 <div class="container">
   <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
@@ -46,3 +62,5 @@
 <div class="drop">
   DROP
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer></script>

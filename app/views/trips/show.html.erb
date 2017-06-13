@@ -35,7 +35,7 @@
   <div>
     <% @trip.start_date.upto@trip.end_date do |day| %>
       <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
-      <div class="wrapper">
+      <div class="item-wrapper">
         <!-- Each day of the trip -->
         <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
           <div class="box">
@@ -59,12 +59,13 @@
     <% end %>
   </div>
 
+
   <!-- No date yet -->
   <div>
     <% if @trip.items.where("date is null") %>
     <div class="no-date">
       <h1> Items WITH NO DATES</h1>
-      <div class="wrapper">
+      <div class="item-wrapper">
 
         <%  @trip.items.where("date is null").each do |nodate| %>
           <div class="box">
@@ -130,73 +131,19 @@
 <section>
   <div class="">
     <h3>Friends</h3>
-    <div class="friend-box">
-      friend 1
-    </div>
-    <div class="friend-box">
-      friend 2
-    </div>
-    <div class="friend-box">
-      friend 3
-    </div>
-    <div class="friend-box">
-      friend 4
-    </div>
-    <button type="button" name="button">Add friends</button>
+    <% if @trip.users.count == 0 %>
+      <p>No travellers yet!</p>
+    <% else %>
+      <% @trip.users.each do |friend| %>
+        <div class="friend-box">
+          <img src="<%= friend.image %>" />
+          <p><%= friend.first_name%> <%= friend.last_name %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <p><a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
   </div>
 </section>
-
-<!-- TESTING -->
-<section class="testing">
-  <p>Trips#show</p>
-  <h2>THIS IS WHAT BRENT ADDED</h2>
-  <p>Find me in app/views/trips/show.html.erb</p>
-  <h3>NAME: <%= @trip.name %></h3>
-  <h3>LOCATION: <%= @trip.location %></h3>
-  <h3>DESCRIPTION: <%= @trip.description %></h3>
-
-
-  <h3>COMMENTS: </h3>
-  <% if @trip.comments %>
-    <ul>
-      <% @trip.comments.each do |c| %>
-        <li><%= c.user.email %> | <%= c.body %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  
-  <h3>USERS: </h3>
-  <ul>
-    <% @trip.users.each do |u| %>
-      <li><%= u.email %></li>
-    <% end %>
-  </ul>
-
-  <h3>ITEMS: </h3>
-  <ul>
-    <% @trip.items.each do |i| %>
-    <% if i.title %>
-    <h3>TITLE: <%= i.title %></h3>
-    <% end %>
-      <h5>BODY: <%= i.body %></h5>
-      <ul>
-        <li>CATEGORY: <%= i.category %> | <%= i.user.email %></li>
-
-        <% if i.date %>
-          <li>DATE: <%= i.date %></li>
-        <% end %>
-
-        <% if i.votes %>
-        <li>VOTES: <%= i.votes.count %></li>
-        <% end %>
-
-        <% if i.image %>
-          <img class="item-image" src="<%= i.image %>" alt="">
-        <% end %>
-      </ul>
-    <% end %>
-  </ul>
-
 
 <!-- NEED FOR GOOGLE MAPS -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer></script>

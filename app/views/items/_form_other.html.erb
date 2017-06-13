@@ -15,8 +15,8 @@
         <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
       </div>
 
-      <div>
-        <p><%= i.label :url %></p>
+      <div class="not-for-user-input">
+        <p><%= i.label :lookup %></p>
         <p><%= i.text_field :lookup %></p>
       </div>
 
@@ -25,8 +25,8 @@
         <p><%= i.text_field :address %></p>
       </div>
 
-      <div class="not-for-user-input">
-        <p><%= i.label :image %></p>
+      <div>
+        <p><%= i.label "URL" %></p>
         <p><%= url_field(:item, :image) %></p>
       </div>
 

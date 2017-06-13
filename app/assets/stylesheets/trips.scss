@@ -42,11 +42,21 @@ h4 {
 }
 
 .friend-box{
-  margin:5px;
-  height:80px;
-  width:80px;
-  float:left;
   border:solid 1px #000;
+  display: inline-block;
+  height:125px;
+  margin:5px;
+  width:125px;
+
+  img {
+    height: 100px;
+    width: 125px;
+  }
+
+  p {
+    margin-top: 0px;
+    text-align: center;
+  }
 }
 
 

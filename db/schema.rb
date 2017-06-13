@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20170609144625) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body", null: false
-    t.bigint "trip_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "trip_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_comments_on_trip_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170609144625) do
     t.string "description"
     t.date "start_date"
     t.date "end_date"
+    t.string "lookup", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,8 +73,8 @@ ActiveRecord::Schema.define(version: 20170609144625) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "up_down", null: false
-    t.bigint "item_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "item_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_votes_on_item_id"

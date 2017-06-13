@@ -1,5 +1,6 @@
 <div id="item-section">
   <div class="wrapper">
+    <%= link_to 'Trip', trip_path(@trip) %>
     <div id="item-container">
       <div id="image-details">
         <div id="item-image">
@@ -24,6 +25,17 @@
                 <button class="vote-button" type="submit" name="up_down" value="-1" >👎</button>
               </form>
             </div>
+            <%= link_to 'Edit Item', edit_trip_item_path %>
+            <%= form_for [@trip, @item] do |i| %>
+              <div>
+                <p><%= i.label :Day %></p>
+                <% if @item.date %>
+                  <%= i.select :date, @days, { :selected => @day }, { :onchange => "this.form.submit()" } %>
+                <% else %>
+                  <%= i.select :date, @days, {:include_blank => ''}, { :onchange => "this.form.submit()" } %>
+                  <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

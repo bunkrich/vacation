@@ -1,6 +1,7 @@
 //MAPS STUFF
 function initMapp() {
 	var map = new google.maps.Map(document.getElementById('map'), {
+		maxZoom: 12,
 		mapTypeId: 'roadmap',
 		styles:       [
 		{
@@ -329,9 +330,6 @@ function initMapp() {
 
 		var service = new google.maps.places.PlacesService(map);
 
-    // interating through the array FROM Ruby
-
-
     //create empty LatLngBounds object
     var bounds = new google.maps.LatLngBounds();
 
@@ -356,7 +354,7 @@ function initMapp() {
         //extend the bounds to include each marker's position
         bounds.extend(marker.place.location);
         map.fitBounds(bounds);
-        
+
         infoWindow = new google.maps.InfoWindow();
         // map.setCenter(marker.getPosition());
         var address = result.adr_address;
@@ -373,10 +371,7 @@ function initMapp() {
 
 
 
-
-
-//AUTOCOMPLETE STUFF
-
+//AUTOCOMPLETE FOR ITEMS and NEW TRIP
 
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
@@ -401,16 +396,33 @@ function fillInAddress() {
   var address = place.formatted_address
   var title = place.name
 
-  document.getElementById('item_lookup').value = lookupID;
-  document.getElementById('item_image').value = imageURL;
-  document.getElementById('item_address').value = address;
-  document.getElementById('item_title').value = title;
+  if (document.getElementById('item_lookup') !=null) {
+		document.getElementById('item_lookup').value  = lookupID;
+	}
+	if (document.getElementById('trip_lookup') !=null) {
+		document.getElementById('trip_lookup').value  = lookupID;
+	}
+  if (document.getElementById('item_image') !=null) {
+		document.getElementById('item_image').value = imageURL;
+	}
+	if (document.getElementById('item_address') !=null) {
+		document.getElementById('item_address').value = address;
+	}
+	if (document.getElementById('trip_location') !=null) {
+		document.getElementById('trip_location').value = address;
+	}
+	if (document.getElementById('item_title') !=null) {
+		document.getElementById('item_title').value = title;
+	}
+	if (document.getElementById('trip_name') !=null) {
+		document.getElementById('trip_name').value = title;
+	}
 }
 
 function geolocate() {
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.
-  if (navigator.geolocation) {
+	if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(function(position) {
   		var geolocation = {
   			lat: position.coords.latitude,

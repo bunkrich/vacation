@@ -39,7 +39,7 @@
        -moz-box-sizing: border-box;
        outline: none;
        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-       background-color: #fff;		
+       background-color: #fff;
        font-family: Roboto;
      }
 
@@ -85,14 +85,16 @@
        width: 345px;
      }
    </style>
-    <div id="map"></div>
+
+  <div id="map"></div>
+
   <script>
     places = []
     "<% @locations.each do |d| %>"
-    var x = "<%= d %>"
-    places.push(x)
+      var x = "<%= d %>"
+      places.push(x)
     "<% end %>"
   </script>
-<!-- 
+<!--
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initMapp"
          async defer></script> -->
