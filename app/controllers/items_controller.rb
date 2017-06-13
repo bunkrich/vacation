@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @vote = Vote.new
   end
 
   def new
@@ -10,15 +12,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    user = User.first
-    trip = Trip.find_by(id: params[:trip_id])
-    @item = user.items.new(item_params)
-    @item.trip = trip
+    @trip = Trip.find_by(id: params[:trip_id])
+
+    @item = current_user.items.new(item_params)
+    @item.trip = @trip
+
     if @item.save
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       puts @item.inspect
       puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
-      vote = @item.votes.create(up_down: 0, user: user)
+      vote = @item.votes.create(up_down: 0, user: current_user)
       redirect_to action: "show", id: @item.id
     else
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
@@ -46,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params
-    params.require(:item).permit(:title, :body, :address, :image, :date, :lookup, :category, :user, :trip)
-  end
+    def item_params
+      params.require(:item).permit(:title, :body, :address, :image, :date, :lookup, :category, :user, :trip)
+    end
 end

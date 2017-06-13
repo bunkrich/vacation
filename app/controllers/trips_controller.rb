@@ -3,6 +3,10 @@ class TripsController < ApplicationController
     @user = current_user
     @item = Item.new
     @trip = Trip.find_by(id: params[:id])
+    @locations = []
+    @trip.items.each do |i|
+      @locations.push(i.lookup)
+    end
     redirect_to "/trips" unless @trip
   end
 
