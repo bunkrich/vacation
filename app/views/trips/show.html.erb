@@ -58,6 +58,7 @@
     <% end %>
   </div>
 
+
   <!-- No date yet -->
   <div>
     <% if @trip.items.where("date is null") %>
@@ -121,58 +122,6 @@
     <p><a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
   </div>
 </section>
-
-<!-- TESTING -->
-<section class="testing">
-  <p>Trips#show</p>
-  <h2>THIS IS WHAT BRENT ADDED</h2>
-  <p>Find me in app/views/trips/show.html.erb</p>
-  <h3>NAME: <%= @trip.name %></h3>
-  <h3>LOCATION: <%= @trip.location %></h3>
-  <h3>DESCRIPTION: <%= @trip.description %></h3>
-
-
-  <h3>COMMENTS: </h3>
-  <% if @trip.comments %>
-    <ul>
-      <% @trip.comments.each do |c| %>
-        <li><%= c.user.email %> | <%= c.body %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <h3>USERS: </h3>
-  <ul>
-    <% @trip.users.each do |u| %>
-      <li><%= u.email %></li>
-    <% end %>
-  </ul>
-
-  <h3>ITEMS: </h3>
-  <ul>
-    <% @trip.items.each do |i| %>
-    <% if i.title %>
-    <h3>TITLE: <%= i.title %></h3>
-    <% end %>
-      <h5>BODY: <%= i.body %></h5>
-      <ul>
-        <li>CATEGORY: <%= i.category %> | <%= i.user.email %></li>
-
-        <% if i.date %>
-          <li>DATE: <%= i.date %></li>
-        <% end %>
-
-        <% if i.votes %>
-        <li>VOTES: <%= i.votes.count %></li>
-        <% end %>
-
-        <% if i.image %>
-          <img class="item-image" src="<%= i.image %>" alt="">
-        <% end %>
-      </ul>
-    <% end %>
-  </ul>
-
 
 <!-- NEED FOR GOOGLE MAPS -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer></script>
