@@ -24,7 +24,38 @@
                 <button class="vote-button" type="submit" name="up_down" value="-1" >👎</button>
               </form>
             </div>
-            <%= link_to 'Edit Item', edit_trip_item_path %>  
+            <%= link_to 'Edit Item', edit_trip_item_path %>
+
+            <%= form_for [@trip, @item] do |i| %>
+              <div>
+
+
+                <div>
+                  <p><%= i.label :date %></p>
+                  <p><%= date_field(:item, :date) %></p>
+                </div>
+                <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
+
+                <div>
+                  <p><%= i.label :category %></p>
+                  <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="item-new-other-submit">
+                  <%= i.submit %>
+                </div>
+
+              </div>
+            <% end %>
+
           </div>
         </div>
       </div>
