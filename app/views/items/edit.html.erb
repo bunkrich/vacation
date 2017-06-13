@@ -1,1 +1,53 @@
 <h1>Items edit page</h1>
+<section id="item-new-other-form">
+  <%= render partial: '/errors' %>
+
+  <%= form_for [@trip, @item] do |i| %>
+    <div>
+      <div>
+        <p><%= i.label :title %></p>
+        <p><%= i.text_field :title, :required => true %></p>
+      </div>
+
+      <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
+
+      <div>
+        <p><%= i.label :category %></p>
+        <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :Google_Lookup %></p>
+        <p><%= i.text_field :lookup %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :address %></p>
+        <p><%= i.text_field :address %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :image %></p>
+        <p><%= url_field(:item, :image) %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :date %></p>
+        <p><%= date_field(:item, :date) %></p>
+      </div>
+
+      <div>
+        <p><%= i.label :info %></p>
+        <p><%= i.text_field :body %></p>
+      </div>
+
+      <div id="item-new-other-submit">
+        <%= i.submit %>
+      </div>
+
+      <div>
+      <%= link_to("Delete Item", trip_item_path, method: :delete) %>
+<div>
+    </div>
+  <% end %>
+</section>
