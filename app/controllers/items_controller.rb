@@ -3,6 +3,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
+
+puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
+    @trip.start_date.upto@trip.end_date do |day|
+      puts @trip.id
+      puts day.strftime("%A, %B %e")
+      puts @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item|
+      puts   item.title
+      puts   item.body
+      puts "⭐️⭐️⭐️⭐️⭐️  ⭐️⭐️⭐️⭐️⭐️⭐️"
+      end
+    end
   end
 
   def new
@@ -33,8 +44,6 @@ class ItemsController < ApplicationController
       puts @errors
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       puts @errors.empty?
-      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
-      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       render '/trips/show'
     end
   end
