@@ -1,5 +1,14 @@
 <section id="day-details">
-  <article id="details-wrapper">
+  <article id="details-name-location">
+    <div class="container">
+      <h1><%= @trip.name %></h1>
+      <h4> <%= @trip.location %></h4>
+    </div>
+  </article>
+  <article id="details-map">
+    <%= render "trips/map.html.erb"%>
+  </article>
+  <article id="details-weather">
     <div class="container">
       <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
       <div class="weather">
@@ -46,3 +55,5 @@
     </div>
   </article>
 </section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer></script>

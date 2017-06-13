@@ -24,11 +24,11 @@
         </div>
         <div class="form-section">
           <p><%= i.label :start_date %></p>
-          <p><%= date_field(:item, :start_date) %></p>
+          <p><%= date_field(:trip, :start_date, value: Time.now.strftime('%Y-%m-%d')) %></p>
         </div>
         <div class="form-section">
           <p><%= i.label :end_date %></p>
-          <p><%= date_field(:item, :end_date) %></p>
+          <p><%= date_field(:trip, :end_date, value: (Time.now + 10.days).strftime('%Y-%m-%d')) %></p>
         </div>
         <div class="form-section">
           <p><%= i.label :description %></p>
