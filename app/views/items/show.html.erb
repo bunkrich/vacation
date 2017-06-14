@@ -5,7 +5,7 @@
         <div id="item-image">
           <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
         </div>
-        
+
         <div id="item-details">
           <div class="item-wrapper">
             <h1><%= @item.title %></h1>
@@ -25,7 +25,9 @@
               </form>
             </div>
             <%= link_to 'Edit Item', edit_trip_item_path %>
-            <%= form_for [@trip, @item] do |i| %>
+
+
+            <%= form_for [@trip, @item] do |i| %> <!-- CHANGE DATE -->
               <div>
                 <p><%= i.label :Day %></p>
                 <% if @item.date %>
@@ -34,7 +36,24 @@
                   <%= i.select :date, @days, {:include_blank => ''}, { :onchange => "this.form.submit()" } %>
                   <% end %>
               </div>
-            <% end %>
+            <% end %> <!-- End of form_for on CHANGE DATE -->
+
+
+            <%= form_for [@trip, @item] do |i| %> <!-- CHANGE TIME -->
+              <div>
+                <p><%= i.label :Time %></p>
+                <%= i.select :date, [['Morning', '08:00:00'], ['Afternoon', '14:00:00'], ['Night', '20:00:00']], {:include_blank => 'Change Time'}, { :onchange => "this.form.submit()" } %>
+                <!-- NAT you can delete this. these are the day sections  -->
+                    <% if @item.date %>
+                      <h2><%= @item.date %></h2>
+                      <p><%= @item.date.change(hour: 8) %></p>
+                      <p><%= @item.date.change(hour: 14) %></p>
+                      <p><%= @item.date.change(hour: 20) %></p>
+                    <% end %>
+              </div>
+            <% end %> <!-- End of form_for on CHANGE DATE -->
+
+
           </div> <!-- End item-wrapper -->
         </div> <!-- End item-details -->
       </div> <!-- End image-details -->
