@@ -1,0 +1,768 @@
+/* Color palette */
+/* Default fonts */
+/* line 16, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+h1, h2, h3, h4 {
+  font-family: "Pangolin", cursive;
+}
+
+/* line 20, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+p, a, span, label, select, ul, ol, li {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 24, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+/* line 29, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+body {
+  background-color: #FFFBB9;
+}
+
+/* line 4, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form h1 {
+  font-size: 25px;
+}
+
+/* line 9, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form-wrapper {
+  background-color: #fff;
+  border: 2px #000 solid;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: 40%;
+}
+
+/* line 20, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form-section {
+  margin: 10px 0;
+}
+/* line 23, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form-section input[type="text"], .form-section input[type="submit"], .form-section input[type="date"], .form-section input[type="email"], .form-section input[type="password"], .form-section textarea {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+}
+/* line 31, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form-section input[type="submit"] {
+  color: #fff;
+  background-color: #EF7070;
+  border: 2px #fff solid;
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 10px;
+  width: 109%;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+/* line 45, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.form-section input[type="submit"]:hover {
+  color: #EF7070;
+  background-color: #fff;
+  border: 2px #EF7070 solid;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* line 58, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.first-field {
+  margin-top: 50px;
+}
+
+/* line 62, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.new_trip {
+  width: 50%;
+}
+
+/* line 66, /Users/apprentice/nat/vacation/app/assets/stylesheets/form.scss */
+.new_trip #locationField {
+  width: 105%;
+}
+/* Color palette */
+/* Default fonts */
+/* line 16, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+h1, h2, h3, h4 {
+  font-family: "Pangolin", cursive;
+}
+
+/* line 20, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+p, a, span, label, select, ul, ol, li {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 24, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+/* line 29, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+body {
+  background-color: #FFFBB9;
+}
+
+/* line 3, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-section {
+  background-color: #fff;
+  border: 2px #000 solid;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding: 45px 20px;
+  width: 80%;
+}
+/* line 13, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-section a:first-child:hover .fa {
+  margin-left: 0px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* line 25, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.fa {
+  margin: 0 10px 0 20px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* line 34, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-container {
+  border: 2px #000 solid;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+/* line 40, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#image-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* line 45, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-details {
+  display: flex;
+  align-items: center;
+}
+/* line 49, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-details h1 {
+  font-size: 25px;
+  text-align: left;
+}
+
+/* line 55, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.edit-button {
+  color: #b0b0b0;
+}
+
+/* line 59, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-image #item-details {
+  display: inline-block;
+}
+
+/* line 63, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-image img {
+  width: 80%;
+}
+
+/* line 67, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-vote {
+  margin-top: 45px;
+}
+
+/* line 71, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#vote-item-form input {
+  border: none;
+}
+
+/* line 75, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.vote-button {
+  background-color: #fff;
+  border: 0;
+  font-size: 30px;
+}
+/* line 80, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.vote-button:focus {
+  outline: 0;
+}
+
+/* line 85, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.vote-count {
+  font-size: 25px;
+  text-align: center;
+  width: 100px;
+}
+
+/* line 91, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#item-comments {
+  margin-top: 30px;
+}
+
+/* line 95, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+#comment-container {
+  margin: 0 30px;
+}
+
+/* line 99, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.comment-section {
+  border: 1px #000 solid;
+  margin-top: 25px;
+  padding: 5px;
+}
+
+/* line 105, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.comment-details {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+/* line 111, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.comment-user-img img {
+  height: 50px;
+  width: 50px;
+}
+
+/* line 116, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.comment-user-name {
+  margin-left: 15px;
+}
+
+/* line 120, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.add-comment {
+  margin-top: 40px;
+}
+
+/* line 124, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.add-comment input[name="body"] {
+  height: 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* line 130, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.comment-submit {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+/* line 135, /Users/apprentice/nat/vacation/app/assets/stylesheets/item_show.scss */
+.edit_item select {
+  height: 25px;
+  font-size: 12px;
+  width: 200px;
+}
+/* Color palette */
+/* Default fonts */
+/* line 16, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+h1, h2, h3, h4 {
+  font-family: "Pangolin", cursive;
+}
+
+/* line 20, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+p, a, span, label, select, ul, ol, li {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 24, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+/* line 29, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+body {
+  background-color: #FFFBB9;
+}
+
+/* line 7, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.date {
+  text-align: center;
+}
+
+/* line 11, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.map {
+  width: 100%;
+  background-color: green;
+  height: 300px;
+  display: flex;
+}
+
+/* line 18, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.drop-down {
+  text-align: center;
+}
+
+/* line 22, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.message {
+  margin: 0 10%;
+}
+
+/* line 26, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.message input {
+  width: 100%;
+  margin-left: auto;
+  margin-right: 10%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+/* line 35, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.friend-box {
+  border: solid 1px #000;
+  display: inline-block;
+  height: 125px;
+  margin: 5px;
+  width: 125px;
+}
+/* line 42, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.friend-box img {
+  height: 100px;
+  width: 125px;
+}
+/* line 47, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.friend-box p {
+  margin-top: 0px;
+  text-align: center;
+}
+
+/* line 54, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+a {
+  color: inherit;
+}
+
+/* line 58, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.interior {
+  background-color: blue;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* line 65, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.btn {
+  background-color: green;
+  padding: 1em 3em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+/* line 72, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.15);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 87, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* line 92, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-window > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  background: #fff;
+  color: #444;
+}
+
+/* line 101, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-window header {
+  font-weight: bold;
+}
+
+/* line 105, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+/* line 117, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-close:hover {
+  color: #000;
+}
+
+/* line 121, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+
+/* line 126, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.testing {
+  background: #FFFF99;
+  margin-top: 100px;
+  padding: 10px;
+  outline: red solid thick;
+}
+
+/* line 133, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.item-image {
+  max-width: 300px;
+}
+
+/* line 138, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#locationField, #controls {
+  display: flex;
+}
+
+/* line 141, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#item-new-google-maps-submit {
+  display: block;
+  margin: 20px;
+}
+
+/* line 145, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#autocomplete {
+  margin-bottom: 3px;
+  text-align: center;
+  height: 30px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+/* line 154, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#locationField {
+  height: 20px;
+  margin-bottom: 2px;
+}
+
+/* line 159, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.not-for-user-input {
+  display: none;
+}
+
+/* line 163, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#toggle {
+  display: none;
+}
+
+/* line 167, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#toggle:target {
+  display: block;
+}
+
+/* line 171, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+#toggle:target + .close {
+  display: block;
+}
+
+/* line 175, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.close {
+  display: none;
+}
+
+/*Styling for comments section*/
+/* line 180, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details {
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 184, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details .comments-user-pic {
+  margin: 1em 0;
+}
+/* line 187, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details .comments-user-pic img {
+  height: 50px;
+  width: 50px;
+}
+/* line 193, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details .comments-user-name-date {
+  margin-left: 20px;
+}
+/* line 196, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details .comments-user-name-date p {
+  margin-bottom: 0;
+}
+/* line 200, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.comments-details .comments-user-name-date span {
+  color: #D3D3D3;
+}
+
+/*Tiles*/
+/* line 209, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.trip-day {
+  background-color: white;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  height: 300px;
+}
+
+/* line 218, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.box {
+  margin: 5px;
+  height: 225px;
+  width: 225px;
+  float: left;
+}
+
+/* line 225, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.info-overlay {
+  margin-top: -57px;
+  background-color: white;
+  opacity: .6;
+  padding-top: 1px;
+  padding-left: 5px;
+}
+/* line 231, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.info-overlay p {
+  padding: 5px;
+  color: black;
+  opacity: 1 !important;
+}
+
+/* line 238, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.tile-image {
+  z-index: -1;
+  height: 225px;
+  width: 225px;
+}
+
+/* line 244, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips.scss */
+.voting {
+  z-index: 9999;
+  position: absolute;
+  margin-left: 120px;
+  padding-top: 176px;
+}
+/* line 1, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips/days.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 5, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips/days.scss */
+h4 {
+  text-align: center;
+}
+
+/* line 9, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips/days.scss */
+.weather {
+  text-align: center;
+  padding: 10px;
+}
+
+/* line 14, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips/days.scss */
+.wrapper {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+/* line 21, /Users/apprentice/nat/vacation/app/assets/stylesheets/trips/days.scss */
+.drop {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 180px;
+  width: 300px;
+  border: solid 1px #000;
+}
+/* Color palette */
+/* Default fonts */
+/* line 17, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+h1, h2, h3, h4 {
+  font-family: "Pangolin", cursive;
+}
+
+/* line 21, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+p, a, span, label, select, ul, ol, li {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 25, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+/* line 30, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+body {
+  background-color: #FFFBB9;
+}
+/* Color palette */
+/* Default fonts */
+/* line 16, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+h1, h2, h3, h4 {
+  font-family: "Pangolin", cursive;
+}
+
+/* line 20, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+p, a, span, label, select, ul, ol, li {
+  font-family: "Roboto", sans-serif;
+}
+
+/* line 24, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+/* line 29, /Users/apprentice/nat/vacation/app/assets/stylesheets/universals.scss */
+body {
+  background-color: #FFFBB9;
+}
+
+/* Styling for user profile: /users/:id */
+/* line 4, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-profile {
+  background-color: #fff;
+  border: 2px #000 solid;
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 70%;
+}
+
+/* line 12, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-profile-header {
+  display: flex;
+}
+
+/* line 16, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#profile-details {
+  margin: 0 auto;
+}
+/* line 19, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#profile-details h2 {
+  text-align: center;
+}
+/* line 23, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#profile-details img {
+  display: table;
+  height: 60%;
+  margin: 0 auto;
+  width: 60%;
+}
+
+/* line 31, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#profile-no-trip {
+  margin-left: 30px;
+}
+
+/* line 35, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-profile-trips {
+  border-top: 1px #b0b0b0 solid;
+  padding: 50px 0;
+}
+
+/* line 40, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#profile-upcoming-trips, #profile-past-trips {
+  margin-top: 40px;
+}
+
+/* Styling for user traveler page: /trips/:id/users/:id */
+/* line 46, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-travel-header {
+  display: flex;
+}
+
+/* line 50, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+.travel-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 60%;
+}
+
+/* line 58, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+.travel-profile-pic, .travel-details {
+  display: inline-block;
+  width: 40%;
+}
+
+/* line 63, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+.travel-profile-pic {
+  height: 200px;
+}
+/* line 66, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+.travel-profile-pic img {
+  display: table;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* line 75, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+.travel-details h1, .travel-details h4 {
+  text-align: left;
+}
+
+/* line 80, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#travel-details {
+  border-top: 2px #000 solid;
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* line 86, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-travel-flight, #user-travel-lodge {
+  margin-top: 30px;
+  width: 80%;
+}
+/* line 90, /Users/apprentice/nat/vacation/app/assets/stylesheets/users.scss */
+#user-travel-flight p, #user-travel-lodge p {
+  margin-left: 30px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
