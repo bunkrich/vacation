@@ -20,4 +20,9 @@ module TripsHelper
   def item_no_date
     no_date = @trip.items.where("date is null")
   end
+
+  def out_of_range
+    out_of_range = @trip.items.where('date NOT BETWEEN ? AND ?', @trip.start_date, @trip.end_date)
+  end
+
 end

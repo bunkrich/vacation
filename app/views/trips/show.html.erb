@@ -54,7 +54,22 @@
       <% end %>
     <% end %>
     <!-- check for out of range items do a popo window? flash sign? -->
+
+
   </article>
+
+  <% if out_of_range%>
+  <article class="trip-day">
+    <h2>Out of trip date range 🙊 </h2>
+    <% out_of_range.each do |item| %>
+      <%= render partial: "items/tile.html.erb", locals: {item: item}%>
+    <%end %>
+    <% end %>
+  </article>
+
+
+
+
 </section>
 
 
