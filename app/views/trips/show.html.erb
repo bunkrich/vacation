@@ -45,7 +45,7 @@
 
 
   <!-- No date yet -->
-    <% if @trip.items.length > 0 && item_no_date %>
+    <% if @trip.items.length > 0 && !item_no_date.empty? %>
     <article class="trip-day">
       <h2>General</h2>
       <%  item_no_date.each do |nodate| %>
