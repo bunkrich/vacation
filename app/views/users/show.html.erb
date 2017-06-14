@@ -1,42 +1,43 @@
 <section id="user-profile-header">
   <article id="profile-details">
-    <h1>My Trips</h1>
-    <center><img src="<%= @user.image%>" alt="profile-picture"/></center>
+    <h2><%= @user.first_name.capitalize %>'s Trips</h2>
+    <img src="<%= @user.image %>" alt="profile-picture"/>
   </article>
 </section>
 <section id="user-profile-trips">
-  <% if current_user.trips.length == 0 %>
+  <% if @user.trips.count == 0 %>
     <span> You have not created any trips yet 😢 , let's <%= link_to "create ", new_trip_path %>one! </span>
   <% else %>
-    <% if current_trip %>
+    <% if current_trip.length != 0 %>
       <article id="profile-current-trip">
         <h3>Current Trip:</h3>
         <ul>
           <% current_trip.each do |trip| %>
+
             <li><%= link_to trip.name, trip_path(trip)  %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e") %></li>
           <%end %>
         </ul>
       </article>
     <% end %>
-    <% if @trips.where('start_date > ?', Date.today).length > 1 %>
-    <article id="profile-upcoming-trips">
-      <h3>Upcoming Trips:</h3>
-      <ul>
-        <% @trips.where('start_date > ?', Date.today).each do |trip| %>
-          <li><%= link_to trip.name, trip_path(trip) %>  from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e") %></li>
-        <% end %>
-      </ul>
-    </article>
+    <% if @trips.where('start_date > ?', Date.today).length > 0 %>
+      <article id="profile-upcoming-trips">
+        <h3>Upcoming Trips:</h3>
+        <ul>
+          <% @trips.where('start_date > ?', Date.today).each do |trip| %>
+            <li><%= link_to trip.name, trip_path(trip) %>  from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e") %></li>
+          <% end %>
+        </ul>
+      </article>
     <% end %>
-    <% if @trips.where('end_date < ?', Date.today).length > 1 %>
-    <article id="profile-past-trips">
-      <h3>Past Trips:</h3>
-      <ul>
-        <% @trips.where('end_date < ?', Date.today).each do |trip| %>
-          <li><%= link_to trip.name, trip_path(trip) %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
-        <% end %>
-      </ul>
-    </article>
+    <% if @trips.where('end_date < ?', Date.today).length > 0 %>
+      <article id="profile-past-trips">
+        <h3>Past Trips:</h3>
+        <ul>
+          <% @trips.where('end_date < ?', Date.today).each do |trip| %>
+            <li><%= link_to trip.name, trip_path(trip) %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
+          <% end %>
+        </ul>
+      </article>
     <% end %>
   <% end %>
 </section>
