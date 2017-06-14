@@ -46,46 +46,34 @@
         </div>
       </article>
     <% end %>
-
-
-
-<!-- this is where i stopped working! -->
-
-
   <!-- No date yet -->
-  <div>
     <% if @trip.items.where("date is null") %>
-    <div class="no-date">
+    <article class="trip-no-date">
       <h1> Items WITH NO DATES</h1>
-      <div class="item-wrapper">
-        <%  @trip.items.where("date is null").each do |nodate| %>
-          <div class="box">
-
-              <div class="voting">
-              <form method="post" action= "/trips/<%=@trip.id%>/items/<%=nodate.id%>/votes" id="vote-item-form">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
-                <% total_vote = 0 %>
-                <% nodate.votes.each do |vote| %>
-                  <% total_vote += vote.up_down  %>
-                <% end %>
-
-                <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
-              </form>
-              </div>
-              <img src="<%= nodate.image %>" class="tile-image">
-              <div class="info-overlay">
+      <%  @trip.items.where("date is null").each do |nodate| %>
+        <div class="box">
+          <div class="voting">
+            <form method="post" action= "/trips/<%=@trip.id%>/items/<%=nodate.id%>/votes" id="vote-item-form">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
+              <% total_vote = 0 %>
+              <% nodate.votes.each do |vote| %>
+                <% total_vote += vote.up_down  %>
+              <% end %>
+              <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
+            </form>
+          </div>
+          <img src="<%= nodate.image %>" class="tile-image">
+            <div class="info-overlay">
               <%= nodate.title %>
               <div class="dropdown">
-              <img src="http://svgur.com/i/1w0.svg" class="cal-button">
+                <img src="http://svgur.com/i/1w0.svg" class="cal-button">
               </div>
-              </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+            </div>
+        </div>
+      <% end %>
     <% end %>
-  </div>
+  </article>
 </section>
 
 
@@ -119,11 +107,11 @@
 
 
 <!-- FRIENDS SECTION -->
-<section>
-  <div class="">
+<section id="friends-section">
+  <article id="friends-wrapper">
     <h3>Friends</h3>
     <% if @trip.users.count == 0 %>
-      <p>No travellers yet!</p>
+      <p>No travelers yet!</p>
     <% else %>
       <% @trip.users.each do |friend| %>
         <div class="friend-box">
@@ -133,7 +121,7 @@
       <% end %>
     <% end %>
     <p><a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
-  </div>
+  </article>
 </section>
 
 <!-- NEED FOR GOOGLE MAPS -->
