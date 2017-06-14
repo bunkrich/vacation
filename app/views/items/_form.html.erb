@@ -4,16 +4,15 @@
 </div>
 
 <section id="item-new-google-maps-form">
-  <%= form_for [@trip, @item] do |i| %>
+  <%= form_for [@trip, @item], :class => 'item-category' do |i| %>
+     <div>
+        <p><%= i.label :category %>: <%= i.select :category, ["Location", "Food", "Lodging", "Attraction", "Nightlife"] %></p>
+     </div>
     <div id="item-new-google-maps-submit">
       <%= i.submit %>
       <button><a href="#toggle">Other</a></button>
     </div>
 
-     <div>
-        <p><%= i.label :category %></p>
-        <p><%= i.select :category, ["Location", "Food", "Lodging", "Attraction", "Nightlife", "Other"] %></p>
-     </div>
 
     <div class="not-for-user-input">
       <div>

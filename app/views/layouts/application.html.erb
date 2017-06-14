@@ -11,22 +11,21 @@
   </head>
 
   <body>
-    <div class="topnav">
-      <%= link_to "RECESS", root_path %>
-      <% if logged_in? %>
-        <%=link_to "My trips", user_path(current_user) %>
-        <%=link_to "Create New Trip", new_trip_path %>
-        <%=link_to "LOG OUT", logout_path, method: :delete %>
-      <% else %>
-        <%= link_to "SIGN UP", signup_path %>
-        <%= link_to "LOGIN", login_path %>
+    <div class="nav-dropdown">
+      <button class="nav-dropbtn">=</button>
+      <div class="nav-dropdown-content">
+        <p><%= link_to "Recess", root_path %><p>
+        <p><%= link_to "About", about_path %><p>
+        <% if logged_in? %>
+          <p><%=link_to "My trips", user_path(current_user) %></p>
+          <p><%=link_to "Create New Trip", new_trip_path %></p>
+          <p><%=link_to "LOG OUT", logout_path, method: :delete %></p>
+        <% else %>
+          <p><%= link_to "SIGN UP", signup_path %></p>
+          <p><%= link_to "LOGIN", login_path %></p>
       <% end %>
     </div>
-
-      <% if logged_in? %>
-        <h2>Welcome, <%= current_user && current_user.first_name.capitalize %>!</h2>
-      <% end %>
-    </div>
+  </div>
     <%= yield %>
   </body>
 </html>
