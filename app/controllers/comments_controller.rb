@@ -1,4 +1,3 @@
-
 class CommentsController < ApplicationController
   def show
     user = current_user
@@ -17,25 +16,17 @@ class CommentsController < ApplicationController
     @comment = trip.comments.new(user_id: user.id, body: params[:comment][:body], trip_id: trip.id)
 
     if @comment.save
-      puts "⭐️⭐️⭐️⭐️⭐️  COMMENT WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
-      puts @comment.inspect
-      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
       redirect_to trip
     else
-      puts "⭐️⭐️⭐️⭐️⭐️  FAIL ⭐️⭐️⭐️⭐️⭐️⭐️"
-      puts @comment.inspect
-      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
       @trip = Trip.find_by(id: params[:trip_id])
       @errors = @trip.errors.full_messages
     end
   end
 
   def update
-
   end
 
   def edit
-
   end
 
   def destroy

@@ -11,11 +11,6 @@ class TripsController < ApplicationController
           # @locations.push(t.lookup)
           @locations << {place_id: t.lookup, category: t.category}.to_json
         end
-        # if t.category
-          # place_category["#{t.lookup}"] = t.category
-        # end
-        p "++++++++++++++++++++++++++"
-        p @locations
       end
     end
     if @locations.count < 1
@@ -23,13 +18,10 @@ class TripsController < ApplicationController
     end
     @locations.uniq!
     @days = []
-    puts "@DAYS!!!!!!!!! 🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡"
     @trip.start_date.upto@trip.end_date do |day|
       @days.push(day.strftime("%A, %B %e"))
     end
     @days.push('TBD')
-    puts @days
-    puts "🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡"
     redirect_to "/trips" unless @trip
   end
 
@@ -56,10 +48,9 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id])
-      if @trip.update(trip_params)
-
-        # Check outbounds items
-        redirect_to @trip
+    if @trip.update(trip_params)
+      # Check outbounds items
+      redirect_to @trip
     else
       @errors = @trip.errors.full_messages
       render :edit
