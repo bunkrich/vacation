@@ -37,7 +37,7 @@
         <div class="item-wrapper">
           <!-- Each day of the trip -->
           <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-         <%= render partial: "items/tile.html.erb", locals: { item: item}%>
+            <%= render partial: "items/tile.html.erb", locals: { item: item}%>
           <%end%>
         </div>
       </article>

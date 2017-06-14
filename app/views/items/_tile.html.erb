@@ -1,5 +1,5 @@
 <div class="box">
-  <img src="<%= item.image %>" class="tile-image">
+  <a href="/trips/<%= item.trip.id %>/items/<%= item.id %>"><img src="<%= item.image %>" class="tile-image"></a>
     <div class="info-overlay">
     </div>
     <div class="info">
@@ -17,6 +17,8 @@
                 <% else %>
                   <option value="<%=day%>"><%=day%></option>
                 <% end %>
+              <% else %>
+                <option value="<%=day%>"><%=day%></option>
               <% end %>
             <% end %>
           </select>

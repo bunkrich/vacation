@@ -38,7 +38,8 @@
 .dropdown-style {
   background-color: $white;
   font-family: $body-font;
-  height: 20px;
+  font-size: 10pt;
+  height: 23px;
 
   option {
     background-color: $white;
@@ -203,23 +204,25 @@ a {
   height:225px;
   width:225px;
   float: left;
+  margin-left: 13px;
 }
 
 .info-overlay {
   margin-top: -75px;
-  background-color: white;
-  opacity: .6;
+  background-color: $white;
+  opacity: .8;
   padding-top: 1px;
   padding-left: 5px;
-  height: 75px;
+  height: 70px;
 }
 
 .info {
   font-family: $body-font;
-  font-size: 14pt;
-  margin-top: -64px;
+  font-size: 13pt;
+  font-weight: bold;
+  margin-top: -60px;
   position: absolute;
-  padding-left: 15px;
+  padding-left: 5px;
 }
 
 /*.info-overlay{
