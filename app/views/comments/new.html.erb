@@ -1,10 +1,13 @@
-<%= form_for [@trip, @comment] do |f| %>
-
-  <div>
-    <%= f.text_field :body %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+<section class="form">
+  <h1>Add A Comment</h1>
+  <article class="form-wrapper">
+    <%= form_for [@trip, @comment] do |f| %>
+      <div class="form-section">
+        <%= f.text_field :body %>
+      </div>
+      <div class="form-section">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </article>
+</section>

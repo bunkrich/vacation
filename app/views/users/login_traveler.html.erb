@@ -1,18 +1,19 @@
-<%=form_for(:user, url: "/login/trips/#{@trip.id}") do |f|%>
-
-<%= render partial: '/errors' %>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.submit "Login"%>
-  </div>
-<% end %>
+<section class="form">
+  <h1>Login To Join This Trip</h1>
+  <article class="form-wrapper">
+    <%=form_for(:user, url: "/login/trips/#{@trip.id}") do |f|%>
+    <%= render partial: '/errors' %>
+      <div class="form-section">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="form-section">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="form-section">
+        <%= f.submit "Login"%>
+      </div>
+    <% end %>
+  </article>
+</section>
