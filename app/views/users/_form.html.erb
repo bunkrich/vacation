@@ -1,18 +1,30 @@
-<div class="">
-  <%=form_for(:session, url: login_path) do |f|%>
-
-  <%= render partial: '/errors' %>
-
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.label :image %>
-    <%= f.text_field :image %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Sign up"%>
-  <% end %>
-</div>
+<section class="form">
+  <article class="form-wrapper">
+    <%=form_for(:session, url: login_path) do |f|%>
+      <%= render partial: '/errors' %>
+      <div class="form-section">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="form-section">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="form-section">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="form-section">
+        <%= f.label :image %>
+        <%= f.text_field :image %>
+      </div>
+      <div class="form-section">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="form-section">
+        <%= f.submit "Sign up"%>
+      </div>
+    <% end %>
+  </article
+</section>

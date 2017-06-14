@@ -1,7 +1,6 @@
-<div id="item-section">
-  <div>
-    <%= link_to 'Trip', trip_path(@trip) %>
-    <div id="item-container">
+<section id="item-section">
+  <%= link_to '<<< Go back to trip page', trip_path(@trip) %>
+  <article id="item-wrapper">
       <div id="image-details">
         <div id="item-image">
           <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
@@ -14,7 +13,6 @@
             <p><%= @item.address %></p>
             <p>Added by: <%= @item.user.email %></p>
             <div id="item-vote">
-
               <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button class="vote-button" type="submit" name="up_down" value="1"> 👍 </button>
@@ -37,9 +35,8 @@
                   <% end %>
               </div>
             <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          </div> <!-- End item-wrapper -->
+        </div> <!-- End item-details -->
+      </div> <!-- End image-details -->
+  </article>
+</section>

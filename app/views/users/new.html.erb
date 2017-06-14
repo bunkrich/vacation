@@ -1,40 +1,35 @@
-<h1>Sign up</h1>
-
-<%=form_for(:user, url: users_path) do |f|%>
-
-<%= render partial: '/errors' %>
-
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :image %>
-    <%= f.text_field :image %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div>
-    <%= f.submit "Sign up"%>
-  </div>
-<% end %>
+<section class="form">
+  <h1>Sign up</h1>
+  <article class="form-wrapper">
+    <%=form_for(:user, url: users_path) do |f|%>
+      <%= render partial: '/errors' %>
+      <div class="form-section">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="form-section">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="form-section">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="form-section">
+        <%= f.label :image %>
+        <%= f.text_field :image %>
+      </div>
+      <div class="form-section">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="form-section">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="form-section">
+        <%= f.submit "Sign up"%>
+      </div>
+    <% end %>
+  </article>
+</section>
