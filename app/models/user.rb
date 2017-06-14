@@ -12,8 +12,15 @@ class User < ApplicationRecord
   validates :password, confirmation: true, length: { in: 8..20 }
   validates :password_confirmation, presence: true
 
+  before_save :default_pic
 
   def full_name
     self.first_name + " " + self.last_name
+  end
+
+  def default_pic
+    if self.image == ""
+      self.image = "http://i.imgur.com/k94Sbni.png"
+    end
   end
 end
