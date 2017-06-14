@@ -1,14 +1,11 @@
 <div id="new-trip-section">
   <h1>New Trip</h1>
   <%= render partial: '/errors' %>
-  <div id="locationField">
-    <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
-  </div>
   <section class="form">
     <article class="form-wrapper">
       <%= form_for [@trip] do |i| %>
-        <div>
-          <%= i.submit %>
+        <div class="form-section" id="locationField">
+          <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
         </div>
         <div class="form-section">
           <p><%= i.hidden_field :name %></p>
@@ -19,7 +16,7 @@
         <div class="form-section">
           <p><%= i.hidden_field :location %></p>
         </div>
-        <div class="form-section">
+        <div class="form-section first-field">
           <p><%= i.label :start_date %></p>
           <p><%= date_field(:trip, :start_date, value: Time.now.strftime('%Y-%m-%d')) %></p>
         </div>
@@ -30,6 +27,9 @@
         <div class="form-section">
           <p><%= i.label :description %></p>
           <p><%= i.text_area :description %></p>
+        </div>
+        <div>
+          <%= i.submit %>
         </div>
       <% end %>
     </article>
