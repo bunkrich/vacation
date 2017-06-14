@@ -1,5 +1,5 @@
 <section id="item-section">
-  <%= link_to '<<< Go back to trip page', trip_path(@trip) %>
+  <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Go back to trip page'.html_safe, trip_path(@trip) %>
   <article id="item-wrapper">
       <div id="image-details">
         <div id="item-image">
@@ -11,7 +11,8 @@
             <h1><%= @item.title %></h1>
             <p><%= @item.body %></p>
             <p><%= @item.address %></p>
-            <p>Added by: <%= @item.user.email %></p>
+            <p>Added by <%= @item.user.first_name %> <%= @item.user.last_name %></p>
+            <%= link_to 'Edit Item', edit_trip_item_path, :class => 'edit-buttonr' %>
             <div id="item-vote">
               <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -24,7 +25,6 @@
                 <button class="vote-button" type="submit" name="up_down" value="-1" >👎</button>
               </form>
             </div>
-            <%= link_to 'Edit Item', edit_trip_item_path %>
 
 
             <%= form_for [@trip, @item] do |i| %> <!-- CHANGE DATE -->

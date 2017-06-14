@@ -17,8 +17,12 @@ h1, h2, h3, h4 {
   font-family: $title-font;
 }
 
-p, a, span, label, ul, ol, li {
+p, a, span, label, select, ul, ol, li {
   font-family: $body-font;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Cross-page styling */

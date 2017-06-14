@@ -1,7 +1,34 @@
+@import 'universals';
+
 #item-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  background-color: $white;
+  border: 2px $black solid;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding: 45px 20px;
+  width: 80%;
+
+  a:first-child {
+    &:hover {
+      .fa {
+        margin-left: 0px;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+      }
+    }
+  }
+}
+
+.fa {
+  margin: 0 10px 0 20px;
+  -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 #item-container {
@@ -18,6 +45,15 @@
 #item-details {
   display: flex;
   align-items: center;
+
+  h1 {
+    font-size: 25px;
+    text-align: left;
+  }
+}
+
+.edit-button {
+  color: $gray;
 }
 
 #item-image #item-details {
@@ -26,10 +62,6 @@
 
 #item-image img {
   width: 80%;
-}
-
-#item-details h1 {
-  text-align: left;
 }
 
 #item-vote {
@@ -42,10 +74,12 @@
 
 .vote-button {
   background-color: #fff;
-}
-
-.vote-button {
+  border: 0;
   font-size: 30px;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .vote-count {
@@ -96,4 +130,10 @@
 .comment-submit {
   font-size: 30px;
   margin-top: 10px;
+}
+
+.edit_item select {
+  height: 25px;
+  font-size: 12px;
+  width: 200px;
 }
