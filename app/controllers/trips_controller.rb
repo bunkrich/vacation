@@ -14,6 +14,7 @@ class TripsController < ApplicationController
     if @locations.count < 1
       @locations.push(@trip.lookup)
     end
+    @locations.uniq!
     redirect_to "/trips" unless @trip
   end
 
