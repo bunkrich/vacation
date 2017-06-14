@@ -20,7 +20,7 @@
 .form-section {
   margin: 10px 0;
 
-  input[type="text"], input[type="submit"], input[type="email"], input[type="password"] {
+  input[type="text"], input[type="submit"], input[type="date"], input[type="email"], input[type="password"], textarea {
     display: block;
     font-size: 14px;
     margin-top: 5px;
@@ -57,4 +57,12 @@
 
 .first-field {
   margin-top: 50px;
+}
+
+.new_trip {
+  width: 50%;
+}
+
+.new_trip #locationField {
+  width: 105%;
 }
