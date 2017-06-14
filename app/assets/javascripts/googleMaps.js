@@ -1,5 +1,7 @@
 //MAPS STUFF
+  console.log("💜TOP OF THE JS FILEy💜")
 function initMapp() {
+	console.log("🌻STARTING initMAPP FUNCTION🌻 ")
 	var map = new google.maps.Map(document.getElementById('map'), {
 		maxZoom: 12,
 		mapTypeId: 'roadmap',
@@ -377,23 +379,27 @@ function initMapp() {
 // All this logic will automatically be available in application.js.
 var placeSearch, autocomplete;
 
+console.log("💜🔰 ABOVEIN IT AUTOCOMPLETE FUNCTION 🔰💜")
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
-  autocomplete = new google.maps.places.Autocomplete(
-  	(document.getElementById('autocomplete'))
-  	);
-  // When the user selects an address from the dropdown, populate the address fields in the form.
-  autocomplete.addListener('place_changed', fillInAddress);
+	console.log("🔰 middle OF initAUTOCOMPLETE 🔰")
+	if (document.getElementById('autocomplete') !=null) {
+	  autocomplete = new google.maps.places.Autocomplete(
+	  	(document.getElementById('autocomplete'))
+	  	);
+	  // When the user selects an address from the draopdown, populate the address fields in the form.
+		console.log("🔰 〽️ ⚠️END OF initAUTOCOMPLETE ⚠️ 〽️ 🔰")
+	  autocomplete.addListener('place_changed', fillInAddress)
+	}
 }
-
 function fillInAddress() {
-	console.log("FILL IN ADDRESS")
+	console.log("FILL IN ADDRESS function ✅✅")
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
 
   var lookupID = place.place_id;
-	console.log("PLACE DOT PLACE ID")
+	console.log("⚠️PLACE DOT PLACE ID ✅✅")
 
 	console.log (place.photos)
 	if (place.photos) {
@@ -426,12 +432,29 @@ function fillInAddress() {
 		document.getElementById('trip_name').value = title;
 	}
 }
+function searchLocal() {
+	console.log("❎ 🤹‍♀️ Brent's New Function 🤹‍♀️ ❎")
+	var geolocation = {
+		lat: 41.130882,
+		lng: -91.462804
+	};
+	var circle = new google.maps.Circle({
+		center: geolocation,
+		radius: position.coords.accuracy
+	});
+	autocomplete.setBounds(circle.getBounds());
+}
 
 function geolocate() {
+	console.log("❎ ❎ ❎  GEO LOCATE FUNCTION ❎ ❎ ❎")
+	console.log()
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.
 	if (navigator.geolocation) {
+		console.log("Ⓜ️ ❎ Ⓜ️  GEO LOCATE IS WORKING Ⓜ️ ❎ Ⓜ️")
+
   	navigator.geolocation.getCurrentPosition(function(position) {
+					console.log("💬 ❎ 💬  GEO LOCATE IS WORKING 💬 ❎ 💬")
   		var geolocation = {
   			lat: position.coords.latitude,
   			lng: position.coords.longitude
@@ -444,8 +467,11 @@ function geolocate() {
   	});
   }
 }
-
+					console.log("😈BEFORE INITMAIN😈")
 var initMain = function () {
+					console.log("💋VAR INITMAIN💋")
 	initMapp();
+					console.log(" 🌏MAPP 🌏 ⭕️⭕️")
 	initAutocomplete();
+					console.log("⭐️AUTO⭐️ ⭕️⭕️")
 };
