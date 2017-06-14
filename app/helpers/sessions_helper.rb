@@ -16,11 +16,13 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def correct_user(current_trip)
-    current_user && current_user.id == current_trip.user_id
+  def correct_users(current_trip)
+    current_trip.
+
+    # current_user && current_user.id == current_trip.user_id
   end
 
-  def verify
+  def verify_traveler
     halt(404, erb(:'404')) unless correct_user(@trip)
   end
 end
