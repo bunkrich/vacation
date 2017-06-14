@@ -7,6 +7,7 @@ $blue: #8CE8EA;
 $purple: #CE84CE;
 $white: #fff;
 $black: #000;
+$gray: rgb(176,176,176);
 
 $title-font: 'Pangolin', cursive;
 $body-font: 'Roboto', sans-serif;
@@ -23,9 +24,5 @@ p, a, span, label, ul, ol, li {
 /* Cross-page styling */
 body {
   background-color: $background;
-}
-
-.container {
-  width: 80%;
 }
 
