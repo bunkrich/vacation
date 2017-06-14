@@ -47,9 +47,9 @@
       </article>
     <% end %>
   <!-- No date yet -->
-    <% if @trip.items.where("date is null") %>
+    <% if @trip.items.length > 0 && @trip.items.where("date is null") %>
     <article class="trip-no-date">
-      <h1> Items WITH NO DATES</h1>
+      <h1>General</h1>
       <%  @trip.items.where("date is null").each do |nodate| %>
         <div class="box">
           <div class="voting">
@@ -105,12 +105,11 @@
   </article>
 </section>
 
-
 <!-- FRIENDS SECTION -->
 <section id="friends-section">
   <article id="friends-wrapper">
     <h3>Friends</h3>
-    <% if @trip.users.count == 0 %>
+    <% if @trip.users.count == 1 %>
       <p>No travelers yet!</p>
     <% else %>
       <% @trip.users.each do |friend| %>
