@@ -18,6 +18,7 @@
         </ul>
       </article>
     <% end %>
+    <% if @trips.where('start_date > ?', Date.today).length > 1 %>
     <article id="profile-upcoming-trips">
       <h3>Upcoming Trips:</h3>
       <ul>
@@ -26,6 +27,8 @@
         <% end %>
       </ul>
     </article>
+    <% end %>
+    <% if @trips.where('end_date < ?', Date.today).length > 1%>
     <article id="profile-past-trips">
       <h3>Past Trips:</h3>
       <ul>
@@ -34,5 +37,6 @@
         <% end %>
       </ul>
     </article>
+    <% end %>
   <%end %>
 </section>
