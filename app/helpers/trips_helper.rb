@@ -15,4 +15,9 @@ module TripsHelper
   def no_time
     no_time = @day_items.where('DATE IS NULL')
   end
+
+
+  def item_no_date
+    no_date = @trip.items.where("date is null")
+  end
 end

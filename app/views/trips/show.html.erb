@@ -38,7 +38,7 @@
           <!-- Each day of the trip -->
           <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
          <%= render partial: "items/tile.html.erb", locals: {item: item}%>
-        
+
           <%end%>
         </div>
       </article>
@@ -46,10 +46,10 @@
 
 
   <!-- No date yet -->
-    <% if @trip.items.length > 0 && @trip.items.where("date is null") %>
+    <% if @trip.items.length > 0 && item_no_date %>
     <article class="trip-day">
       <h2>General</h2>
-      <%  @trip.items.where("date is null").each do |nodate| %>
+      <%  item_no_date.each do |nodate| %>
         <%= render partial: "items/tile.html.erb", locals: {item: nodate}%>
       <% end %>
     <% end %>
