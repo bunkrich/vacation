@@ -1,7 +1,6 @@
 <%= render partial: '/errors' %>
 <div id="locationField">
   <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" onFocus="searchLocal()" type="text"></input>
-    <input id="autocomplete" placeholder="HERE FOR TESTING ONLY" onFocus="searchLocal()" type="text"></input>
 </div>
 
 <section id="item-new-google-maps-form">
@@ -11,16 +10,17 @@
       <button><a href="#toggle">Other</a></button>
     </div>
 
-    <div class="not-for-uv  ser-input">
+     <div>
+        <p><%= i.label :category %></p>
+        <p><%= i.select :category, [['Location', 'location'], ['Event','event'], ['Other','other']] %></p>
+     </div>
+
+    <div class="not-for-user-input">
       <div>
         <p><%= i.label :title %></p>
         <p><%= i.text_field :title %></p>
       </div>
 
-      <div>
-        <p><%= i.label :category %></p>
-        <p><%= i.select :category, [['Location', 'location'], ['Event','event'], ['Other','other']] %></p>
-      </div>
 
       <div>
         <p><%= i.label :lookup %></p>

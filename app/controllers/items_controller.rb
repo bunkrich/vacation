@@ -28,26 +28,18 @@ class ItemsController < ApplicationController
 
     if @item.save
       puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
-      puts @item.inspect
-      puts "⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️"
       vote = @item.votes.create(up_down: 0, user: current_user)
       redirect_to action: "show", id: @item.id
     else
       puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
-      puts @item.inspect
-      puts "🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴 🔴"
       @trip = Trip.find_by(id: params[:trip_id])
-      # @item = Item.new
       @errors = @item.errors.full_messages
-      puts @errors
-      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
-      puts @errors.empty?
       render '/trips/show'
     end
   end
 
   def update
-    puts "🔴 UPDATE🔴 "
+    puts "🔵 UPDATE 🔵 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
     if @item.update_attributes(item_params)
@@ -58,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    puts "🔴 EDIT EDIT 🔴 "
+    puts "😈 EDIT 😈 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
   end
