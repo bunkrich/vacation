@@ -12,7 +12,17 @@ module TripsHelper
     night = @day_items.where('date BETWEEN ? AND ?',"#{@date} 20:00:00", @date.to_date.end_of_day)
   end
 
-  def no_time
-    no_time = @day_items.where('DATE IS NULL')
+  def item_no_time
+    item_no_time = @day_items.where('DATE IS NULL')
   end
+
+
+  def item_no_date
+    no_date = @trip.items.where("date is null")
+  end
+
+  def out_of_range
+    out_of_range = @trip.items.where('date NOT BETWEEN ? AND ?', @trip.start_date, @trip.end_date)
+  end
+
 end
