@@ -55,7 +55,7 @@
   </article>
 
 <!--  OUT OF RANGE ITEMS-->
-  <% if out_of_range%>
+  <% if !out_of_range.empty?%>
   <article class="trip-day">
     <h2>Out of trip date range 🙊 </h2>
     <% out_of_range.each do |item| %>
