@@ -335,21 +335,34 @@ function initMapp() {
     //create empty LatLngBounds object
     var bounds = new google.maps.LatLngBounds();
 
-    places.forEach(function(placeId){
+    places.forEach(function(object){
     	service.getDetails(
     	{
-    		placeId: placeId
+    		placeId: object.place_id
     	}, function (result, status) {
     		if (status != google.maps.places.PlacesServiceStatus.OK) {
     			alert(status);
     			return;
     		}
     		var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+    		if (object.category === "Restaurant" || object.category === "Food") {
+    			var iconURL = "http://svgur.com/i/1vX.svg";
+    		} else if (object.category === "Hotel" || object.category === "Lodging") {
+    			var iconURL = "http://svgur.com/i/1vu.svg";
+    		} else if (object.category === "Attraction") {
+    			var iconURL = "http://svgur.com/i/1vY.svg";
+    		} else if (object.category === "Nightlife" || object.category === "Bars") {
+    			var iconURL = "http://svgur.com/i/1u1.svg"; 
+    		}
+    		else {
+    			var iconURL = 'http://svgur.com/i/1uq.svg';
+    		}
     		var marker = new google.maps.Marker({
     			map: map,
-    			icon: 'http://svgur.com/i/1uq.svg',
+    			icon: iconURL,
     			place: {
-    				placeId: placeId,
+    				placeId: object.place_id,
     				location: result.geometry.location
     			}
     		});

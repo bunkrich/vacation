@@ -92,7 +92,7 @@
   console.log("☢️🛃📛NOW IN THE RUBY meets JS mess building an array📛🛃☢️")
   places = []
   "<% @locations.each do |d| %>"
-    var x = "<%= d %>"
+    var x = <%= d.html_safe %>
     places.push(x)
   "<% end %>"
 </script>
