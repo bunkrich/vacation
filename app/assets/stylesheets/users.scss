@@ -28,3 +28,54 @@
 #profile-upcoming-trips, #profile-past-trips {
   margin-top: 40px;
 }
+
+/* Styling for user traveler page: /trips/:id/users/:id */
+
+#user-travel-header {
+  display: flex;
+}
+
+.travel-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 60%;
+}
+
+.travel-profile-pic, .travel-details {
+  display: inline-block;
+  width: 40%;
+}
+
+.travel-profile-pic {
+  height: 200px;
+
+  img {
+    display: table;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.travel-details {
+  h1, h4 {
+    text-align: left;
+  }
+}
+
+#travel-details {
+  border-top: 2px #000 solid;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#user-travel-flight, #user-travel-lodge {
+  margin-top: 30px;
+  width: 80%;
+
+  p {
+    margin-left: 30px;
+  }
+}

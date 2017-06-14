@@ -1,14 +1,23 @@
 <section id="user-travel-section">
   <article id="user-travel-header">
-    <h1>User's travel profile</h1>
-    <p>Wanna know about my travel info?</p>
+    <div class="travel-wrapper">
+      <div class="travel-profile-pic">
+        <img src="<%= @user.image %>" />
+      </div>
+      <div class="travel-details">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <h4><%= @user.email %></h4>
+      </div>
+    </div>
   </article>
+</section>
+<section id="travel-details">
   <article id="user-travel-flight">
-    <h3><%= @flight.body %></h3>
-    <p>Flight lookup: <%= @flight.lookup %></p>
+    <h3><%= @transportation.title %></h3>
+    <p>When: <%= @transportation.date.strftime("%A, %B %e") %></p>
   </article>
   <article id="user-travel-lodge">
-    <h3><%= @lodge.body %></h3>
-    <p>Hotel lookup: <%= @lodge.lookup %></p>
+    <h3><%= @lodging.title %></h3>
+    <p>When: <%= @lodging.date.strftime("%A, %B %e") %></p>
   </article>
 </section>
