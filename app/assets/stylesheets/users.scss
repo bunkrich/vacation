@@ -1,3 +1,30 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Styling for user profile: /users/:id */
+#user-profile-header {
+  display: flex;
+}
+
+#profile-details {
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    display: table;
+    height: 60%;
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+#user-profile-trips {
+  border-top: 2px #000 solid;
+  margin: 0 auto;
+  padding: 50px 10%;
+  width: 70%;
+}
+
+#profile-upcoming-trips, #profile-past-trips {
+  margin-top: 40px;
+}
