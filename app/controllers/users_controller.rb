@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   # Trip profile
   def profile
     @user = User.find(params[:id])
-    @flight = @user.items.find_by(category: "Flight")
-    @lodge = @user.items.find_by(category: "Lodge")
+    @transportation = @user.items.find_by(category: "Transportation")
+    @lodging = @user.items.find_by(category: "Lodging")
   end
 
   # GET /trip/:id/invite/new
