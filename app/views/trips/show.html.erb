@@ -38,7 +38,6 @@
           <!-- Each day of the trip -->
           <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
          <%= render partial: "items/tile.html.erb", locals: {item: item}%>
-
           <%end%>
         </div>
       </article>
@@ -53,11 +52,9 @@
         <%= render partial: "items/tile.html.erb", locals: {item: nodate}%>
       <% end %>
     <% end %>
-    <!-- check for out of range items do a popo window? flash sign? -->
-
-
   </article>
 
+<!--  OUT OF RANGE ITEMS-->
   <% if out_of_range%>
   <article class="trip-day">
     <h2>Out of trip date range 🙊 </h2>
@@ -66,10 +63,6 @@
     <%end %>
     <% end %>
   </article>
-
-
-
-
 </section>
 
 
