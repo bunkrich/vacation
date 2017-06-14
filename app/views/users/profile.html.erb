@@ -13,11 +13,19 @@
 </section>
 <section id="travel-details">
   <article id="user-travel-flight">
-    <h3><%= @transportation.title %></h3>
-    <p>When: <%= @transportation.date.strftime("%A, %B %e") %></p>
+    <% if @transportation == nil %>
+      <p>No transporation for this trip yet.</p>
+    <% else %>
+      <h3><%= @transportation.title %></h3>
+      <p>When: <%= @transportation.date.strftime("%A, %B %e") %></p>
+    <% end %>
   </article>
   <article id="user-travel-lodge">
-    <h3><%= @lodging.title %></h3>
-    <p>When: <%= @lodging.date.strftime("%A, %B %e") %></p>
+    <% if @lodging == nil %>
+      <p>No lodging for this trip yet.</p>
+    <% else %>
+      <h3><%= @lodging.title %></h3>
+      <p>When: <%= @lodging.date.strftime("%A, %B %e") %></p>
+    <% end %>
   </article>
 </section>
