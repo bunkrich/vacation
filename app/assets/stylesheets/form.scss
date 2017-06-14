@@ -1,5 +1,15 @@
+@import 'universals';
+
+.form {
+  h1 {
+    font-size: 25px;
+  }
+}
+
 .form-wrapper {
+  background-color: $white;
   border: 2px #000 solid;
+  border-radius: 3px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -18,8 +28,29 @@
   }
 
   input[type="submit"] {
+    color: $white;
+    background-color: $red;
+    border: 2px $white solid;
+    font-size: 14px;
     margin-top: 20px;
+    padding: 10px;
     width: 109%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      color: $red;
+      background-color: $white;
+      border: 2px $red solid;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
   }
 }
 
