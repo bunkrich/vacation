@@ -43,14 +43,7 @@
               <div>
                 <!-- ALEX MAKE SURE THIS IS ONLY ON THE DAY SHOW PAGE, otherwise if they change the time it will AUTO set the date to today -->
                 <p><%= i.label :Time %></p>
-                <%= i.select :date, [['Morning', '08:00:00'], ['Afternoon', '14:00:00'], ['Night', '20:00:00']], {:include_blank => 'Change Time'}, { :onchange => "this.form.submit()" } %>
-                <!-- NAT you can delete this. these are the day sections  -->
-                    <% if @item.date %>
-                      <h2><%= @item.date %></h2>
-                      <p><%= @item.date.change(hour: 8) %></p>
-                      <p><%= @item.date.change(hour: 14) %></p>
-                      <p><%= @item.date.change(hour: 20) %></p>
-                    <% end %>
+                <%= i.select :date, ['Morning', 'Afternoon', 'Night'], {:include_blank => 'Change Time'}, { :onchange => "this.form.submit()" } %>
               </div>
             <% end %> <!-- End of form_for on CHANGE DATE -->
 
