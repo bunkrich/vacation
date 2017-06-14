@@ -1,0 +1,57 @@
+:root {
+  --background: #FFFBB9;
+  --green: #A5E29F;
+  --red: #EF7070;
+  --orange: #FFBC73;
+  --blue: #8CE8EA;
+  --purple: #CE84CE;
+  --white: #fff;
+  --black: #000;
+  --gray: rgb(176,176,176);
+}
+
+.nav-dropbtn {
+  position: fixed;
+  background-color: var(--blue);
+  color: var(--orange);
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.nav-dropdown {
+  height: 30px;
+  position: sticky;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--purple);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px var(--gray);
+  z-index: 1;
+}
+
+.nav-dropdown-content a {
+  color: var(--black);
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-dropdown-content a:hover {background-color: var(--blue)}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  display: block;
+  right: 0;
+  position: fixed;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  background-color: var(--purple);
+}
