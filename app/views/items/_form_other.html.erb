@@ -3,44 +3,44 @@
 
   <%= form_for [@trip, @item] do |i| %>
     <div class="for-user-input">
-      <div>
+      <div class="form-section">
         <p><%= i.label :title %></p>
         <p><%= i.text_field :title, :required => true %></p>
       </div>
 
       <% @categories = ['Event', 'Transportation', 'Lodging', 'Other'] %>
 
-      <div>
+      <div class="form-section">
         <p><%= i.label :category %></p>
         <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true %></p>
       </div>
 
-      <div class="not-for-user-input">
+      <div class="form-section not-for-user-input">
         <p><%= i.label :lookup %></p>
         <p><%= i.text_field :lookup %></p>
       </div>
 
-      <div class="not-for-user-input">
+      <div class="form-section not-for-user-input">
         <p><%= i.label :address %></p>
         <p><%= i.text_field :address %></p>
       </div>
 
-      <div>
+      <div class="form-section">
         <p><%= i.label "URL" %></p>
         <p><%= url_field(:item, :image) %></p>
       </div>
 
-      <div>
+      <div class="form-section">
         <p><%= i.label :date %></p>
         <p><%= date_field(:item, :date) %></p>
       </div>
 
-      <div>
+      <div class="form-section">
         <p><%= i.label :info %></p>
         <p><%= i.text_field :body %></p>
       </div>
 
-      <div id="item-new-other-submit">
+      <div id="form-section item-new-other-submit">
         <%= i.submit %>
 
       </div>

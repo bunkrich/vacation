@@ -1,64 +1,59 @@
-<!-- INFO SECTION -->
-<section>
-  <div class="container">
-    <h1><%= link_to @trip.name, @trip %></h1>
-    <h4> <%= @trip.location %></h4>
-
-  </div>
+<section id="day-details">
+  <article id="details-name-location">
+    <div class="container">
+      <h1><%= link_to @trip.name, @trip %></h1>
+      <h4> <%= @trip.location %></h4>
+    </div>
+  </article>
+  <article id="details-map">
+    <%= render "trips/map.html.erb"%>
+  </article>
+  <article id="details-weather">
+    <div class="container">
+      <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
+      <div class="weather">
+        <span>It is 81 degrees and sunny in <%= @trip.location%></span>
+      </div>
+    </div>
+  </article>
+</section>
+<section id="day-times">
+  <article class="time-of-day-style" id="day-morning">
+    <div class="morning">
+      <h3>Morning</h3>
+      <div class="wrapper">
+        <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
+          <div class="box">
+            <li><%= item.title %></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </article>
+  <article class="time-of-day-style" id="day-afternoon">
+    <div class="afternoon">
+      <h3> Afternoon</h3>
+      <div class="wrapper">
+        <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
+          <div class="box">
+            <li><%= item.title %></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </article>
+  <article class="time-of-day-style" id="day-evening">
+    <div class="night">
+      <h3> Night</h3>
+      <div class="wrapper">
+        <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
+          <div class="box">
+            <li><%= item.title %></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </article>
 </section>
 
-
-<!-- MAP SECTION -->
-<%= render "trips/map.html.erb"%>
-
-
-
-
-
-<div class="container">
-  <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
-  <div class="weather">
-    <span>It is 81 degrees and sunny in <%= @trip.location%></span>
-  </div>
-</div>
-
-
-
-<div class="morning">
-  <h3>Morning</h3>
-  <div class="wrapper">
-    <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
-    <div class="box">
-      <li><%= item.title %></li>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="afternoon">
-  <h3> Afternoon</h3>
-  <div class="wrapper">
-
-  <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
-  <div class="box">
-    <li><%= item.title %></li>
-  </div>
-  <% end %>
-  </div>
-</div>
-
-<div class="night">
-  <h3> Night</h3>
-  <div class="wrapper">
-    <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
-    <div class="box">
-      <li><%= item.title %></li>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer>console.log("🛃🛃🛃Views-days-SHOW-page🛃🛃🛃")</script>

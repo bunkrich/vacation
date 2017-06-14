@@ -1,6 +1,14 @@
-<h1>User's travel profile</h1>
-<p>Wanna know about my travel info?</p>
-<h3><%= @flight.body %></h3>
-<p>Flight lookup: <%= @flight.lookup %></p>
-<h3><%= @lodge.body %></h3>
-<p>Hotel lookup: <%= @lodge.lookup %></p>
+<section id="user-travel-section">
+  <article id="user-travel-header">
+    <h1>User's travel profile</h1>
+    <p>Wanna know about my travel info?</p>
+  </article>
+  <article id="user-travel-flight">
+    <h3><%= @flight.body %></h3>
+    <p>Flight lookup: <%= @flight.lookup %></p>
+  </article>
+  <article id="user-travel-lodge">
+    <h3><%= @lodge.body %></h3>
+    <p>Hotel lookup: <%= @lodge.lookup %></p>
+  </article>
+</section>
