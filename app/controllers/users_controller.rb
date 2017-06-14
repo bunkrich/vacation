@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       @errors = ["Incorrect login information"]
-      render 'new'
+      render '/sessions/new'
     end
   end
 
