@@ -4,5 +4,5 @@ class Trip < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :name, :location, :lookup, presence: true
+  validates :name, :location, :start_date, :end_date, :lookup, presence: true
 end
