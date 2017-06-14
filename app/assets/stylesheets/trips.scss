@@ -1,11 +1,23 @@
 @import 'universals';
 
-// Place all the styles related to the Trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#trip-detail-wrapper {
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 0px;
+  }
+}
 
 .date {
+  margin-bottom: 20px;
   text-align: center;
+
+  span {
+    margin-right: 15px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .map {
@@ -15,20 +27,37 @@
     display: flex;
 }
 
+#item_category {
+  background-color: $white;
+}
+
 .drop-down {
   text-align: center;
 }
 
-.message {
-  margin: 0 10%;
+.dropdown-style {
+  background-color: $white;
+  font-family: $body-font;
+  height: 20px;
+
+  option {
+    background-color: $white;
+  }
+}
+
+
+.message-wrapper:first-child {
+  background-color: $white;
+  border: 2px $blue solid;
+  margin: 0 auto;
+  padding: 15px;
+  width: 80%;
 }
 
 .message input{
-  width: 100%;
-  margin-left: auto;
-  margin-right: 10%;
+  width: 90%;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   font-size: 15px;
 }
 
@@ -69,59 +98,7 @@ a {
   text-decoration: none;
 }
 
-.modal-window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.15);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
 
-.modal-window:target {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-window>div {
-  width: 400px;
-  position: relative;
-  margin: 10% auto;
-  padding: 2rem;
-  background: #fff;
-  color: #444;
-}
-
-.modal-window header {
-  font-weight: bold;
-}
-
-.modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
-}
-
-.modal-close:hover {
-  color: #000;
-}
-
-.modal-window h1 {
-  font-size: 150%;
-  margin: 0 0 15px;
-}
 
 .testing {
   background: #FFFF99;
@@ -153,7 +130,7 @@ a {
 
 #locationField {
   height: 20px;
-  margin-bottom: 2px;
+  margin-bottom: 30px;
 }
 
 .not-for-user-input {
@@ -181,8 +158,12 @@ a {
   display: flex;
   justify-content: flex-start;
 
+  p {
+    margin-top: 10px;
+  }
+
   .comments-user-pic {
-    margin: 1em 0;
+    margin: 10px 0 1em 0;
 
     img {
       height: 50px;
@@ -191,7 +172,7 @@ a {
   }
 
   .comments-user-name-date {
-    margin-left: 20px;
+    margin-left: 10px;
 
     p {
       margin-bottom: 0;
@@ -208,34 +189,54 @@ a {
 
 .trip-day{
     background-color: white;
+    border: 1px $gray solid;
+    border-radius: 3px;
     width:80%;
-    margin-left:auto;
-    margin-right:auto;
+    margin: 20px auto;
     overflow:hidden;
-    height: 300px;
+    padding: 10px;
 }
 
 .box{
-    margin:5px;
-    height:225px;
-    width:225px;
-    float: left;
+  border-radius: 3px;
+  margin:5px;
+  height:225px;
+  width:225px;
+  float: left;
 }
 
-.info-overlay{
+.info-overlay {
+  margin-top: -75px;
+  background-color: white;
+  opacity: .6;
+  padding-top: 1px;
+  padding-left: 5px;
+  height: 75px;
+}
+
+.info {
+  font-family: $body-font;
+  font-size: 14pt;
+  margin-top: -64px;
+  position: absolute;
+  padding-left: 15px;
+}
+
+/*.info-overlay{
   margin-top: -57px;
   background-color: white;
   opacity: .6;
   padding-top: 1px;
   padding-left: 5px;
-  p{
-  padding: 5px;
-  color: black;
-  opacity: 1 !important;
-  }
-}
+    p{
+    padding: 5px;
+    color: black;
+    opacity: 1 !important;
+    }
+}*/
 
 .tile-image{
+  border-radius: 3px;
   z-index: -1;
   height:225px;
   width: 225px;

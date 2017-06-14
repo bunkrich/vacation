@@ -63,19 +63,19 @@
 
 <!-- MESSAGING SECTION -->
 <section id="message-section">
-  <h3> Message Wall</h3>
-  <article="message-wrapper">
+  <article class="message-wrapper">
+    <h2> Message Wall</h2>
     <div class="message">
       <!-- display messages here -->
       <% @trip.comments.each do |comment| %>
-        <div class="message-wrapper">
+        <div class="message">
           <input readonly= "readonly" type="text" name="" value="<%= comment.body %>">
           <div class="comments-details">
             <div class="comments-user-pic">
               <img src="<%= comment.user.image %>" />
             </div>
             <div class="comments-user-name-date">
-              <p><%= comment.user.email %></p>
+              <p><%= comment.user.first_name %> <%= comment.user.last_name %></p>
               <span><%= comment.updated_at.strftime("%m/%d/%Y at %I:%M%p") %></span>
             </div>
           </div>
