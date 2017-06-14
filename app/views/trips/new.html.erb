@@ -7,27 +7,20 @@
   <section class="form">
     <article class="form-wrapper">
       <%= form_for [@trip] do |i| %>
-        <div>
           <%= i.submit %>
-        </div>
-        <div class="form-section">
           <p><%= i.hidden_field :name %></p>
-        </div>
-        <div class="form-section">
+
           <p><%= i.hidden_field :lookup %></p>
-        </div>
-        <div class="form-section">
+
           <p><%= i.hidden_field :location %></p>
-        </div>
-        <div class="form-section">
+
           <p><%= i.label :start_date %></p>
           <p><%= date_field(:trip, :start_date, value: Time.now.strftime('%Y-%m-%d')) %></p>
-        </div>
-        <div class="form-section">
+
           <p><%= i.label :end_date %></p>
           <p><%= date_field(:trip, :end_date, value: (Time.now + 6.days).strftime('%Y-%m-%d')) %></p>
-        </div>
-        <div class="form-section">
+
+
           <p><%= i.label :description %></p>
           <p><%= i.text_area :description %></p>
         </div>

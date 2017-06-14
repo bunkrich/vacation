@@ -17,7 +17,7 @@
 
 <!-- SEARCH BAR SECTION -->
 <section id="trip-search">
-  <article="trip-search-wrapper">
+  <article id="trip-search-wrapper">
     <div class="drop-down">
       <%= render partial: "items/form"%>
     </div>
@@ -32,122 +32,28 @@
 <section id="trip-items" class="container day">
   <!-- All the days of the trip -->
     <% @trip.start_date.upto@trip.end_date do |day| %>
-<<<<<<< HEAD
-      <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
-      <div class="item-wrapper">
-        <!-- Each day of the trip -->
-        <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-    
-          <div class="box">
-
-              <div class="voting">
-              <form method="post" action= "/trips/<%=@trip.id%>/items/<%=item.id%>/votes" id="vote-item-form">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
-                <% total_vote = 0 %>
-                <% item.votes.each do |vote| %>
-                  <% total_vote += vote.up_down  %>
-                <% end %>
-
-                <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
-              </form>
-              </div>
-              <img src="<%= item.image %>" class="tile-image">
-              <div class="info-overlay">
-              <%= item.title %>
-              <div class="dropdown">
-              <img src="http://svgur.com/i/1w0.svg" class="cal-button">
-              </div>
-              </div>
-
-
-          </div>
-
-            <!-- closing interior tag -->
-
-            <!-- Where the model begins -->
-            <div id="open-modal" class="modal-window">
-              <div>
-                <a href="#modal-close" title="Close" class="modal-close">Close</a>
-                <h2><%= item.title %></h2>
-                <div>
-                  <%= item.body %>
-                </div>
-              </div>
-            </div>
-
-          <!-- closing box tag -->         
-        <%end%>
-      </div>
-    <% end %>
-  </div>
-  </div>
-  </section>
-
-
-=======
-      <article class="trip-day">
+      <article class="trip-day" id="day-<%= day %>'">
         <h3><a href="/trips/<%=@trip.id%>/days/<%=day%>"><%= day.strftime("%A, %B %e") %></a></h3>
         <div class="item-wrapper">
           <!-- Each day of the trip -->
           <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
-         <div class="box">
-          <div class="voting">
-            <form method="post" action= "/trips/<%=@trip.id%>/items/<%=item.id%>/votes" id="vote-item-form">
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
-              <% total_vote = 0 %>
-              <% item.votes.each do |vote| %>
-                <% total_vote += vote.up_down  %>
-              <% end %>
-              <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
-            </form>
-          </div>
-          <img src="<%= item.image %>" class="tile-image">
-            <div class="info-overlay">
-              <%= item.title %>
-              <div class="dropdown">
-                <img src="http://svgur.com/i/1w0.svg" class="cal-button">
-              </div>
-            </div>
-        </div>
+         <%= render partial: "items/tile.html.erb", locals: {item: item}%>
+        
           <%end%>
         </div>
       </article>
     <% end %>
->>>>>>> origin
+
 
   <!-- No date yet -->
     <% if @trip.items.length > 0 && @trip.items.where("date is null") %>
-    <article class="trip-no-date">
-      <h1>General</h1>
+    <article class="trip-day">
+      <h2>General</h2>
       <%  @trip.items.where("date is null").each do |nodate| %>
-        <div class="box">
-          <div class="voting">
-            <form method="post" action= "/trips/<%=@trip.id%>/items/<%=nodate.id%>/votes" id="vote-item-form">
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
-              <% total_vote = 0 %>
-              <% nodate.votes.each do |vote| %>
-                <% total_vote += vote.up_down  %>
-              <% end %>
-              <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
-            </form>
-          </div>
-          <img src="<%= nodate.image %>" class="tile-image">
-            <div class="info-overlay">
-              <%= nodate.title %>
-              <div class="dropdown">
-                <img src="http://svgur.com/i/1w0.svg" class="cal-button">
-              </div>
-            </div>
-        </div>
+        <%= render partial: "items/tile.html.erb", locals: {item: nodate}%>
       <% end %>
     <% end %>
-<<<<<<< HEAD
-=======
   </article>
->>>>>>> origin
 </section>
 
 
