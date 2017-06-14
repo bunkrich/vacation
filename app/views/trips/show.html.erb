@@ -93,7 +93,7 @@
 <section id="friends-section">
   <article id="friends-wrapper">
     <h3>Friends</h3>
-    <% if @trip.users.count == 0 %>
+    <% if @trip.users.count == 1 %>
       <p>No travelers yet!</p>
     <% else %>
       <% @trip.users.each do |friend| %>

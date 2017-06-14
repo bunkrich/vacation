@@ -17,7 +17,7 @@ module SessionsHelper
   end
 
   def correct_users(current_trip)
-    current_trip.
+    # current_trip
 
     # current_user && current_user.id == current_trip.user_id
   end
