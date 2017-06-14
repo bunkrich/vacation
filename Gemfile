@@ -10,7 +10,6 @@ end
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
 
-gem 'pry'
 gem 'activesupport'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -36,7 +35,6 @@ gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'faker'
