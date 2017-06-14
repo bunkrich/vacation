@@ -1,0 +1,21 @@
+<div class="box">
+          <div class="voting">
+            <form method="post" action= "/trips/<%=@trip.id%>/items/<%=item.id%>/votes" id="vote-item-form">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button class="vote-button" type="submit" name="up_down" value="1"><img src="http://svgur.com/i/1wr.svg" class="upvote"></button>
+              <% total_vote = 0 %>
+              <% item.votes.each do |vote| %>
+                <% total_vote += vote.up_down  %>
+              <% end %>
+              <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
+            </form>
+          </div>
+          <img src="<%= item.image %>" class="tile-image">
+            <div class="info-overlay">
+              <%= item.title %>
+              <div class="dropdown">
+                <img src="http://svgur.com/i/1w0.svg" class="cal-button">
+
+              </div>
+            </div>
+        </div>
