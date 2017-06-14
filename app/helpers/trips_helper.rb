@@ -16,10 +16,3 @@ module TripsHelper
     no_time = @day_items.where('DATE IS NULL')
   end
 end
-
-
-# morning is 8
-
-# afternoon is 2
-
-# night is 8
