@@ -18,11 +18,12 @@
   </article>
 </section>
 <section id="day-times">
+  <% if !morning.empty? %>
   <article class="time-of-day-style" id="day-morning">
     <div class="morning">
       <h3>Morning</h3>
       <div class="wrapper">
-        <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.beginning_of_day, "#{@date} 11:59:59").each do |item| %>
+        <% morning.each do |item| %>
           <div class="box">
             <li><%= item.title %></li>
           </div>
@@ -30,11 +31,13 @@
       </div>
     </div>
   </article>
+  <% end %>
+  <% if !day.empty? %>
   <article class="time-of-day-style" id="day-afternoon">
     <div class="afternoon">
       <h3> Afternoon</h3>
       <div class="wrapper">
-        <% @day_items.where('date BETWEEN ? AND ?',@date.to_date.middle_of_day, "#{@date} 18:00:00").each do |item| %>
+        <% day.each do |item| %>
           <div class="box">
             <li><%= item.title %></li>
           </div>
@@ -42,11 +45,13 @@
       </div>
     </div>
   </article>
+  <% end %>
+  <% if !night.empty? %>
   <article class="time-of-day-style" id="day-evening">
     <div class="night">
       <h3> Night</h3>
       <div class="wrapper">
-        <% @day_items.where('date BETWEEN ? AND ?',"#{@date} 18:00:01", @date.to_date.end_of_day).each do |item| %>
+        <% night.each do |item| %>
           <div class="box">
             <li><%= item.title %></li>
           </div>
@@ -54,6 +59,7 @@
       </div>
     </div>
   </article>
+  <% end %>
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXETbPhRPjeq0rjsbaKDwhRP9zsRK_vI&libraries=places&callback=initMain" async defer>console.log("🛃🛃🛃Views-days-SHOW-page🛃🛃🛃")</script>
