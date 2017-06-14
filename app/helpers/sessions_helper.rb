@@ -15,4 +15,12 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def correct_user(current_trip)
+    current_user && current_user.id == current_trip.user_id
+  end
+
+  def verify
+    halt(404, erb(:'404')) unless correct_user(@trip)
+  end
 end
