@@ -15,6 +15,14 @@ class TripsController < ApplicationController
       @locations.push(@trip.lookup)
     end
     @locations.uniq!
+    @days = []
+    puts "@DAYS!!!!!!!!! 🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡"
+    @trip.start_date.upto@trip.end_date do |day|
+      @days.push(day.strftime("%A, %B %e"))
+    end
+    @days.push('TBD')
+    puts @days
+    puts "🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡"
     redirect_to "/trips" unless @trip
   end
 
