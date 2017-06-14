@@ -1,0 +1,32 @@
+/* Color palette */
+$background: #FFFBB9;
+$green: #A5E29F;
+$red: #EF7070;
+$orange: #FFBC73;
+$blue: #8CE8EA;
+$purple: #CE84CE;
+$white: #fff;
+$black: #000;
+$gray: rgb(176,176,176);
+
+$title-font: 'Pangolin', cursive;
+$body-font: 'Roboto', sans-serif;
+
+/* Default fonts */
+h1, h2, h3, h4 {
+  font-family: $title-font;
+}
+
+p, a, span, label, select, ul, ol, li {
+  font-family: $body-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Cross-page styling */
+body {
+  background-color: $background;
+}
+

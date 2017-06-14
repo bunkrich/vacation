@@ -1,4 +1,14 @@
+@import 'universals';
+
 /* Styling for user profile: /users/:id */
+#user-profile {
+  background-color: $white;
+  border: 2px $black solid;
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 70%;
+}
+
 #user-profile-header {
   display: flex;
 }
@@ -18,11 +28,13 @@
   }
 }
 
+#profile-no-trip {
+  margin-left: 30px;
+}
+
 #user-profile-trips {
-  border-top: 2px #000 solid;
-  margin: 0 auto;
-  padding: 50px 10%;
-  width: 70%;
+  border-top: 1px $gray solid;
+  padding: 50px 0;
 }
 
 #profile-upcoming-trips, #profile-past-trips {
