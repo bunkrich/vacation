@@ -20,12 +20,12 @@
   </article>
 </section>
 <section>
-  <% if !no_time.empty? %>
+  <% if !item_no_time.empty? %>
   <article class="">
     <div class="">
       <h3>Today's Agenda</h3>
       <div class="wrapper">
-        <% no_time.each do |item| %>
+        <% item_no_time.each do |item| %>
         <div class="box">
           <li> <%link_to item.title, trip_item_path(@trip,@item)%></li>
         </div>

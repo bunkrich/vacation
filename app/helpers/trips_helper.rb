@@ -12,8 +12,8 @@ module TripsHelper
     night = @day_items.where('date BETWEEN ? AND ?',"#{@date} 20:00:00", @date.to_date.end_of_day)
   end
 
-  def no_time
-    no_time = @day_items.where('DATE IS NULL')
+  def item_no_time
+    item_no_time = @day_items.where('DATE IS NULL')
   end
 
 
