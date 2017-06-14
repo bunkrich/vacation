@@ -38,7 +38,7 @@
           <!-- Each day of the trip -->
           <% @trip.items.where('date BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).each do |item| %>
          <%= render partial: "items/tile.html.erb", locals: {item: item}%>
-        
+
           <%end%>
         </div>
       </article>
@@ -93,6 +93,7 @@
       <p>No travelers yet!</p>
     <% else %>
       <% @trip.users.each do |friend| %>
+        <a href="/trips/<%= @trip.id %>/users/<%= friend.id %>"
         <div class="friend-box">
           <img src="<%= friend.image %>" />
           <p><%= friend.first_name%> <%= friend.last_name %></p>
