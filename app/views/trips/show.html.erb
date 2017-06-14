@@ -93,11 +93,11 @@
 <section id="friends-section">
   <article id="friends-wrapper">
     <h3>Friends</h3>
-    <% if @trip.users.count == 1 %>
+    <% if @trip.users.count == 0 %>
       <p>No travelers yet!</p>
     <% else %>
       <% @trip.users.each do |friend| %>
-        <a href="/trips/<%= @trip.id %>/users/<%= friend.id %>"
+        <a href="/trips/<%= @trip.id %>/users/<%= friend.id %>">
         <div class="friend-box">
           <img src="<%= friend.image %>" />
           <p><%= friend.first_name%> <%= friend.last_name %></p>
