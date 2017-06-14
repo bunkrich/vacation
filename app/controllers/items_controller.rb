@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def show
+        puts "⭐️⭐️⭐️⭐️⭐️ ITEMS SHOW CONTROLLER"
     @item = Item.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
