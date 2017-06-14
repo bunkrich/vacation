@@ -6,7 +6,7 @@
 </section>
 <section id="user-profile-trips">
   <% if @user.trips.count == 0 %>
-    <span> You have not created any trips yet, let's <%= link_to "create ", new_trip_path %>one! </span>
+    <span> You have not created any trips yet 😢 , let's <%= link_to "create ", new_trip_path %>one! </span>
   <% else %>
     <% if current_trip.length != 0 %>
       <article id="profile-current-trip">

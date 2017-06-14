@@ -38,11 +38,27 @@ class ItemsController < ApplicationController
     end
   end
 
+## NEEDS CLEANED UP REALLY BAD!!!
   def update
-    puts "🔵 UPDATE 🔵 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
-    if @item.update_attributes(item_params)
+    input = params[:item][:date]
+    if input == 'Morning'
+      hour = 8
+      @item.date = @item.date.change(hour: hour)
+      @item.save
+      redirect_to action: "show", id: @item.id
+    elsif input == "Afternoon"
+      hour = 14
+      @item.date = @item.date.change(hour: hour)
+      @item.save
+      redirect_to action: "show", id: @item.id
+    elsif input == "Night"
+      hour = 20
+      @item.date = @item.date.change(hour: hour)
+      @item.save
+      redirect_to action: "show", id: @item.id
+    elsif @item.update_attributes(item_params)
       redirect_to action: "show", id: @item.id
     else
       render 'edit'

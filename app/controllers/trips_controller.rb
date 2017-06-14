@@ -42,6 +42,8 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(id: params[:id])
       if @trip.update(trip_params)
+
+        # Check outbounds items
         redirect_to @trip
     else
       @errors = @trip.errors.full_messages
