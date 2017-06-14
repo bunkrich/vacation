@@ -1,5 +1,3 @@
- require 'pry'
- require 'byebug'
 
 class CommentsController < ApplicationController
   def show
