@@ -43,7 +43,7 @@
       <div class="wrapper">
         <% morning.each do |item| %>
           <div class="box">
-            <li><%= item.title %></li>
+           <%= render partial: "items/tile_day.html.erb", locals: { item: item}%>
           </div>
         <% end %>
       </div>
@@ -57,7 +57,7 @@
       <div class="wrapper">
         <% day.each do |item| %>
           <div class="box">
-            <li><%= item.title %></li>
+            <%= render partial: "items/tile_day.html.erb", locals: { item: item}%>
           </div>
         <% end %>
       </div>
@@ -71,7 +71,7 @@
       <div class="wrapper">
         <% night.each do |item| %>
           <div class="box">
-            <li><%= item.title %></li>
+            <%= render partial: "items/tile_day.html.erb", locals: { item: item}%>
           </div>
         <% end %>
       </div>
