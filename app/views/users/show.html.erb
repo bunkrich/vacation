@@ -13,26 +13,30 @@
         <h3>Current Trip:</h3>
         <ul>
           <% current_trip.each do |trip| %>
-            <li><%= link_to trip.name, trip_path(trip)  %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
+            <li><%= link_to trip.name, trip_path(trip)  %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e") %></li>
           <%end %>
         </ul>
       </article>
     <% end %>
+    <% if @trips.where('start_date > ?', Date.today).length > 1 %>
     <article id="profile-upcoming-trips">
       <h3>Upcoming Trips:</h3>
       <ul>
         <% @trips.where('start_date > ?', Date.today).each do |trip| %>
-          <li><%= link_to trip.name, trip_path(trip) %>  from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
+          <li><%= link_to trip.name, trip_path(trip) %>  from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e") %></li>
         <% end %>
       </ul>
     </article>
+    <% end %>
+    <% if @trips.where('end_date < ?', Date.today).length > 1 %>
     <article id="profile-past-trips">
       <h3>Past Trips:</h3>
       <ul>
         <% @trips.where('end_date < ?', Date.today).each do |trip| %>
-          <li><%= link_to trip.name, trip_path(trip)%> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
+          <li><%= link_to trip.name, trip_path(trip) %> from <%= trip.start_date.strftime("%A, %B %e") %> until <%= trip.end_date.strftime("%A, %B %e")%></li>
         <% end %>
       </ul>
     </article>
-  <%end %>
+    <% end %>
+  <% end %>
 </section>
