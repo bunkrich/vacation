@@ -1,9 +1,7 @@
-<section id="day-details">
+<section id="day-top-details">
   <article id="details-name-location">
-    <div class="container">
       <h1><%= link_to @trip.name, @trip %></h1>
       <h4> <%= @trip.location %></h4>
-    </div>
   </article>
 </section>
 
@@ -12,7 +10,7 @@
 <section id="day-details">
   <article id="details-weather">
     <div class="container">
-      <h1><%= @date.to_date.strftime("%A, %B %e") %></h1>
+      <h1 id="day-date"><%= @date.to_date.strftime("%A, %B %e") %></h1>
     </div>
   </article>
 </section>
