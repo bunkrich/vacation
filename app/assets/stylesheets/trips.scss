@@ -1,14 +1,20 @@
 @import 'universals';
 
+#trips-details {
+  background-color: $green;
+  padding-top: 20px;
+}
+
 #trip-detail-wrapper {
   h1 {
     font-size: 24pt;
+    margin: 0;
     margin-bottom: 0px;
   }
 }
 
 .date {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   text-align: center;
 
   span {
@@ -51,8 +57,9 @@
   background-color: $white;
   border: 2px $blue solid;
   margin: 0 auto;
+  max-width: 1200px;
   padding: 15px;
-  width: 80%;
+  width: 79%;
 }
 
 .message input{
@@ -60,6 +67,15 @@
   padding: 10px;
   margin-top: 10px;
   font-size: 15px;
+}
+
+#friends-wrapper {
+  background-color: $white;
+  border: 2px $purple solid;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 15px;
+  width: 79%;
 }
 
 .friend-box{
@@ -99,7 +115,9 @@ a {
   text-decoration: none;
 }
 
-
+.trips-button {
+  text-decoration: underline;
+}
 
 .testing {
   background: #FFFF99;
@@ -110,6 +128,12 @@ a {
 
 .item-image {
   max-width: 300px;
+}
+
+.create-event-button {
+  background-color: $red;
+  font-size: 14pt;
+  width: 200px;
 }
 
 // ADDED FROM GOOGLE FOR THE GOOGLE SEARCH BAR FROM BRENT
@@ -190,10 +214,11 @@ a {
 
 .trip-day{
     background-color: white;
-    border: 1px $gray solid;
+    border: 2px $green solid;
     border-radius: 3px;
     width:80%;
     margin: 20px auto;
+    max-width: 1200px;
     overflow:hidden;
     padding: 10px;
 }
