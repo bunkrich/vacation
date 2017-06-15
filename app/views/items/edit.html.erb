@@ -17,12 +17,12 @@
         <p><%= i.select :category, @categories, {:prompt => 'Select Category'}, :required => true, :id => 'edit-item-select' %></p>
       </div>
 
-      <div class="form-section">
+      <div class="not-for-user-input">
         <p><%= i.label :Google_Lookup %></p>
         <p><%= i.text_field :lookup %></p>
       </div>
 
-      <div class="form-section">
+      <div class="not-for-user-input">
         <p><%= i.label :address %></p>
         <p><%= i.text_field :address %></p>
       </div>
