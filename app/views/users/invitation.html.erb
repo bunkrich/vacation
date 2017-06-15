@@ -2,8 +2,12 @@
   <h1>Invite Your Friends!</h1>
   <article class="form-wrapper">
     <form action="/trips/<%= @trip.id %>/invite" method="post">
-      <input type="text" name="email" placeholder="Enter email address"/ >
-      <input type="submit" value="Invite Your Friends!" />
+      <div class="form-section">
+        <input type="text" name="email" placeholder="Enter email address"/ >
+      </div>
+      <div class="form-section">
+        <input type="submit" value="Invite Your Friends!" />
+      </div>
     </form>
   </article>
 </section>
