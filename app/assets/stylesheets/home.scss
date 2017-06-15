@@ -1,0 +1,68 @@
+@import 'universals';
+
+// Homepage
+
+#home-section {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+}
+
+#home-title {
+  font-size: 60pt;
+  letter-spacing: 10px;
+}
+
+.home-button-wrapper {
+  text-align: center;
+
+  &:last-child {
+    margin-top: 50px;
+  }
+}
+
+.homepage-button {
+  border: 2px $white solid;  
+  border-radius: 3px;
+  color: $white;
+  font-size: 20pt;
+  padding: 15px 45px;
+      -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+#login {
+  background-color: $purple;
+  padding: 15px 52px;
+
+
+  &:hover {
+    background-color: $white;
+    border: 2px $purple solid;
+    color: $purple;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+
+#signup {
+  background-color: $red;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $red solid;
+    color: $red;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
