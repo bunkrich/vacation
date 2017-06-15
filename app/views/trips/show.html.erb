@@ -83,7 +83,7 @@
       <% end %>
       <!-- create new messages -->
       <div class="new-messages">
-        <%= link_to 'Add a comment', new_trip_comment_path(@trip, @comment) %>
+        <a href="/trips/<%= @trip.id %>/comments/new" class="trips-button">Add a comment</a>
       </div>
     </div>
   </article>
@@ -92,7 +92,7 @@
 <!-- FRIENDS SECTION -->
 <section id="friends-section">
   <article id="friends-wrapper">
-    <h3>Friends</h3>
+    <h2>Friends</h2>
     <% if @trip.users.count == 0 %>
       <p>No travelers yet!</p>
     <% else %>
@@ -104,7 +104,7 @@
         </div>
       <% end %>
     <% end %>
-    <p><a href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
+    <p><a class="trips-button" href="/trips/<%= @trip.id %>/invite/new" id="add-friends-button">Add More Friends!</a></p>
   </article>
 </section>
 

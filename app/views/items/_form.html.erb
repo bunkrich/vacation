@@ -9,8 +9,8 @@
         <p><%= i.label :category %>: <%= i.select :category, ["Location", "Food", "Lodging", "Attraction", "Nightlife"] %></p>
      </div>
     <div id="item-new-google-maps-submit">
-      <%= i.submit %>
-      <button><a href="#toggle">Other</a></button>
+      <p><%= i.submit :class => 'create-event-button' %></p>
+      <button class="create-other-button"><a href="#toggle">Or create your own item</a></button>
     </div>
 
     <div class="not-for-user-input">

@@ -1,14 +1,20 @@
 @import 'universals';
 
+#trips-details {
+  background-color: $green;
+  padding-top: 20px;
+}
+
 #trip-detail-wrapper {
   h1 {
     font-size: 24pt;
+    margin: 0;
     margin-bottom: 0px;
   }
 }
 
 .date {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   text-align: center;
 
   span {
@@ -51,8 +57,9 @@
   background-color: $white;
   border: 2px $blue solid;
   margin: 0 auto;
+  max-width: 1200px;
   padding: 15px;
-  width: 80%;
+  width: 79%;
 }
 
 .message input{
@@ -62,8 +69,16 @@
   font-size: 15px;
 }
 
+#friends-wrapper {
+  background-color: $white;
+  border: 2px $purple solid;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 15px;
+  width: 79%;
+}
+
 .friend-box{
-  border:solid 1px #000;
   display: inline-block;
   height:125px;
   margin:5px;
@@ -99,7 +114,9 @@ a {
   text-decoration: none;
 }
 
-
+.trips-button {
+  text-decoration: underline;
+}
 
 .testing {
   background: #FFFF99;
@@ -112,11 +129,63 @@ a {
   max-width: 300px;
 }
 
+.create-event-button {
+  background-color: $red;
+  border: 2px $white solid;  
+  border-radius: 3px;
+  color: $white;
+  font-size: 14pt;
+  padding: 15px 45px;
+  width: 200px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $red solid;
+    color: $red;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.create-other-button {
+  background-color: $orange;
+  border: 2px $white solid;  
+  border-radius: 3px;
+  color: $white;
+  font-size: 12pt;
+  width: 200px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $orange solid;
+    color: $orange;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+
 // ADDED FROM GOOGLE FOR THE GOOGLE SEARCH BAR FROM BRENT
 #locationField, #controls {
   display: flex;
 }
-#item-new-google-maps-submit {
+
+#new-google-maps-submit {
   display: block;
   margin: 20px;
 }
@@ -147,6 +216,7 @@ a {
 }
 
 #toggle:target + .close {
+  text-align: center;
   display: block;
 }
 
@@ -190,10 +260,11 @@ a {
 
 .trip-day{
     background-color: white;
-    border: 1px $gray solid;
+    border: 2px $green solid;
     border-radius: 3px;
     width:80%;
     margin: 20px auto;
+    max-width: 1200px;
     overflow:hidden;
     padding: 10px;
 }
