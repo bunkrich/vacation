@@ -2,10 +2,10 @@ class TripsController < ApplicationController
   def show
 
     puts "🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡"
-    a = current_user.id
-    hello = Traveler.where(trip_id: params[:id], user_id: a)
+    # a = current_user.id
+    # hello = Traveler.where(trip_id: params[:id], user_id: a)
         puts " 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁"
-    puts hello.count
+    # puts hello.count
     puts " 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁 😃💁"
 
 
