@@ -66,3 +66,18 @@
     transition: all 0.3s ease-out;
   }
 }
+
+#loggedin {
+  background-color: $green;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $green solid;
+    color: $green;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
