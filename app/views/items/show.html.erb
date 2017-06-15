@@ -1,55 +1,52 @@
 <section id="item-section">
   <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Go back to trip page'.html_safe, trip_path(@trip) %>
   <article id="item-wrapper">
-      <div id="image-details">
-        <div id="item-image">
-          <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
-        </div>
+    <div id="image-details">
+      <div id="item-image">
+        <img src="<%= @item.image %>" alt="<%= @item.body %> image" />
+      </div>
 
-        <div id="item-details">
-          <div class="item-wrapper">
-            <h1><%= @item.title %></h1>
-            <p><%= @item.body %></p>
-            <p><%= @item.address %></p>
-            <p>Added by <%= @item.user.first_name %> <%= @item.user.last_name %></p>
-            <%= link_to 'Edit Item', edit_trip_item_path, :class => 'edit-buttonr' %>
-            <div id="item-vote">
-              <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button class="vote-button" type="submit" name="up_down" value="1"> <img src="http://svgur.com/i/1wr.svg" class="upvote"> </button>
-                <% total_vote = 0 %>
-                <% @item.votes.each do |vote| %>
-                  <% total_vote += vote.up_down  %>
-                <% end %>
-                <input class="vote-count" type="text" value="<%= total_vote %> votes" />
-                <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
-              </form>
+      <div id="item-details">
+        <div class="item-wrapper">
+          <h1><%= @item.title %></h1>
+          <p><%= @item.body %></p>
+          <p><%= @item.address %></p>
+          <p>Added by <%= @item.user.first_name %> <%= @item.user.last_name %></p>
+          <%= link_to 'Edit Item', edit_trip_item_path, :class => 'edit-buttonr' %>
+          <div id="item-vote">
+            <form method="post" action= "/trips/<%=@trip.id%>/items/<%=@item.id%>/votes" id="vote-item-form">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button class="vote-button" type="submit" name="up_down" value="1"> <img src="http://svgur.com/i/1wr.svg" class="upvote"> </button>
+              <% total_vote = 0 %>
+              <% @item.votes.each do |vote| %>
+                <% total_vote += vote.up_down  %>
+              <% end %>
+              <input class="vote-count" type="text" value="<%= total_vote %> votes" />
+              <button class="vote-button" type="submit" name="up_down" value="-1" ><img src="http://svgur.com/i/1uw.svg" class="downvote"></button>
+            </form>
+          </div>
+
+          <%= form_for [@trip, @item] do |i| %> <!-- CHANGE DATE -->
+            <div>
+              <p><%= i.label :Day %></p>
+              <% if @item.date %>
+                <%= i.select :date, @days, { :selected => @day }, { :onchange => "this.form.submit()" } %>
+              <% else %>
+                <%= i.select :date, @days, {:include_blank => ''}, { :onchange => "this.form.submit()" } %>
+              <% end %>
             </div>
+          <% end %> <!-- End of form_for on CHANGE DATE -->
 
+          <%= form_for [@trip, @item] do |i| %> <!-- CHANGE TIME -->
+            <div>
+              <!-- ALEX MAKE SURE THIS IS ONLY ON THE DAY SHOW PAGE, otherwise if they change the time it will AUTO set the date to today -->
+              <p><%= i.label :Time %></p>
+              <%= i.select :date, ['Morning', 'Afternoon', 'Night'], {:include_blank => 'Change Time'}, { :onchange => "this.form.submit()" } %>
+            </div>
+          <% end %> <!-- End of form_for on CHANGE DATE -->
 
-            <%= form_for [@trip, @item] do |i| %> <!-- CHANGE DATE -->
-              <div>
-                <p><%= i.label :Day %></p>
-                <% if @item.date %>
-                  <%= i.select :date, @days, { :selected => @day }, { :onchange => "this.form.submit()" } %>
-                <% else %>
-                  <%= i.select :date, @days, {:include_blank => ''}, { :onchange => "this.form.submit()" } %>
-                  <% end %>
-              </div>
-            <% end %> <!-- End of form_for on CHANGE DATE -->
-
-
-            <%= form_for [@trip, @item] do |i| %> <!-- CHANGE TIME -->
-              <div>
-                <!-- ALEX MAKE SURE THIS IS ONLY ON THE DAY SHOW PAGE, otherwise if they change the time it will AUTO set the date to today -->
-                <p><%= i.label :Time %></p>
-                <%= i.select :date, ['Morning', 'Afternoon', 'Night'], {:include_blank => 'Change Time'}, { :onchange => "this.form.submit()" } %>
-              </div>
-            <% end %> <!-- End of form_for on CHANGE DATE -->
-
-
-          </div> <!-- End item-wrapper -->
-        </div> <!-- End item-details -->
-      </div> <!-- End image-details -->
+        </div> <!-- End item-wrapper -->
+      </div> <!-- End item-details -->
+    </div> <!-- End image-details -->
   </article>
 </section>
