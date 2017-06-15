@@ -4,7 +4,6 @@
   <section class="form">
     <article class="form-wrapper">
       <%= form_for [@trip] do |i| %>
-
         <div class="form-section" id="locationField">
           <input id="autocomplete" placeholder="Add a New Place" onFocus="geolocate()" type="text"></input>
         </div>
@@ -16,12 +15,12 @@
         <div class="form-section first-field">
           <%= i.label :start_date %>
           <%= date_field(:trip, :start_date, value: Time.now.strftime('%Y-%m-%d')) %></p>
-          </div>
-          <div class="form-section">
+        </div>
+        <div class="form-section">
           <%= i.label :end_date %>
           <%= date_field(:trip, :end_date, value: (Time.now + 6.days).strftime('%Y-%m-%d')) %>
-          </div>
-          <div class="form-section">
+        </div>
+        <div class="form-section">
           <%= i.label :description %>
           <%= i.text_area :description %>
         </div>
@@ -32,4 +31,5 @@
     </article>
   </section>
 </div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmWYK4EZmBmDeiEhduAajCiTiAqrt8BGc&libraries=places&callback=initAutocomplete" async defer> console.log("🔵🔵🔵Views-Trips-NEW-page🔵🔵🔵")</script>

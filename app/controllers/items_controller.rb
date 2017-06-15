@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   def show
-        puts "⭐️⭐️⭐️⭐️⭐️ ITEMS SHOW CONTROLLER"
     @item = Item.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @vote = Vote.new
@@ -28,11 +27,9 @@ class ItemsController < ApplicationController
     @item.trip = @trip
 
     if @item.save
-      puts "⭐️⭐️⭐️⭐️⭐️  ITEM WAS SAVED ⭐️⭐️⭐️⭐️⭐️⭐️"
       vote = @item.votes.create(up_down: 0, user: current_user)
       redirect_to action: "show", id: @item.id
     else
-      puts "🔴 🔴  DID NOT SAVE!!! 🔴 🔴 "
       @trip = Trip.find_by(id: params[:trip_id])
       @errors = @item.errors.full_messages
       render '/trips/show'
@@ -67,7 +64,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    puts "😈 EDIT 😈 "
     @trip = Trip.find_by(id: params[:trip_id])
     @item = Item.find_by(id: params[:id])
   end

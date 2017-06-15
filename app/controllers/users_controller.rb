@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
   # User profile
   def new
@@ -38,10 +37,7 @@ class UsersController < ApplicationController
   def invited
     @user = User.new
     @trip = Trip.find_by(id: params[:id])
-    p"============================"
-    p @trip
     InviteFriendsMailer.invite_email(params[:email], @trip.id).deliver
-
     redirect_to @trip
   end
 
@@ -54,7 +50,6 @@ class UsersController < ApplicationController
   def create_traveler
     @trip = Trip.find(params[:id])
     @user = @trip.users.new(user_params)
-
     if @user.save
       traveler = Traveler.create(user_id: @user.id, trip_id: @trip.id)
       log_in @user
@@ -74,7 +69,6 @@ class UsersController < ApplicationController
   def logging_in_traveler
     user = User.find_by(email: params[:user][:email])
     @trip = Trip.find(params[:id])
-
     if user && user.authenticate(params[:user][:password])
       log_in user
       Traveler.create(user: current_user, trip: @trip)
