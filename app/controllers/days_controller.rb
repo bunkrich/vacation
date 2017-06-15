@@ -13,7 +13,7 @@ class DaysController < ApplicationController
       end
     end
     if @locations.count < 1
-      @locations.push(@trip.lookup)
+      @locations << {place_id: @trip.lookup, category: ""}.to_json
     end
     @locations.uniq!
     redirect_to "/trips" unless @trip
