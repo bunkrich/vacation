@@ -9,7 +9,7 @@ $white: #fff;
 $black: #000;
 $gray: rgb(176,176,176);
 
-$title-font: 'Pangolin', cursive;
+$title-font: 'Raleway', sans-serif;
 $body-font: 'Roboto', sans-serif;
 
 /* Default fonts */
@@ -28,5 +28,6 @@ a {
 /* Cross-page styling */
 body {
   background-color: $background;
+  margin: 0;
 }
 
