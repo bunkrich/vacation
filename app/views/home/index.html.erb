@@ -1,5 +1,17 @@
 <section id="home-section">
-  <article id="home-wrapper">
-    <h1>INDEX</h1>
-  </article>
-</section>
+    <article id="home-wrapper">
+      <h1 id="home-title">recess</h1>
+      <% if !logged_in? %>
+        <div class="home-button-wrapper">
+          <a id="signup" class="homepage-button" href="/signup">Sign Up</a>
+        </div>
+        <div class="home-button-wrapper">
+          <a id="login" class="homepage-button" href="/login">Log In</a>
+        </div>
+      <% else %>
+        <div class="home-button-wrapper">
+          <a id="loggedin" class="homepage-button" href="/users/<%= @user.id %>">Your Trips</a>
+        </div>
+      <% end %>
+    </article>
+  </section>
