@@ -1,5 +1,7 @@
 ## PROJECT DOCUMENTATION
 
+* Live Demo (https://dbc-recess.herokuapp.com/)
+
 ### Team Agreements
 * Work hours: 10-6 throughout project (flexible on weekends)
 * Scrum 2x: at beggining of day and after lunch
@@ -10,8 +12,8 @@
 		> DevOps Master: Deployments, etc
 		> Scrum Master: Leads twice daily scrum
 * Feature-based tickets- include low level CSS and functionality		
-		
-| Role          | Responsibilities | Human | 
+
+| Role          | Responsibilities | Human |
 | ------------- | ------------- | ------------- |
 | Git Master  | code reviews, merging, etc  | Alex |
 | DevOps Master | Deployments, etc  | Lana |
@@ -70,9 +72,3 @@
 
 ### Friday
 * DEMO & GRADUATION!
-
-
-
-
-
-
