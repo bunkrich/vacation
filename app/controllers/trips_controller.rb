@@ -5,16 +5,18 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
     @locations = []
     place_category = Hash.new
+
     if @trip.items.count > 0
       @trip.items.each do |t|
         if t.lookup
           # @locations.push(t.lookup)
+
           @locations << {place_id: t.lookup, category: t.category}.to_json
         end
       end
     end
     if @locations.count < 1
-      @locations.push(@trip.lookup)
+        @locations << {place_id: @trip.lookup, category: ""}.to_json
     end
     @locations.uniq!
     @days = []

@@ -3,7 +3,7 @@
 function initMapp() {
 	console.log("🌻STARTING initMAPP FUNCTION🌻 ")
 	var map = new google.maps.Map(document.getElementById('map'), {
-		maxZoom: 12,
+		maxZoom: 14,
 		mapTypeId: 'roadmap',
 		styles:       [
 		{
@@ -353,7 +353,7 @@ function initMapp() {
     		} else if (object.category === "Attraction") {
     			var iconURL = "http://svgur.com/i/1vY.svg";
     		} else if (object.category === "Nightlife" || object.category === "Bars") {
-    			var iconURL = "http://svgur.com/i/1u1.svg"; 
+    			var iconURL = "http://svgur.com/i/1u1.svg";
     		}
     		else {
     			var iconURL = 'http://svgur.com/i/1uq.svg';

@@ -1651,7 +1651,7 @@ function initMapp() {
     		} else if (object.category === "Attraction") {
     			var iconURL = "http://svgur.com/i/1vY.svg";
     		} else if (object.category === "Nightlife" || object.category === "Bars") {
-    			var iconURL = "http://svgur.com/i/1u1.svg"; 
+    			var iconURL = "http://svgur.com/i/1u1.svg";
     		}
     		else {
     			var iconURL = 'http://svgur.com/i/1uq.svg';
@@ -1849,18 +1849,18 @@ var initMain = function () {
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 ;
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
+// This is a manifest file that'll be compiled into application.js, which will include all the files		 +$(document).ready(function() {
+ // listed below.		 +  $('#home-title').addClass('animated fadeIn');
+ //		 +})
+ // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
+ // vendor/assets/javascripts directory can be referenced here using a relative path.
+ //
+ // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+ // compiled file. JavaScript code in this file should be added after the last require_* statement.
+ //
+ // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+ // about supported directives.
+ //
 
 
 ;

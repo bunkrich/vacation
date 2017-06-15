@@ -90,6 +90,7 @@
   places = []
   "<% @locations.each do |d| %>"
     var x = <%= d.html_safe %>
+    console.log(x)
     places.push(x)
   "<% end %>"
 </script>
