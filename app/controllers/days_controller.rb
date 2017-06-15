@@ -8,7 +8,7 @@ class DaysController < ApplicationController
     if @day_items.count > 0
       @day_items.each do |t|
         if t.lookup
-          @locations.push(t.lookup)
+          @locations << {place_id: t.lookup, category: t.category}.to_json
         end
       end
     end
