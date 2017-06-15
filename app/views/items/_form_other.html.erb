@@ -3,7 +3,7 @@
 
   <%= form_for [@trip, @item] do |i| %>
     <div class="for-user-input">
-      <div class="form-section"">
+      <div class="form-section">
         <p><%= i.label :title %></p>
         <p><%= i.text_field :title, :required => true %></p>
       </div>

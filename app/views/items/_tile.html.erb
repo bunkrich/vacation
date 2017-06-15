@@ -1,14 +1,14 @@
 <div class="box">
   <a href="/trips/<%= item.trip.id %>/items/<%= item.id %>"><img src="<%= item.image %>" class="tile-image"></a>
-    <div class="info-overlay">
-    </div>
+  <div class="info-overlay">
+  </div>
     <div class="info">
       <%= item.title %>
       <div class="dropdown">
         <!-- <img src="http://svgur.com/i/1w0.svg" class="cal-button"> -->
         <form method="post" action= "/trips/<%=@trip.id%>/items/<%=item.id%>" id="update-date-<%=item.id%>">
-        <input type="hidden" value="PATCH" name="_method">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <input type="hidden" value="PATCH" name="_method">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <select class="dropdown-style" name="item[date]" onchange="this.form.submit()">
             <% @days.each do |day| %>
               <% if item.date %>

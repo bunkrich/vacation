@@ -43,12 +43,11 @@
       </article>
     <% end %>
 
-
   <!-- No date yet -->
     <% if !item_no_date.empty? || !out_of_range.empty?%>
     <article class="trip-day">
       <h2>Unassigned events 🙊</h2>
-      <%  item_no_date.each do |nodate| %>
+      <% item_no_date.each do |nodate| %>
         <%= render partial: "items/tile.html.erb", locals: {item: nodate}%>
       <% end %>
       <% out_of_range.each do |item| %>
@@ -56,7 +55,6 @@
       <%end %>
     <% end %>
   </article>
-
 
 </section>
 
