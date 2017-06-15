@@ -1,5 +1,7 @@
 <div class="">
   <h1>Edit Trip</h1>
   <%= render partial: "form"%>
-  
+  <div class="delete-section">
+        <%= link_to 'Delete this trip', [@trip],method: :delete, data: { confirm: 'Are you sure?' }, :class => 'delete-button'%>
+      </div>
 </div>

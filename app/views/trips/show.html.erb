@@ -5,8 +5,9 @@
       <h1><%= @trip.name %></h1>
       <h4> <%= @trip.location %></h4>
       <div class="date">
-        <span> <%= @trip.start_date.strftime("%A, %B %e") %> - <%= @trip.end_date.strftime("%A, %B %e")%></span>
-        <%= link_to 'Edit', edit_trip_path(@trip) %>
+        <%= link_to edit_trip_path(@trip) do %>
+          <%= @trip.start_date.strftime("%A, %B %e") %> - <%= @trip.end_date.strftime("%A, %B %e")%>
+        <% end %>
       </div>
     </div>
   </article>
