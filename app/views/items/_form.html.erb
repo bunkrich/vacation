@@ -6,7 +6,7 @@
 <section id="item-new-google-maps-form">
   <%= form_for [@trip, @item], :class => 'item-category' do |i| %>
      <div>
-        <p><%= i.label :category %>: <%= i.select :category, ["Location", "Food", "Lodging", "Attraction", "Nightlife"] %></p>
+        <p><%= i.select :category, ["Choose A Category", "Location", "Food", "Lodging", "Attraction", "Nightlife"] %></p>
      </div>
     <div id="item-new-google-maps-submit">
       <p><%= i.submit :class => 'create-event-button' %></p>
