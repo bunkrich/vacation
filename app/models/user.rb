@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   def default_pic
     if self.image == ""
-      self.image = "http://i.imgur.com/k94Sbni.png"
+      self.image = "https://svgur.com/i/1vK.svg"
     end
   end
 end
