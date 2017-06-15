@@ -23,7 +23,7 @@
 }
 
 .homepage-button {
-  border: 2px $white solid;  
+  border: 2px $white solid;
   border-radius: 3px;
   color: $white;
   font-size: 20pt;
@@ -53,12 +53,12 @@
 }
 
 #signup {
-  background-color: $red;
+  background-color: $blue;
 
   &:hover {
     background-color: $white;
-    border: 2px $red solid;
-    color: $red;
+    border: 2px $blue solid;
+    color: $blue;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
