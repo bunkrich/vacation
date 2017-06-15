@@ -20,7 +20,7 @@
 .form-section {
   margin: 10px 0;
 
-  input[type="text"], input[type="submit"], input[type="date"], input[type="email"], input[type="password"], textarea {
+  input[type="text"], input[type="submit"], input[type="date"], input[type="email"], input[type="password"], textarea, select, input[type="url"] {
     display: block;
     font-size: 14px;
     margin-top: 5px;

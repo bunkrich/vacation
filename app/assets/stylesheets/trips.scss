@@ -79,7 +79,6 @@
 }
 
 .friend-box{
-  border:solid 1px #000;
   display: inline-block;
   height:125px;
   margin:5px;
@@ -132,15 +131,61 @@ a {
 
 .create-event-button {
   background-color: $red;
+  border: 2px $white solid;  
+  border-radius: 3px;
+  color: $white;
   font-size: 14pt;
+  padding: 15px 45px;
   width: 200px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $red solid;
+    color: $red;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.create-other-button {
+  background-color: $orange;
+  border: 2px $white solid;  
+  border-radius: 3px;
+  color: $white;
+  font-size: 12pt;
+  width: 200px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: $white;
+    border: 2px $orange solid;
+    color: $orange;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out; /* IE10 is actually unprefixed */
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
 }
 
 // ADDED FROM GOOGLE FOR THE GOOGLE SEARCH BAR FROM BRENT
 #locationField, #controls {
   display: flex;
 }
-#item-new-google-maps-submit {
+
+#new-google-maps-submit {
   display: block;
   margin: 20px;
 }
@@ -171,6 +216,7 @@ a {
 }
 
 #toggle:target + .close {
+  text-align: center;
   display: block;
 }
 
